@@ -16,7 +16,7 @@ class CreateManagementsTable extends Migration
         Schema::create('managements', function (Blueprint $table) {
             $table->increments('id');
             $table->string('dept_name');
-            $table->varchar('CourseCode');
+            $table->string('CourseCode');
             $table->string('CourseTitle');
             $table->integer('ECTS');
             $table->integer('CrHrs');

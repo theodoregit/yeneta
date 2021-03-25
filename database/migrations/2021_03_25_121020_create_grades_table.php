@@ -15,9 +15,9 @@ class CreateGradesTable extends Migration
     {
         Schema::create('grades', function (Blueprint $table) {
             $table->increments('id');
-            $table->varchar('stud_id');
+            $table->string('stud_id');
             $table->foreign('stud_id')->references('stud_id')->on('students');
-            $table->varchar('CourseCode');
+            $table->string('CourseCode');
             //$table->foreign('CourseCode')->references('dept_name')->on('departments');
             $table->float('assessment');
             $table->float('total');

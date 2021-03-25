@@ -16,14 +16,14 @@ class CreateHRsTable extends Migration
         Schema::create('h_rs', function (Blueprint $table) {
             $table->increments('id');
             $table->string('EmployeeNAME');
-            $table->varchar('adress');
+            $table->string('adress');
             $table->integer('mobile');
-            $table->varchar('qulification');
-            $table->varchar('expriance');
+            $table->string('qulification');
+            $table->string('expriance');
             $table->float('salary');
             $table->string('postion');
             $table->string('gender'); 
-            $table->varchar('email');
+            $table->string('email');
             $table->timestamps();
         });
     }

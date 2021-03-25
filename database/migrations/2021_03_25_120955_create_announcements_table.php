@@ -15,6 +15,11 @@ class CreateAnnouncementsTable extends Migration
     {
         Schema::create('announcements', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('title');
+            $table->string('content');
+            $table->file('FileUploaded');
+            $table->string('CreatedFor');
+            $table->string('CreatedBy');
             $table->timestamps();
         });
     }

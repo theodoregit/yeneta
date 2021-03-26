@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 @extends('layouts.app')
 
 @section('content')
@@ -21,3 +22,7 @@
     </div>
 </div>
 @endsection
+=======
+<h1>home for registrar</h1>
+<p>we will include a todo writing fields </p>
+>>>>>>> a1686de3adf7ef6ac5711814e23afe6305c3d056

@@ -45,6 +45,46 @@ return [
             'driver' => 'token',
             'provider' => 'users',
         ],
+
+        'registrar' => [
+            'driver' => 'session',
+            'provider' => 'registrar',
+        ],
+
+        'registrar-api' => [
+            'driver' => 'token',
+            'provider' => 'registrar',
+        ],
+
+        'registrar' => [
+            'driver' => 'session',
+            'provider' => 'registrar',
+        ],
+
+        'registrar-api' => [
+            'driver' => 'token',
+            'provider' => 'registrar',
+        ],
+
+        'instructor' => [
+            'driver' => 'session',
+            'provider' => 'instructor',
+        ],
+
+        'student-api' => [
+            'driver' => 'token',
+            'provider' => 'student',
+        ],
+
+        'dean' => [
+            'driver' => 'session',
+            'provider' => 'dean',
+        ],
+
+        'finance-api' => [
+            'driver' => 'token',
+            'provider' => 'finance',
+        ],
     ],
 
     /*
@@ -68,6 +108,26 @@ return [
         'users' => [
             'driver' => 'eloquent',
             'model' => App\User::class,
+        ],
+        'registrar' => [
+            'driver' => 'eloquent',
+            'model' => App\RegistrarAuth::class,
+        ],
+        'instructor' => [
+            'driver' => 'eloquent',
+            'model' => App\InstructorAuth::class,
+        ],
+        'student' => [
+            'driver' => 'eloquent',
+            'model' => App\StudentAuth::class,
+        ],
+        'dean' => [
+            'driver' => 'eloquent',
+            'model' => App\DeanAuth::class,
+        ],
+        'finance' => [
+            'driver' => 'eloquent',
+            'model' => App\FinanceAuth::class,
         ],
 
         // 'users' => [
@@ -94,6 +154,31 @@ return [
     'passwords' => [
         'users' => [
             'provider' => 'users',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'registrar' => [
+            'provider' => 'registrar',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'instructor' => [
+            'provider' => 'instructor',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'student' => [
+            'provider' => 'student',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'dean' => [
+            'provider' => 'dean',
+            'table' => 'password_resets',
+            'expire' => 60,
+        ],
+        'finance' => [
+            'provider' => 'finance',
             'table' => 'password_resets',
             'expire' => 60,
         ],

@@ -59,6 +59,27 @@ class Handler extends ExceptionHandler
         if ($request->expectsJson()) {
             return response()->json(['error' => 'Unauthenticated.'], 401);
         }
+        $guard = array_get($exception->guards(), 0);
+        switch($guard){
+            case 'registrar':
+                $login = 'yeneta.registrar.login';
+                break;
+            case 'instructor':
+                $login = 'yeneta.instructor.login';
+                break;
+            case 'student':
+                $login = 'yeneta.student.login';
+                break;
+            case 'dean':
+                $login = 'yeneta.dean.login';
+                break;
+            case 'finance':
+                $login = 'yeneta.finance.login';
+                break;
+            default:
+                $login = 'login';
+                break;
+        }
 
         return redirect()->guest(route('login'));
     }

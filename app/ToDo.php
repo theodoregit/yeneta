@@ -6,5 +6,10 @@ use Illuminate\Database\Eloquent\Model;
 
 class ToDo extends Model
 {
-    //
+    protected $fillable = [
+        'id',
+        'title',
+        'content',
+            
+     ];
 }

@@ -14,7 +14,12 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/login', 'Auth\RegistrarLoginController@showLoginForm')->name('registrar.login');
     Route::post('/login', 'Auth\RegistrarLoginController@login')->name('registrar.login.submit');
 
-    Route::get('/', 'RegistrarController@index')->name('registrar');
+    Route::get('/', 'RegistrarController@index')->name('index'); 
+    Route::get('/register', 'RegistrarController@registerStudent')->name('register');
+    Route::get('/students', 'RegistrarController@listStudents')->name('students');
+    Route::get('/grades', 'RegistrarController@viewGrades')->name('grades');
+    Route::get('/payment', 'RegistrarController@payment')->name('payment');
+    Route::get('/announcement', 'RegistrarController@announcement')->name('announcement');
 });
 
 Route::prefix('yeneta/instructor')->group(function(){

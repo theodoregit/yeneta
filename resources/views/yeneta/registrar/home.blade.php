@@ -52,11 +52,11 @@
         <div class="nav-menu">
           <ul>
             <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
-            <li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
-            <li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
-            <li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
-            <li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
+            <li><a href="{{route('register')}}" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
+            <li><a href="{{route('students')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
+            <li><a href="{{route('grades')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
+            <li><a href="{{route('payment')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
+            <li><a href="{{route('announcement')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -82,15 +82,7 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-                <div class="col-md-6" style="background-color: white">
-                  <form action="" method="post">
-                    <label for="title">Content</label>
-                    <textarea name="" id="" cols="30" rows="10"></textarea>
-                  </form>
-                </div>
-                <div class="col-md-6">
-                
-                </div>
+                <h2>Home</h2>
               </div>
             </div>
           </div>

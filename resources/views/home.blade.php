@@ -37,10 +37,11 @@
       <div class="side-inner">
 
         <div class="logo-wrap">
-          <div class="logo">
-            <span>C</span>
+          <div class="">
+            
           </div>
-          <span class="logo-text">Colorlib</span>
+          <img width="200px" height="160px" src="image\yeneta.jpg" alt="pizza house logo">
+
         </div>
           
         <div class="search-form">
@@ -51,6 +52,7 @@
             <input type="text" class="form-control" placeholder="Search...">
           </form>
         </div>
+
         <div class="nav-menu">
           <ul>
             <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-home2 mr-3"></span><span class="menu-text">Home</span></a></li>

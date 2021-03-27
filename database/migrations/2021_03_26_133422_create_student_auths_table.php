@@ -15,6 +15,9 @@ class CreateStudentAuthsTable extends Migration
     {
         Schema::create('student_auths', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('idnumber')->unique();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

@@ -15,6 +15,10 @@ class CreateInstructorAuthsTable extends Migration
     {
         Schema::create('instructor_auths', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

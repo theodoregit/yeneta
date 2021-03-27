@@ -56,19 +56,9 @@ return [
             'provider' => 'registrar',
         ],
 
-        'registrar' => [
+        'student' => [
             'driver' => 'session',
-            'provider' => 'registrar',
-        ],
-
-        'registrar-api' => [
-            'driver' => 'token',
-            'provider' => 'registrar',
-        ],
-
-        'instructor' => [
-            'driver' => 'session',
-            'provider' => 'instructor',
+            'provider' => 'student',
         ],
 
         'student-api' => [
@@ -76,9 +66,29 @@ return [
             'provider' => 'student',
         ],
 
+        'instructor' => [
+            'driver' => 'session',
+            'provider' => 'instructor',
+        ],
+
+        'instructor-api' => [
+            'driver' => 'token',
+            'provider' => 'instructor',
+        ],
+
         'dean' => [
             'driver' => 'session',
             'provider' => 'dean',
+        ],
+
+        'dean-api' => [
+            'driver' => 'token',
+            'provider' => 'dean',
+        ],
+        
+        'finance' => [
+            'driver' => 'session',
+            'provider' => 'finance',
         ],
 
         'finance-api' => [

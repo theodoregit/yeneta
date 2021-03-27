@@ -15,6 +15,10 @@ class CreateFinanceAuthsTable extends Migration
     {
         Schema::create('finance_auths', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

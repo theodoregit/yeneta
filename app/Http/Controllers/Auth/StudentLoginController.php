@@ -18,18 +18,18 @@ class StudentLoginController extends Controller
     public function login(Request $request){
         //validate inputs
         $this->validate($request, [
-            'email' => 'required|email',
+            'idnumber' => 'required',
             'password' => 'required|min:6'
         ]);
 
         //atempt to login thi5_i5_5tron9_pa55_for_9it
-        if(Auth::guard('student')->attempt(['email' => $request->email, 'password' => $request->password], $request->remember)){
+        if(Auth::guard('student')->attempt(['idnumber' => $request->idnumber, 'password' => $request->password], $request->remember)){
             //if successful redirect to the intended page
             return redirect()->intended('yeneta/student');
         }
         else{
             //if unsuccessful
-            return redirect()->back()->withInput($request->only('email', 'remeber'));
+            return redirect()->back()->withInput($request->only('idnumber', 'remeber'));
         }
     }
 }

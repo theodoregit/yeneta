@@ -15,6 +15,10 @@ class CreateDeanAuthsTable extends Migration
     {
         Schema::create('dean_auths', function (Blueprint $table) {
             $table->increments('id');
+            $table->string('name');
+            $table->string('email')->unique();
+            $table->string('password');
+            $table->rememberToken();
             $table->timestamps();
         });
     }

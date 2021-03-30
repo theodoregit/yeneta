@@ -58,7 +58,7 @@
             <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
             <li><a href="{{route('courses')}}" class="d-flex align-items-center"><span class="wrap-icon icon-book mr-3"></span><span class="menu-text">My Courses</span></a></li>
             <li><a href="{{route('students')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">My Students</span></a></li>
-            <li><a href="{{route('grades')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Fill Grades</span></a></li>
+            <li><a href="{{route('studentsGrades')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Fill Grades</span></a></li>
             <li><a href="{{route('announcement')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
             <li>
                 <a href="{{ route('logout') }}"

@@ -13,7 +13,7 @@ class RegistrarAuthsTableSeeder extends Seeder
     {
         App\RegistrarAuth::create([
             'name' => 'natnael',
-            'email' => ' natnael@gmail.com',
+            'email' => 'natnael@gmail.com',
             'password' =>bcrypt('password')
         ]);
     }

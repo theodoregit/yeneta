@@ -58,10 +58,10 @@
           <ul>
             <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
             <li><a href="{{route('register')}}" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
-            <li><a href="{{route('students')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
+            <li><a href="{{route('studentsList')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
             <li><a href="{{route('grades')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
             <li><a href="{{route('payment')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="{{route('announcement')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
+            <li><a href="{{route('announcements')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -87,7 +87,6 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-<<<<<<< HEAD
                 <div class="col-md-9" style="background-color: rgb(194, 194, 194)">
 
                   @if ($todos->count()>0)
@@ -144,9 +143,7 @@
             </div>
             <hr>
                 </div>
-=======
-                <h2>Home</h2>
->>>>>>> 1a0a1d6d41abe4658c50af172110cabb5669f01b
+                <h2></h2>
               </div>
             </div>
           </div>

@@ -55,7 +55,7 @@
         </div> -->
         <div class="nav-menu">
           <ul>
-            <li><a href="{{route('index')}}" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
+            <li><a href="{{route('instructor')}}" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
             <li><a href="{{route('courses')}}" class="d-flex align-items-center"><span class="wrap-icon icon-book mr-3"></span><span class="menu-text">My Courses</span></a></li>
             <li><a href="{{route('students')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">My Students</span></a></li>
             <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Fill Grades</span></a></li>

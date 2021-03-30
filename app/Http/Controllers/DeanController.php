@@ -25,4 +25,13 @@ class DeanController extends Controller
     {
         return view('yeneta.dean.home');
     }
+    public function viewStats(){
+        return view('yeneta.dean.statistics');
+    }
+    public function viewGrades(){
+        return view('yeneta.dean.studentsGrades');
+    }
+    public function viewPayment(){
+        return view('yeneta.dean.payments');
+    }
 }

@@ -26,6 +26,11 @@
   <body>
   
     
+  <header class="row">
+  @include('includes.registrar-header')
+</header>
+    <br><br>
+
     <aside class="sidebar">
       <div class="toggle">
         <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">

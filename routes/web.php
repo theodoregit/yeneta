@@ -26,7 +26,11 @@ Route::prefix('yeneta/instructor')->group(function(){
     Route::get('/login', 'Auth\InstructorLoginController@showLoginForm')->name('instructor.login');
     Route::post('/login', 'Auth\InstructorLoginController@login')->name('instructor.login.submit');
 
-    Route::get('/', 'InstructorController@index')->name('instructor');
+    Route::get('/', 'InstructorController@index')->name('index');
+    Route::get('/courses', 'InstructorController@viewCourses')->name('courses');
+    Route::get('/students', 'InstructorController@viewStudents')->name('students');
+    Route::get('/grades', 'InstructorController@fillGrades')->name('grades');
+    Route::get('/announcement', 'InstructorController@announcement')->name('announcement');
 });
 
 Route::prefix('yeneta/student')->group(function(){
@@ -40,7 +44,10 @@ Route::prefix('yeneta/dean')->group(function(){
     Route::get('/login', 'Auth\DeanLoginController@showLoginForm')->name('dean.login');
     Route::post('/login', 'Auth\DeanLoginController@login')->name('dean.login.submit');
 
-    Route::get('/', 'DeanController@index')->name('dean');
+    Route::get('/', 'DeanController@index')->name('index');
+    Route::get('/statistics', 'DeanController@viewStats')->name('statistics');
+    Route::get('/studentsGrades', 'DeanController@viewGrades')->name('grades');
+    Route::get('/payments', 'DeanController@viewPayment')->name('payments');
 });
 
 Route::prefix('yeneta/finance')->group(function(){

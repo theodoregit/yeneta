@@ -40,7 +40,7 @@
           <div class="">
             
           </div>
-          <img width="200px" height="160px" src="image\yeneta.jpg" alt="pizza house logo">
+          <img width="200px" height="160px" src="image\yeneta.jpg" alt="yeneta logo">
 
         </div>
           
@@ -53,9 +53,9 @@
           </form>
         </div>
 
-        <div class="nav-menu">
-          <ul>
-            <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-home2 mr-3"></span><span class="menu-text">Home</span></a></li>
+        <div class="nav-menu" >
+            <ul>
+            <li class="active"><a href="/yeneta/registrar"> <span class="wrap-icon icon-home2 mr-3"></span><span class="menu-text">Home</span></a></li>
             <li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-videocam mr-3"></span><span class="menu-text">Videos</span></a></li>
             <li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-book mr-3"></span><span class="menu-text">Books</span></a></li>
             <li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-shopping-cart mr-3"></span><span class="menu-text">Store</span></a></li>
@@ -253,6 +253,9 @@
                     <div class="post-content">
                       <h3>How the gut microbes you're born with affect your lifelong health</h3>
                       <div class="post-meta"><span>Posted:</span> Dec 17, 2019</div>
+                      <footer>
+                       <h3 style="text-align:left;"><br>Copyright © 2021 BlueSem. All Rights Reserved.</h3>
+                       </footer>
                     </div>
                   </div>
                 </div>

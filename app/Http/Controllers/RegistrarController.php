@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\ToDo;
 
 class RegistrarController extends Controller
 {
@@ -22,8 +23,8 @@ class RegistrarController extends Controller
      * @return \Illuminate\Http\Response
      */
     public function index()
-    {
-        return view('yeneta.registrar.home');
+    {  
+        return view('yeneta.registrar.home')->with('todos',ToDo::all());
     }
 
     public function registerStudent(){

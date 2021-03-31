@@ -57,7 +57,7 @@ class RegistrarController extends Controller
         return view('yeneta.registrar.grades');
     }
     public function payment(){
-        return view('yeneta.registrar.payment');
+        return view('yeneta.registrar.payment')->with('students', Student::all());
     }
     public function announcement(){
         return view('yeneta.registrar.announcement');

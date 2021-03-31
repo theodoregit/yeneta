@@ -86,13 +86,23 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
+                <div class="container">
+                  <input class="form-control col-md-3" id="myInput" type="text" placeholder="Search..">
                 <table class="table table-hover table-dark">
                   <thead>
                     <tr>
-                      <th scope="col">#</th>
-                      <th scope="col">First</th>
-                      <th scope="col">Last</th>
-                      <th scope="col">Handle</th>
+                      <th scope="col">Student Id</th>
+                      <th scope="col">Full Name</th>
+                      <th scope="col">Gender</th>
+                      <th scope="col">Department</th>
+                      <th scope="col">year</th>
+                      <th scope="col">semester</th>
+                      <th scope="col">section</th>
+                      <th scope="col">CGPA</th>
+                      <th scope="col">GCPA</th>
+                      <th scope="col">Last Paid</th>
+                      <th scope="col">Status</th>
+                      <th scope="col">Arrears</th>
                     </tr>
                   </thead>
                   <tbody>
@@ -101,20 +111,34 @@
                       <td>Mark</td>
                       <td>Otto</td>
                       <td>@mdo</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td><a href="" class="btn btn-info btn-sm">More</a></td>
                     </tr>
                     <tr>
-                      <th scope="row">2</th>
-                      <td>Jacob</td>
-                      <td>Thornton</td>
-                      <td>@fat</td>
-                    </tr>
-                    <tr>
-                      <th scope="row">3</th>
-                      <td colspan="2">Larry the Bird</td>
-                      <td>@twitter</td>
+                      <th scope="row">1</th>
+                      <td>zac</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td>@mdo</td>
+                      <td>Mark</td>
+                      <td>Otto</td>
+                      <td><a href="" class="btn btn-info btn-sm">More</a></td>
                     </tr>
                   </tbody>
                 </table>
+              </div>
               </div>
             </div>
           </div>

@@ -20,7 +20,6 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="../../app/css/style.css">
-
     <title>Yeneta</title>
   </head>
   <body>
@@ -87,7 +86,42 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-                <h2>Payment</h2>
+                <div class=" container">
+                  <input class="form-control col-md-3" id="myInput" type="text" placeholder="Search..">
+                <table class="table table-dark w-auto table-hover table-bordered">
+                  <thead>
+                    <tr>
+                      <th scope="col">Student ID</th>
+                      <th scope="col">Full name</th>
+                      <th scope="col">Paid For</th>
+                      <th scope="col">Last Payment on</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    @foreach ($students as $student)
+                    <tr>
+                      <th scope="row">1</th>
+                      <td>{{$student->firstname}} {{$student->middlename}} {{$student->lastname}}</td>
+                      <td>Otto</td>
+                      <td>31 march 2021</td>
+                      <td><a href="" class="btn btn-sm btn-success">pay</a></td>
+                    </tr>
+                    @endforeach
+                    
+                    
+                  </tbody>
+                </table>
+              </div>
+                <script>
+                  $(document).ready(function(){
+                    $("#myInput").on("keyup", function() {
+                      var value = $(this).val().toLowerCase();
+                      $("#myTable tr").filter(function() {
+                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                      });
+                    });
+                  });
+                  </script>
               </div>
             </div>
           </div>

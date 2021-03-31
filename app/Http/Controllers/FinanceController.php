@@ -23,6 +23,12 @@ class FinanceController extends Controller
      */
     public function index()
     {
-        return view('yeneta.dean.home');
+        return view('yeneta.finance.home');
+    }
+    public function stats(){
+        return view('yeneta.finance.stats');
+    }
+    public function payments(){
+        return view('yeneta.finance.trackPayment');
     }
 }

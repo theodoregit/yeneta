@@ -20,16 +20,15 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="../../app/css/style.css">
+
     <title>Yeneta</title>
   </head>
   <body>
-  
     
-  <header class="row">
-  @include('includes.registrar-header')
+<header class="row">
+  @include('includes.finance-header')
 </header>
     <br><br>
-
     <aside class="sidebar">
       <div class="toggle">
         <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
@@ -42,7 +41,7 @@
           <div class="logo">
             <span>Y</span>
           </div>
-          <span class="logo-text">{{ Auth::user()->name }}</span>
+          <span class="logo-text">Yeneta</span>
         </div>
           
         <!-- <div class="search-form">
@@ -55,12 +54,9 @@
         </div> -->
         <div class="nav-menu">
           <ul>
-            <li><a href="{{route('registrar')}}" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
-            <li><a href="{{route('register')}}" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
-            <li><a href="{{route('studentsList')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
-            <li><a href="{{route('gradesR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
-            <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="{{route('announcements')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
+            <li><a href="{{route('finance')}}" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
+            <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-bar-chart mr-3"></span><span class="menu-text">Statistics</span></a></li>
+            <li><a href="{{route('paymentsF')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payments</span></a></li>
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -86,49 +82,16 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-                <div class=" container">
-                  <input class="form-control col-md-3" id="myInput" type="text" placeholder="Search..">
-                <table class="table table-dark w-auto table-hover table-bordered">
-                  <thead>
-                    <tr>
-                      <th scope="col">Student ID</th>
-                      <th scope="col">Full name</th>
-                      <th scope="col">Paid For</th>
-                      <th scope="col">Last Payment on</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach ($students as $student)
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>{{$student->firstname}} {{$student->middlename}} {{$student->lastname}}</td>
-                      <td>Otto</td>
-                      <td>31 march 2021</td>
-                      <td><a href="" class="btn btn-sm btn-success">pay</a></td>
-                    </tr>
-                    @endforeach
-                    
-                    
-                  </tbody>
-                </table>
-              </div>
-                <script>
-                  $(document).ready(function(){
-                    $("#myInput").on("keyup", function() {
-                      var value = $(this).val().toLowerCase();
-                      $("#myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                      });
-                    });
-                  });
-                  </script>
+                Reports
               </div>
             </div>
+
+
           </div>
         </div>
       </div>  
     </main>
-    
+   
     
 
     <script src="../../app/js/jquery-3.3.1.min.js"></script>

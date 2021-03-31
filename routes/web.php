@@ -13,21 +13,22 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/login', 'Auth\RegistrarLoginController@showLoginForm')->name('registrar.login');
     Route::post('/login', 'Auth\RegistrarLoginController@login')->name('registrar.login.submit');
-
-<<<<<<< HEAD
+    
     Route::get('/', 'RegistrarController@index')->name('registrar');
+
     Route::post('/create/todo','TodoController@store')->name('registrar.store.todo');
     Route::get('/delete/todo/{id}','TodoController@destroy')->name('registrar.delete.todo');
     Route::post('/update/todo/{id}','TodoController@update')->name('registrar.update.todo');
     Route::get('/completed/todo/{id}','TodoController@completed')->name('registrar.completed.todo');
-=======
+
     Route::get('/', 'RegistrarController@index')->name('index'); 
     Route::get('/register', 'RegistrarController@registerStudent')->name('register');
+    Route::post('/register', 'RegistrarController@registerStudentStore')->name('register.store');
     Route::get('/students', 'RegistrarController@listStudents')->name('students');
     Route::get('/grades', 'RegistrarController@viewGrades')->name('grades');
     Route::get('/payment', 'RegistrarController@payment')->name('payment');
     Route::get('/announcement', 'RegistrarController@announcement')->name('announcement');
->>>>>>> 1a0a1d6d41abe4658c50af172110cabb5669f01b
+
 });
 
 Route::prefix('yeneta/instructor')->group(function(){

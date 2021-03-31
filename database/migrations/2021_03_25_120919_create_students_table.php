@@ -15,19 +15,20 @@ class CreateStudentsTable extends Migration
     {
         Schema::create('students', function (Blueprint $table) {
             $table->increments('id');
-            $table->string('student_id')->unique();
-            $table->string('full_name');
+            $table->string('student_id')->unique()->default('not yet assigned');
+            $table->string('firstname');
+            $table->string('middlename');
+            $table->string('lastname');
             $table->string('gender');
-            $table->string('dept_id');
-            $table->foreign('dept_id')->references('id')->on('department');
+            $table->string('dept_name');
+            $table->foreign('dept_name')->references('dept_name')->on('department');
             $table->string('section');
             $table->float('sgpa');
             $table->float('cgpa');
             $table->integer('year');
             $table->string('semester');
-            $table->boolean('is_paid');
-            $table->boolean('pait_at');
-            $table->boolean('is_promoted');
+            $table->boolean('is_paid')->default(0);
+            $table->boolean('is_promoted')->default(0);
             $table->timestamps();
         });
     }

@@ -1,4 +1,3 @@
-
 <!doctype html>
 <html lang="en">
   <head>
@@ -80,10 +79,84 @@
       <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-md-9">
-              <div class="row">
-                <h2>Register</h2>
-              </div>
+            <div class="col-md-12">
+              <form action="" method="POST">
+                {{ csrf_field() }}
+                <div class="col-md-6">
+                  <div class="form-group">
+                    <input type="text" name="firstname" class="form-control" id="firstname" placeholder="First name">
+                  </div>   
+                  <div class="form-group">
+                    <input type="text" name="middlename" class="form-control" id="middlename" placeholder="Middle name">  
+                  </div> 
+                  <div class="form-group">
+                    <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Last name">  
+                  </div> 
+                  <div class="form-group col-md-6">
+                    <select class="form-control" aria-label="Default select example">
+                      <option selected>Students Id</option>
+                      <option value="">RT/8996/12</option>
+                    </select>
+                  </div>
+                  <div class="form-group">
+                    <label for="" class="radio inline">
+                      <input type="radio" name="gender" id="gender" value="male">
+                      <span>Male</span>
+                    </label>
+                    <label for="" class="radio inline">
+                      <input type="radio" name="gender" id="gender" value="female">
+                      <span>Female</span>
+                    </label>
+                  </div>    
+                </div>  
+                <div class="col-md-6">
+                  <div class="form-group col-md-6">
+                    <select class="form-control" aria-label="Default select example">
+                      <option selected>department</option>
+                      <option value="computer science" name = "dept_name">computer science</option>
+                      <option value="management" name = "dept_name">management</option>
+                      <option value="accounting" name = "dept_name">accounting</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <select class="form-control" aria-label="Default select example">
+                      <option selected>Section</option>
+                      <option value="1" name = "section">One</option>
+                      <option value="2" name = "section">Two</option>
+                      <option value="3" name = "section">Three</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <select class="form-control" aria-label="Default select example">
+                      <option selected>year</option>
+                      <option value="1" name = "year">One</option>
+                      <option value="2" name = "year">Two</option>
+                      <option value="3" name = "year">Three</option>
+                      <option value="4" name = "year">Four</option>
+                      <option value="5" name = "year">Five</option>
+                    </select>
+                  </div>
+                  <div class="form-group col-md-6">
+                    <select class="form-control" aria-label="Default select example">
+                      <option selected>Semester</option>
+                      <option value="1" name = "semester">One</option>
+                      <option value="2" name = "semester">Two</option>
+                      <option value="3" name = "semester">Three</option>
+                    </select>
+                  </div>
+                 <div class="form-group">
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Paid for this semester</label>
+                  </div>
+                  <div class="form-check">
+                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                    <label class="form-check-label" for="exampleCheck1">Promoted this semester</label>
+                  </div>
+                 </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+               </div>
+              </form>
             </div>
           </div>
         </div>

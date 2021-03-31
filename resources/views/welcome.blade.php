@@ -37,7 +37,7 @@ box-shadow: 10px 10px 5px #888888;
 <body>
 <div>
 <img style="position:absolute;left:150px" height="130" width="110" src="image\yeneta.jpg" alt="yeneta logo">
-">
+
 <h1 style="text-align:center ;color:#FFFFFF;">YENETA COLLAGE  የኔታ ኮሌጅ</h1>
 <a href="/yeneta/registrar/login"><button style="left:1100;top:90;" type="button" class="text_button">REGISTRAR</button></a>
 <a href="/yeneta/instructor/login"><button style="left:720;top:90;" type="button"  class="text_button">INSTRUCTOR</button></a>-->
@@ -65,6 +65,8 @@ box-shadow: 10px 10px 5px #888888;
 <h2>About Us</h2>
 <p style="position:absolute;text-align:left;left:25px;font-size:17px;font-family:"Calibri"">
         <br>
+  <img style= height="130" width="110" src="image\yeneta.jpg" alt="yeneta logo">
+
         yeneta Collage was founded........
         <br>
 </p>

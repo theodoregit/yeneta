@@ -25,4 +25,16 @@ class InstructorController extends Controller
     {
         return view('yeneta.instructor.home');
     }
+    public function viewCourses(){
+        return view('yeneta.instructor.courses');
+    }
+    public function viewStudents(){
+        return view('yeneta.instructor.students');
+    }
+    public function fillgrades(){
+        return view('yeneta.instructor.grades');
+    }
+    public function announcement(){
+        return view('yeneta.instructor.announcement');
+    }
 }

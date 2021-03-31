@@ -25,12 +25,11 @@
   </head>
   <body>
   
-    
   <header class="row">
-  @include('includes.registrar-header')
+  @include('includes.dean-header')
 </header>
     <br><br>
-
+    
     <aside class="sidebar">
       <div class="toggle">
         <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
@@ -43,7 +42,7 @@
           <div class="logo">
             <span>Y</span>
           </div>
-          <span class="logo-text">{{ Auth::user()->name }}</span>
+          <span class="logo-text">Yeneta</span>
         </div>
           
         <!-- <div class="search-form">
@@ -57,11 +56,9 @@
         <div class="nav-menu">
           <ul>
             <li><a href="{{route('index')}}" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
-            <li><a href="{{route('register')}}" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
-            <li><a href="{{route('studentsList')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
-            <li><a href="{{route('grades')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
-            <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="{{route('announcements')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
+            <li><a href="{{route('grades')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grade Reports</span></a></li>
+            <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-bar-chart mr-3"></span><span class="menu-text">Statistics</span></a></li>
+            <li><a href="{{route('payments')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payments</span></a></li>
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -87,9 +84,11 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-                <h2>Payment</h2>
+                Reports
               </div>
             </div>
+
+
           </div>
         </div>
       </div>  

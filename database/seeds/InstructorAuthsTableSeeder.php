@@ -2,7 +2,7 @@
 
 use Illuminate\Database\Seeder;
 
-class FinanceAuthsTableSeeder extends Seeder
+class InstructorAuthsTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -11,9 +11,9 @@ class FinanceAuthsTableSeeder extends Seeder
      */
     public function run()
     {
-        App\FinanceAuth::create([
-            'name' => 'mark',
-            'email' => 'mark@gmail.com',
+        App\InstructorAuth::create([
+            'name' => 'worku',
+            'email' => 'worku@gmail.com',
             'password' => bcrypt('password')
         ]);
     }

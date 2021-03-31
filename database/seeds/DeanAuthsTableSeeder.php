@@ -13,7 +13,7 @@ class DeanAuthsTableSeeder extends Seeder
     {
         App\DeanAuth::create([
             'name' => 'tedy',
-            'email' => ' tedy@gmail.com',
+            'email' => 'tedy@gmail.com',
             'password' => bcrypt('password')
         ]);
     }

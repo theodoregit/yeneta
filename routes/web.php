@@ -13,8 +13,11 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/login', 'Auth\RegistrarLoginController@showLoginForm')->name('registrar.login');
     Route::post('/login', 'Auth\RegistrarLoginController@login')->name('registrar.login.submit');
+<<<<<<< HEAD
     
     Route::get('/', 'RegistrarController@index')->name('registrar');
+=======
+>>>>>>> 3d24e5a423373243bf273a7f2125bd59f152c2fa
 
     Route::post('/create/todo','TodoController@store')->name('registrar.store.todo');
     Route::get('/delete/todo/{id}','TodoController@destroy')->name('registrar.delete.todo');
@@ -23,12 +26,19 @@ Route::prefix('yeneta/registrar')->group(function(){
 
     Route::get('/', 'RegistrarController@index')->name('index'); 
     Route::get('/register', 'RegistrarController@registerStudent')->name('register');
+<<<<<<< HEAD
     Route::post('/register', 'RegistrarController@registerStudentStore')->name('register.store');
     Route::get('/students', 'RegistrarController@listStudents')->name('students');
     Route::get('/grades', 'RegistrarController@viewGrades')->name('grades');
     Route::get('/payment', 'RegistrarController@payment')->name('payment');
     Route::get('/announcement', 'RegistrarController@announcement')->name('announcement');
 
+=======
+    Route::get('/studentsList', 'RegistrarController@listStudents')->name('studentsList');
+    Route::get('/grades', 'RegistrarController@viewGrades')->name('grades');
+    Route::get('/payment', 'RegistrarController@payment')->name('payment');
+    Route::get('/announcements', 'RegistrarController@announcement')->name('announcements');
+>>>>>>> 3d24e5a423373243bf273a7f2125bd59f152c2fa
 });
 
 Route::prefix('yeneta/instructor')->group(function(){
@@ -36,6 +46,10 @@ Route::prefix('yeneta/instructor')->group(function(){
     Route::post('/login', 'Auth\InstructorLoginController@login')->name('instructor.login.submit');
 
     Route::get('/', 'InstructorController@index')->name('instructor');
+    Route::get('/courses', 'InstructorController@viewCourses')->name('courses');
+    Route::get('/students', 'InstructorController@viewStudents')->name('students');
+    Route::get('/studentsGrades', 'InstructorController@fillGrades')->name('studentsGrades');
+    Route::get('/announcement', 'InstructorController@announcement')->name('announcement');
 });
 
 Route::prefix('yeneta/student')->group(function(){
@@ -49,7 +63,10 @@ Route::prefix('yeneta/dean')->group(function(){
     Route::get('/login', 'Auth\DeanLoginController@showLoginForm')->name('dean.login');
     Route::post('/login', 'Auth\DeanLoginController@login')->name('dean.login.submit');
 
-    Route::get('/', 'DeanController@index')->name('dean');
+    Route::get('/', 'DeanController@index')->name('index');
+    Route::get('/statistics', 'DeanController@viewStats')->name('statistics');
+    Route::get('/studentsGrades', 'DeanController@viewGrades')->name('studentsGrades');
+    Route::get('/payments', 'DeanController@viewPayment')->name('payments');
 });
 
 Route::prefix('yeneta/finance')->group(function(){

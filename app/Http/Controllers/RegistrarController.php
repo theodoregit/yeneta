@@ -62,4 +62,5 @@ class RegistrarController extends Controller
     public function announcement(){
         return view('yeneta.registrar.announcement');
     }
+    
 }

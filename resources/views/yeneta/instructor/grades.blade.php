@@ -83,13 +83,51 @@
       <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-11">
               <div class="row">
-                Grades
+               <table class="table table-hover table-striped">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">#</th>
+                      <th scope="col">FullName</th>
+                      <th scope="col">ID Number</th>
+                      <th scope="col">Section</th>
+                      <th scope="col">Year/ Semester</th>
+                      <th scope="col">Assessment</th>
+                      <th scope="col">Mid Exam</th>
+                      <th scope="col">Final Exam</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>                    
+                    @foreach($loops as $loop)
+                    <tr>                      
+                      <th scope="row">1</th>
+                      <td>Abebe Lema</td>
+                      <td>ATR/4025/08</td>
+                      <td>1</td>
+                      <td>1/I</td>
+                      <form action="{{route('submitGrades')}}" method="post">
+                        {{csrf_field()}}
+                        <td>
+                          <input type="number" name="assessement" class="form-control">
+                        </td>
+                        <td>
+                          <input type="number" name="mid" class="form-control">
+                        </td>
+                        <td>
+                          <input type="number" name="final  " class="form-control">
+                        </td>
+                        <td>
+                          <button type="submit" class="btn btn-sm btn-primary">Submit</button>
+                        </td>
+                      </form>
+                    </tr>
+                    @endforeach
+                  </tbody>
+                </table>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>  

@@ -39,7 +39,7 @@ box-shadow: 10px 10px 5px #888888;
 <img style="position:absolute;left:150px" height="130" width="110" src="image\yeneta.jpg" alt="yeneta logo">
 ">
 <h1 style="text-align:center ;color:#FFFFFF;">YENETA COLLAGE  የኔታ ኮሌጅ</h1>
-<a href="/yeneta/registrar/login"><button style="left:1100;top:90;" type="button" class="text_button">ADMINISTRATION</button></a>
+<a href="/yeneta/registrar/login"><button style="left:1100;top:90;" type="button" class="text_button">REGISTRAR</button></a>
 <a href="/yeneta/instructor/login"><button style="left:720;top:90;" type="button"  class="text_button">INSTRUCTOR</button></a>-->
 <a href="yeneta/dean/login"><button style="left:875;top:90;" type="button" class="text_button">DEAN</button></a>
 <a href="yeneta/finance/login"><button style="left:985;top:90;" type="button"  class="text_button">FINANCE</button></a>-->

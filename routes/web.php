@@ -19,10 +19,10 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::post('/update/todo/{id}','TodoController@update')->name('registrar.update.todo');
     Route::get('/completed/todo/{id}','TodoController@completed')->name('registrar.completed.todo');
 
-    Route::get('/', 'RegistrarController@index')->name('index'); 
+    Route::get('/', 'RegistrarController@index')->name('registrar'); 
     Route::get('/register', 'RegistrarController@registerStudent')->name('register');
     Route::get('/studentsList', 'RegistrarController@listStudents')->name('studentsList');
-    Route::get('/grades', 'RegistrarController@viewGrades')->name('grades');
+    Route::get('/grades', 'RegistrarController@viewGrades')->name('gradesR');
     Route::get('/payment', 'RegistrarController@payment')->name('payment');
     Route::get('/announcements', 'RegistrarController@announcement')->name('announcements');
 });
@@ -51,7 +51,7 @@ Route::prefix('yeneta/dean')->group(function(){
 
     Route::get('/', 'DeanController@index')->name('index');
     Route::get('/statistics', 'DeanController@viewStats')->name('statistics');
-    Route::get('/studentsGrades', 'DeanController@viewGrades')->name('studentsGrades');
+    Route::get('/studentsGrades', 'DeanController@viewGrades')->name('grades');
     Route::get('/payments', 'DeanController@viewPayment')->name('payments');
 });
 
@@ -60,5 +60,7 @@ Route::prefix('yeneta/finance')->group(function(){
     Route::post('/login', 'Auth\FinanceLoginController@login')->name('finance.login.submit');
 
     Route::get('/', 'FinanceController@index')->name('finance');
+    Route::get('/statistics', 'FinanceController@stats')->name('statisticsF');
+    Route::get('/payemts', 'FinanceController@payments')->name('paymentsF');
 });
 

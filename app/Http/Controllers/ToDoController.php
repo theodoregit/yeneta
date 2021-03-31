@@ -26,10 +26,10 @@ class ToDoController extends Controller
             'todo'=>'required'
         ]);
 
-        $todo = ToDo::create([
-            'todo' => $request->todo
-        ]);
-
+            $todo = ToDo::find($id);
+            $todo -> todo = $request -> todo;
+            $todo->save();
+            
     return redirect()->back();
     }
 

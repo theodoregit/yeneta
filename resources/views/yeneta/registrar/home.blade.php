@@ -94,32 +94,37 @@
 
                   {{$todo->todo}}
 
-                  <a href=" {{route('registrar.delete.todo', ['id'=> $todo->id ])}} " class="btn btn-sm btn-danger float-right">Delete</a>
+                  <a href=" {{route('registrar.delete.todo', ['id'=> $todo->id ])}}" class="btn btn-sm btn-danger float-right">Delete</a>
 
                   <!-- Button trigger modal -->
-                      <button type="button" class="btn btn-primary btn-sm float-right" data-bs-toggle="modal" data-bs-target="#todoModal">
-                          Edit
-                      </button>
-                  
-                      <div class="modal fade" id="todoModal" tabindex="-1" aria-labelledby="todoModalLabel" aria-hidden="true">
-                          <div class="modal-dialog">
-                          <div class="modal-content">
-                              <div class="modal-header">
-                              <h5 class="modal-title" id="exampleModalLabel">Editing Todo</h5>
-                              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                              </div>
-                              <div class="modal-body">
-                                  <input type="text" value="{{$todo->todo}}" name="todo" class="form-control">
-                              </div>
-                              <div class="modal-footer">
-                              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                              <!--<a href="{{route('registrar.update.todo', ['id'=>$todo->id])}}" class="btn btn-primary">Save changes</a>-->
-                              <button type="button" class="btn btn-primary">Save changes</button>
-                              </div>
-                          </div>
-                          </div>
-                      </div>
+                  <a type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal">Edit</a>
+                  <!-- Button trigger modal -->
+
                   <!-- Modal -->
+                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                    <div class="modal-dialog" role="document">
+                      <div class="modal-content">
+                        <div class="modal-header">
+                          <h4 class="modal-title" id="myModalLabel">Editing</h4>
+                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                        </div>
+                        <div class="modal-body">
+                          <form method = "POST" action="{{route('registrar.update.todo', ['id' => $todo->id])}}">
+                            {{ csrf_field() }}
+
+                            <div class="form-group">
+                              <input type="text" value="{{$todo->todo}}" name="todo" class="form-control">
+                            </div>
+                          </form>
+                        </div>
+                        <div class="modal-footer">
+                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                              <button type="submit" class="btn btn-primary">Save changes</button>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+          <!-- Modal -->
 
                     @if(!$todo->completed)
                         <a href="{{ route('registrar.completed.todo', ['id'=> $todo->id ] ) }} " class="btn btn-sm btn-success float-right">Done</a>
@@ -140,10 +145,13 @@
                         <button href="" class="btn btn-xs btn-success" type="submit">Add</button>
                     </form>
                 </div>
-            </div>
-            <hr>
+          </div>
+          <hr>
                 </div>
+<<<<<<< HEAD
+=======
                 <h2></h2>
+>>>>>>> 3d24e5a423373243bf273a7f2125bd59f152c2fa
               </div>
             </div>
           </div>

@@ -17,7 +17,6 @@ class Student extends Model
         'year',
         'semester',
         'IsPaid',
-        'PaidAt',
         'IsPromoted'
     ];
      public function user()

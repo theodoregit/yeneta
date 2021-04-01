@@ -126,13 +126,18 @@
                   </div>
           <!-- Modal -->
 
+
+          @if ($todo->completed)
+          <a href="{{ route('registrar.uncompleted.todo', ['id'=> $todo->id ] ) }} " class="btn btn-sm btn-warning float-right">Uncompleted</a>
+          @endif
                     @if(!$todo->completed)
-                        <a href="{{ route('registrar.completed.todo', ['id'=> $todo->id ] ) }} " class="btn btn-sm btn-success float-right">Done</a>
+                        <a href="{{ route('registrar.completed.todo', ['id'=> $todo->id ] ) }} " class="btn btn-sm btn-success float-right">Completed</a>
                     @else
 
                         <span class="text-success float-right">Completed</span>
 
                     @endif
+                    
                   <hr>
             @endforeach
                   @else

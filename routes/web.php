@@ -18,12 +18,13 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/delete/todo/{id}','TodoController@destroy')->name('registrar.delete.todo');
     Route::post('/update/todo/{id}','TodoController@update')->name('registrar.update.todo');
     Route::get('/completed/todo/{id}','TodoController@completed')->name('registrar.completed.todo');
+    Route::get('/uncompleted/todo/{id}','TodoController@uncompleted')->name('registrar.uncompleted.todo');
 
     Route::get('/', 'RegistrarController@index')->name('registrar'); 
     Route::get('/register', 'RegistrarController@registerStudent')->name('register');
     Route::post('/register', 'RegistrarController@registerStudentStore')->name('register.store');
     Route::get('/students', 'RegistrarController@listStudents')->name('studentsList');
-    Route::get('/grades', 'RegistrarController@viewGrades')->name('grades');
+    Route::get('/grades', 'RegistrarController@viewGrades')->name('gradesR');
     Route::get('/payment', 'RegistrarController@payment')->name('payment');
     Route::get('/announcement', 'RegistrarController@announcement')->name('announcements');
 

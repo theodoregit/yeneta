@@ -47,4 +47,11 @@ class ToDoController extends Controller
         $todo->save();
     return redirect()->back();
     }
+    public function uncompleted($id){
+        $todo = ToDo::find($id);
+        $todo -> todo = $todo ->todo;
+        $todo->completed = 0;
+        $todo->save();
+    return redirect()->back();
+    }
 }

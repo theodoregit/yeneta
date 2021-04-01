@@ -58,8 +58,8 @@
             <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
             <li><a href="{{route('studentsList')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
             <li><a href="{{route('gradesR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
-            <li><a href="{{route('payment')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="{{route('announcements')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
+            <li><a href="{{route('paymentR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
+            <li><a href="{{route('announcementsR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -83,83 +83,75 @@
       <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-md-12">
-              <form action="" method="POST">
+            <div class="col-md-9">
+              <form action="{{route('register.store')}}" method="post">
                 {{ csrf_field() }}
-                <div class="col-md-6">
-                  <div class="form-group">
-                    <input type="text" name="firstname" class="form-control" id="firstname" placeholder="First name">
-                  </div>   
-                  <div class="form-group">
-                    <input type="text" name="middlename" class="form-control" id="middlename" placeholder="Middle name">  
-                  </div> 
-                  <div class="form-group">
-                    <input type="text" name="lastname" class="form-control" id="lastname" placeholder="Last name">  
-                  </div> 
-                  <div class="form-group col-md-6">
-                    <select class="form-control" aria-label="Default select example">
-                      <option selected>Students Id</option>
-                      <option value="">RT/8996/12</option>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="firstname">First Name</label>
+                    <input type="text" name="firstname" class="form-control" id="" placeholder="First Name">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="middlename">Middle Name</label>
+                    <input type="text" name="middlename" class="form-control" id="" placeholder="Middle Name">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="lastname">Last Name</label>
+                    <input type="text" name="lastname" class="form-control" id="" placeholder="Last Name">
+                  </div>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="idnumber">ID Number</label>
+                    <input type="text" name="idnumber" class="form-control" id="" placeholder="ID Number">
+                  </div>
+                  <div class="form-group col-md-4">
+                    <label for="department">Department</label>
+                    <select class="form-control" name="department" id="">
+                      <option value="management">Management</option>
+                      <option value="accounting">Accounting</option>
+                      <option value="computer science">Computer Science</option>
                     </select>
                   </div>
-                  <div class="form-group">
-                    <label for="" class="radio inline">
-                      <input type="radio" name="gender" id="gender" value="male">
-                      <span>Male</span>
-                    </label>
-                    <label for="" class="radio inline">
-                      <input type="radio" name="gender" id="gender" value="female">
-                      <span>Female</span>
-                    </label>
-                  </div>    
-                </div>  
-                <div class="col-md-6">
-                  <div class="form-group col-md-6">
-                    <select class="form-control" aria-label="Default select example">
-                      <option selected>department</option>
-                      <option value="computer science" name = "dept_name">computer science</option>
-                      <option value="management" name = "dept_name">management</option>
-                      <option value="accounting" name = "dept_name">accounting</option>
+                  <div class="form-group col-md-4">
+                    <label for="section">Section</label>
+                    <select class="form-control" name="section" id="">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
                     </select>
                   </div>
-                  <div class="form-group col-md-6">
-                    <select class="form-control" aria-label="Default select example">
-                      <option selected>Section</option>
-                      <option value="1" name = "section">One</option>
-                      <option value="2" name = "section">Two</option>
-                      <option value="3" name = "section">Three</option>
+                </div>
+                <div class="form-row">
+                  <div class="form-group col-md-4">
+                    <label for="Gender">Gender</label>
+                    <select class="form-control" name="gender" id="">
+                      <option value="male">Male</option>
+                      <option value="female">Female</option>
                     </select>
                   </div>
-                  <div class="form-group col-md-6">
-                    <select class="form-control" aria-label="Default select example">
-                      <option selected>year</option>
-                      <option value="1" name = "year">One</option>
-                      <option value="2" name = "year">Two</option>
-                      <option value="3" name = "year">Three</option>
-                      <option value="4" name = "year">Four</option>
-                      <option value="5" name = "year">Five</option>
+                  <div class="form-group col-md-4">
+                    <label for="year">Year</label>
+                    <select class="form-control" name="year" id="">
+                      <option value="1">1</option>
+                      <option value="2">2</option>
+                      <option value="3">3</option>
+                      <option value="4">4</option>
+                      <option value="5">5</option>
                     </select>
                   </div>
-                  <div class="form-group col-md-6">
-                    <select class="form-control" aria-label="Default select example">
-                      <option selected>Semester</option>
-                      <option value="1" name = "semester">One</option>
-                      <option value="2" name = "semester">Two</option>
-                      <option value="3" name = "semester">Three</option>
+                  <div class="form-group col-md-4">
+                    <label for="semester">Semester</label>
+                    <select class="form-control" name="semester" id="">
+                      <option value="1">I</option>
+                      <option value="2">II</option>
+                      <option value="3">III</option>
                     </select>
                   </div>
-                 <div class="form-group">
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Paid for this semester</label>
-                  </div>
-                  <div class="form-check">
-                    <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                    <label class="form-check-label" for="exampleCheck1">Promoted this semester</label>
-                  </div>
-                 </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
-               </div>
+                </div>
+                <button type="submit" class="btn btn-primary">Submit</button>
               </form>
             </div>
           </div>

@@ -83,13 +83,93 @@
       <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-md-9">
-              <div class="row">
-                My Students
+            <div class="col-md-11">
+              <form action="">
+                {{csrf_field()}}
+                <div class="row">
+                  <div class="col-md-5">
+                    <select name="course" class="form-control" id="">
+                      <option value="course1">Course One</option>
+                      <option value="course1">Course Two</option>
+                      <option value="course1">Course Three</option>
+                    </select>
+                  </div>
+                  <div class="col-md-3">
+                    <button type="submit" class="btn btn-primary">Select</button>
+                  </div>
+                </div>                      
+              </form><br>
+
+              <div class="row">                
+                <table class="table table-hover table-striped">
+                  <thead class="thead-dark">
+                    <tr>
+                      <th scope="col">ID Number</th>
+                      <th scope="col">FullName</th>
+                      <th scope="col">Gender</th>
+                      <th scope="col">Department</th>
+                      <th scope="col">Section</th>
+                      <th scope="col">Year/ Semester</th>
+                      <th scope="col"></th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">ATR/4025/08</th>
+                      <td>Abebe Kebede</td>
+                      <td>Male</td>
+                      <td>Accounting</td>
+                      <td>01</td>
+                      <td>1 / I</td>
+                      <td>
+                        <!-- Button trigger modal -->
+                        <a href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                          Fill Grade
+                        </a>
+
+                        <!-- Modal -->
+                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                          <div class="modal-dialog modal-dialog-centered" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLongTitle">Fill Grades</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                  <span aria-hidden="true">&times;</span>
+                                </button>
+                              </div>
+                              <div class="modal-body">
+                                <form action="" method="post">
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                      <label for="assessment">Assessment</label>
+                                      <input class="form-control" name="assessment" type="number" placeholder="Assessment">
+                                    </div>
+                                    <div class="col-md-4">
+                                      <label for="mid">Mid Exam</label>
+                                      <input class="form-control" name="mid" type="number" placeholder="Mid Exam">
+                                    </div>
+                                    <div class="col-md-4">
+                                      <label for="final">Final Exam</label>
+                                      <input class="form-control" name="final" type="number" placeholder="Final Exam">
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save</button>
+                                  </div>
+                                </form>
+                              </div>                              
+                            </div>
+                          </div>
+                        </div>
+
+
+                      </td>                      
+                    </tr>                    
+                  </tbody>
+                </table>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>  

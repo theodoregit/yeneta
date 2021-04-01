@@ -15,7 +15,6 @@ class Grade extends Model
         'assessment',
         'total',
         'GradeType',
-        'IsPromoted',
-            
+        'IsPromoted',            
     ];
 }

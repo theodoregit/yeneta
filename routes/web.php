@@ -13,6 +13,7 @@ Route::get('/home', 'HomeController@index')->name('home');
 Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/login', 'Auth\RegistrarLoginController@showLoginForm')->name('registrar.login');
     Route::post('/login', 'Auth\RegistrarLoginController@login')->name('registrar.login.submit');
+    
 
     Route::post('/create/todo','TodoController@store')->name('registrar.store.todo');
     Route::get('/delete/todo/{id}','TodoController@destroy')->name('registrar.delete.todo');
@@ -23,11 +24,20 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/', 'RegistrarController@index')->name('registrar'); 
     Route::get('/register', 'RegistrarController@registerStudent')->name('register');
     Route::post('/register', 'RegistrarController@registerStudentStore')->name('register.store');
+<<<<<<< HEAD
     Route::get('/students', 'RegistrarController@listStudents')->name('studentsList');
     Route::get('/grades', 'RegistrarController@viewGrades')->name('gradesR');
     Route::get('/payment', 'RegistrarController@payment')->name('payment');
     Route::get('/announcement', 'RegistrarController@announcement')->name('announcements');
+=======
+>>>>>>> 0c3a474d64f7bc2b28b3469467d896f803331c32
 
+    Route::get('/studentsList', 'RegistrarController@listStudents')->name('studentsList');
+    Route::get('/grades', 'RegistrarController@viewGrades')->name('gradesR');
+    Route::get('/payment', 'RegistrarController@payment')->name('paymentR');
+    Route::get('/announcements', 'RegistrarController@announcement')->name('announcementsR');
+
+    
 });
 
 Route::prefix('yeneta/instructor')->group(function(){
@@ -39,6 +49,8 @@ Route::prefix('yeneta/instructor')->group(function(){
     Route::get('/students', 'InstructorController@viewStudents')->name('students');
     Route::get('/studentsGrades', 'InstructorController@fillGrades')->name('studentsGrades');
     Route::get('/announcement', 'InstructorController@announcement')->name('announcement');
+
+    Route::post('/submitGrades', 'InstructorController@submitGrades')->name('submitGrades');
 });
 
 Route::prefix('yeneta/student')->group(function(){

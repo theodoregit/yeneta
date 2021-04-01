@@ -32,9 +32,14 @@ class InstructorController extends Controller
         return view('yeneta.instructor.students');
     }
     public function fillgrades(){
-        return view('yeneta.instructor.grades');
+        $loop = ['1', '2', '3', '4'];
+        return view('yeneta.instructor.grades')
+                    ->with('loops', $loop);
     }
     public function announcement(){
         return view('yeneta.instructor.announcement');
+    }
+    public function submitGrades(Request $request){
+        dd($request->all());
     }
 }

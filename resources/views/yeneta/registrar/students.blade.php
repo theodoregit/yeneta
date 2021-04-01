@@ -59,8 +59,8 @@
             <li><a href="{{route('register')}}" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
             <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
             <li><a href="{{route('gradesR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
-            <li><a href="{{route('payment')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="{{route('announcements')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
+            <li><a href="{{route('paymentR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
+            <li><a href="{{route('announcementsR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -84,58 +84,53 @@
       <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
-            <div class="col-md-9">
+            <div class="col-md-11">
               <div class="row">
-                <div class="container">
-                  <input class="form-control col-md-3" id="myInput" type="text" placeholder="Search..">
-                <table class="table table-hover table-dark">
-                  <thead>
+                <div class="row">
+                  <div class="col-md-11">
+                    <form action="">
+                      {{ csrf_field() }}
+                      <div class="row">
+                        <div class="col-md-9">
+                          <input type="text" class="form-control" name="search" id="" placeholder="Search here...">
+                        </div>
+                        <div class="col-md-3">
+                          <button type="submit" class="btn btn-primary">Search</button>
+                        </div>
+                      </div>                      
+                    </form>
+                  </div>
+                </div><br><br>
+                <table class="table table-hover table-striped">
+                  <thead class="thead-dark">
                     <tr>
-                      <th scope="col">Student Id</th>
+                      <th scope="col">ID Number</th>
                       <th scope="col">Full Name</th>
                       <th scope="col">Gender</th>
                       <th scope="col">Department</th>
-                      <th scope="col">year</th>
-                      <th scope="col">semester</th>
-                      <th scope="col">section</th>
-                      <th scope="col">CGPA</th>
-                      <th scope="col">GCPA</th>
-                      <th scope="col">Last Paid</th>
+                      <th scope="col">Year</th>
+                      <th scope="col">Semester</th>
+                      <th scope="col">Section</th>
+                      <th scope="col">SGPA</th>
+                      <th scope="col">CCPA</th>
                       <th scope="col">Status</th>
-                      <th scope="col">Arrears</th>
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($students as $student)
                     <tr>
-                      <th scope="row">1</th>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td><a href="" class="btn btn-info btn-sm">More</a></td>
+                      <th scope="row">{{$student->idnumber}}</th>
+                      <td>{{$student->fullname}}</td>
+                      <td>{{$student->gender}}</td>
+                      <td>{{$student->dept_name}}</td>
+                      <td>{{$student->year}}</td>
+                      <td>{{$student->semester}}</td>
+                      <td>{{$student->section}}</td>
+                      <td>{{$student->sgpa}}</td>
+                      <td>{{$student->cgpa}}</td>
+                      <td>To be computed</td>
                     </tr>
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>zac</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td>@mdo</td>
-                      <td>Mark</td>
-                      <td>Otto</td>
-                      <td><a href="" class="btn btn-info btn-sm">More</a></td>
-                    </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

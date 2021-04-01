@@ -29,7 +29,6 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/payment', 'RegistrarController@payment')->name('paymentR');
     Route::get('/announcements', 'RegistrarController@announcement')->name('announcementsR');
 
-    
 });
 
 Route::prefix('yeneta/instructor')->group(function(){

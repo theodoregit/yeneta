@@ -57,15 +57,9 @@
             <li><a href="{{route('registrar')}}" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
             <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
             <li><a href="{{route('studentsList')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
-<<<<<<< HEAD
             <li><a href="{{route('gradesR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
             <li><a href="{{route('paymentR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
             <li><a href="{{route('announcementsR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
-=======
-            <li><a href="{{route('grades')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
-            <li><a href="{{route('payment')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="{{route('announcements')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
->>>>>>> ba95b99c009a1893b53482dd224e10b7cb2ca8fd
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -90,7 +84,7 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-9">
-              <form action="" method="post">
+              <form action="{{route('register.store')}}" method="post">
                 {{ csrf_field() }}
                 <div class="form-row">
                   <div class="form-group col-md-4">

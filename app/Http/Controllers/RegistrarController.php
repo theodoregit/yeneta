@@ -31,27 +31,36 @@ class RegistrarController extends Controller
     public function registerStudent(){
         return view('yeneta.registrar.register')->with('students', student::all());
     }
-    public function registerStudentStore($request){
+    public function registerStudentStore(Request $request){
 
         $this->validate($request, [
-            
+            'firstname' => 'required',
+            'middlename' => 'required',
+            'lastname' => 'required',
+            'idnumber' => 'required',
+            'department' => 'required',
+            'section' => 'required',
+            'gender' => 'required',
+            'year' => 'required',
+            'semester' => 'required',
         ]);
         
         $student = new Student;
-        $student -> firstname = $request->firstname;
-        $student -> middlename = $request->middlename;
-        $student -> lastname = $request->lasttname;
-        $student -> gender = $request->gender;
-        $student -> dept_name = $request->dept_name;
-        $student -> section = $request->section;
-        $student -> year = $request->year;
-        $student -> semester = $request->semester;
+        $student->idnumber = $request->idnumber;
+        $student->fullname = $request->firstname . ' ' . $request->middlename . ' ' . $request->lastname;
+        $student->gender = $request->gender;
+        $student->dept_name = $request->department;
+        $student->section = $request->section;
+        $student->year = $request->year;
+        $student->semester = $request->semester;
         $student->save();
 
     return redirect()->back();
     }
     public function listStudents(){
-        return view('yeneta.registrar.students');
+        $students = Student::all();
+        return view('yeneta.registrar.students')
+                    ->with('students', $students);
     }
     public function viewGrades(){
         return view('yeneta.registrar.grades');
@@ -62,5 +71,7 @@ class RegistrarController extends Controller
     public function announcement(){
         return view('yeneta.registrar.announcement');
     }
+
+    
     
 }

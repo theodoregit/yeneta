@@ -58,15 +58,9 @@
             <li><a href="{{route('registrar')}}" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
             <li><a href="{{route('register')}}" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
             <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
-<<<<<<< HEAD
             <li><a href="{{route('gradesR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
             <li><a href="{{route('paymentR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
             <li><a href="{{route('announcementsR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
-=======
-            <li><a href="{{route('grades')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
-            <li><a href="{{route('payment')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="{{route('announcements')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
->>>>>>> ba95b99c009a1893b53482dd224e10b7cb2ca8fd
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -123,18 +117,20 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($students as $student)
                     <tr>
-                      <th scope="row">ATR/4020/08</th>
-                      <td>Abebe Zeru</td>
-                      <td>Male</td>
-                      <td>Accounting</td>
-                      <td>1</td>
-                      <td>I</td>
-                      <td>2</td>
-                      <td>0.0</td>
-                      <td>0.0</td>
-                      <td>Paid</td>
+                      <th scope="row">{{$student->idnumber}}</th>
+                      <td>{{$student->fullname}}</td>
+                      <td>{{$student->gender}}</td>
+                      <td>{{$student->dept_name}}</td>
+                      <td>{{$student->year}}</td>
+                      <td>{{$student->semester}}</td>
+                      <td>{{$student->section}}</td>
+                      <td>{{$student->sgpa}}</td>
+                      <td>{{$student->cgpa}}</td>
+                      <td>To be computed</td>
                     </tr>
+                    @endforeach
                   </tbody>
                 </table>
               </div>

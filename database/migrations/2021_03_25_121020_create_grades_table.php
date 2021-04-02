@@ -17,12 +17,14 @@ class CreateGradesTable extends Migration
             $table->increments('id');
             $table->string('stud_id');
             $table->foreign('stud_id')->references('stud_id')->on('students');
-            $table->string('CourseCode');
+            $table->string('course_code');
             //$table->foreign('CourseCode')->references('dept_name')->on('departments');
-            $table->float('assessment');
-            $table->float('total');
-            $table->string('GradeType');
-            $table->boolean('IsPromoted');
+            $table->float('assessment')->default(0.0);
+            $table->float('mid_exam')->default(0.0);
+            $table->float('final_exam')->default(0.0);
+            $table->float('total')->default(0.0);
+            $table->string('grade_type')->default('NG');
+            $table->boolean('is_promoted')->default(false);
             $table->timestamps();
         });
     }

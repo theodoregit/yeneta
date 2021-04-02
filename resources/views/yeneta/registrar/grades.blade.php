@@ -86,7 +86,9 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-                <h2>Grades</h2>
+                <h2>
+                  @include('includes.filter')
+                </h2>
               </div>
             </div>
           </div>

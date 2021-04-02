@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use App\Student;
 
 class InstructorController extends Controller
 {
@@ -29,7 +30,9 @@ class InstructorController extends Controller
         return view('yeneta.instructor.courses');
     }
     public function viewStudents(){
-        return view('yeneta.instructor.students');
+        $students = Student::all();
+        return view('yeneta.instructor.students')
+                    ->with('students', $students);
     }
     public function fillgrades(){
         $loop = ['1', '2', '3', '4'];

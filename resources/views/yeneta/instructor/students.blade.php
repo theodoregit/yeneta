@@ -114,21 +114,22 @@
                     </tr>
                   </thead>
                   <tbody>
+                    @foreach($students as $student)
                     <tr>
-                      <th scope="row">ATR/4025/08</th>
-                      <td>Abebe Kebede</td>
-                      <td>Male</td>
-                      <td>Accounting</td>
-                      <td>01</td>
-                      <td>1 / I</td>
+                      <th scope="row">{{$student->idnumber}}</th>
+                      <td>{{$student->fullname}}</td>
+                      <td>{{$student->gender}}</td>
+                      <td>{{$student->dept_name}}</td>
+                      <td>{{$student->section}}</td>
+                      <td>{{$student->year}} / {{$student->semester}}</td>
                       <td>
                         <!-- Button trigger modal -->
-                        <a href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModalCenter">
+                        <a href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{$student->id}}">
                           Fill Grade
                         </a>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModalCenter" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                        <div class="modal fade" id="exampleModalCenter{{$student->id}}" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
                           <div class="modal-dialog modal-dialog-centered" role="document">
                             <div class="modal-content">
                               <div class="modal-header">
@@ -138,6 +139,9 @@
                                 </button>
                               </div>
                               <div class="modal-body">
+                                {{$student->fullname}}
+                                <hr>
+                                @if(1==1)
                                 <form action="" method="post">
                                   <div class="row">
                                     <div class="col-md-4">
@@ -158,12 +162,33 @@
                                     <button type="button" class="btn btn-primary">Save</button>
                                   </div>
                                 </form>
+                                @else
+                                <form action="" method="post">
+                                  <div class="row">
+                                    <div class="col-md-4">
+                                      <label for="assessment">Assessment</label>
+                                      <input class="form-control" name="assessment" value="12" type="number" placeholder="Assessment">
+                                    </div>
+                                    <div class="col-md-4">
+                                      <label for="mid">Mid Exam</label>
+                                      <input class="form-control" name="mid" value="22" type="number" placeholder="Mid Exam">
+                                    </div>
+                                    <div class="col-md-4">
+                                      <label for="final">Final Exam</label>
+                                      <input class="form-control" name="final" value="33" type="number" placeholder="Final Exam">
+                                    </div>
+                                  </div>
+                                  <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                    <button type="button" class="btn btn-primary">Save</button>
+                                  </div>
+                                </form>
+                                @endif
                               </div>                              
                             </div>
                           </div>
                         </div>
-
-
+                        @endforeach
                       </td>                      
                     </tr>                    
                   </tbody>

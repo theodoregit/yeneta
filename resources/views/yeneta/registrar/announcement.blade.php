@@ -87,7 +87,20 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-                <h2>Announcement</h2>
+                <div class="panel panel-default">
+                <p><b><SPAN STYLE="color: black; font-size: 40pt">Create Announcement</SPAN></b></p>
+
+                <div class="panel-body">
+
+                    <ul class="nav nav-tabs" id="myTab" role="tablist">
+                        <li class="nav-item">
+                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Create Announcement</a>
+                        </li>
+                        <li class="nav-item">
+                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">All Announcements</a>
+                        </li>
+                    </ul>
+
               </div>
             </div>
           </div>

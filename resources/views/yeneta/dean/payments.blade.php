@@ -20,6 +20,18 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="../../app/css/style.css">
+    <style>
+          tbody {
+          display:block;
+          height:400px;
+          overflow:auto;
+      }
+      thead, tbody tr {
+          display:table;
+          width:100%;
+          table-layout:fixed;
+      }
+    </style>
 
     <title>Yeneta</title>
   </head>
@@ -86,6 +98,127 @@
             <div class="col-md-9">
               <div class="row">
                 Payments
+                <div class="table-responsive">
+                  <table class="table table-fixed w-auto table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Student Id</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Section</th>
+                        <th scope="col">Month</th>
+                        <th scope="col">Monthly Fee</th>
+                        <th scope="col">Arrears</th>
+                        <th scope="col">Total</th>
+                        <th scope="col">Bank TTF</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">YR/7845/12</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>computer science</td>
+                        <td>II</td>
+                        <td>march</td>
+                        <td>400 ETB</td>
+                        <td>15 ETB</td>
+                        <td>415 ETB</td>
+                        <td>TTF2013165431265</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                        <td>TTF2013165431265</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                        <td>TTF2013165431265</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                        <td>TTF2013165431265</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                        <td>TTF2013165431265</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                        <td>TTF2013165431265</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                        <td>TTF2013165431265</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                        <td>TTF2013165431265</td>
+                      </tr>
+                      <tr>
+                        <th scope="row">1</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>Otto</td>
+                        <td>@mdo</td>
+                        <td>Jacob</td>
+                        <td>Thornton</td>
+                        <td>@fat</td>
+                        <td>@fat</td>
+                        <td>TTF2013165431265</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
               </div>
             </div>
 

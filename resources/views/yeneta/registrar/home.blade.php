@@ -110,7 +110,10 @@
                         </div>
                         <div class="modal-body">
                           <form method = "POST" action="{{route('registrar.update.todo', ['id' => $todo->id])}}">
-                            {{ csrf_field() }}
+                          <div class="panel panel-default">
+                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
+                <p><b><SPAN STYLE="color: black; font-size: 40pt; font-family: Times New Roman">Students List</SPAN></b></p>
+                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->{{ csrf_field() }}
 
                             <div class="form-group">
                               <input type="text" value="{{$todo->todo}}" name="todo" class="form-control">
@@ -141,9 +144,9 @@
                   <hr>
             @endforeach
                   @else
-                      <h3>First please add a Todo</h3>
-                  @endif
-                  <div class="col-lg-6 col-lg-offset-3 text-center">
+                  <h3><p><b><i> <p style="color: black">First please add a Todo</b></i></p></h3>
+                 @endif
+                    <div class="col-lg-9 col-lg-offset-6 text-center">
                     <form action="{{route('registrar.store.todo')}}" method="POST">
                         {{ csrf_field() }}
                         <input type="text" class="form-control" name="todo" placeholder="Create a new Todo">

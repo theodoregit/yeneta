@@ -55,6 +55,8 @@ Route::prefix('yeneta/student')->group(function(){
     Route::post('/login', 'Auth\StudentLoginController@login')->name('student.login.submit');
 
     Route::get('/', 'StudentController@index')->name('student');
+    Route::get('/mygrades', 'StudentController@grades')->name('gradesS');
+    Route::get('/announcements', 'StudentController@announcements')->name('announcementsS');
 });
 
 Route::prefix('yeneta/dean')->group(function(){

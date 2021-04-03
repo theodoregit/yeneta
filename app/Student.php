@@ -16,7 +16,7 @@ class Student extends Model
         'cgpa',
         'year',
         'semester',
-        'id_paid',
+        'id_paid',  
         'is_promoted'
     ];
      public function user()

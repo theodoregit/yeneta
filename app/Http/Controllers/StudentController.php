@@ -40,6 +40,59 @@ class StudentController extends Controller
         $semester = preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('semester'));
         $courses = Grade::where('stud_id', '=', $user)->get();
         $dept_name = preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('dept_name'));
+        
+        switch ($year) {
+            case 1:
+                switch ($semester){
+                    case 'I':
+                        //
+                        break;
+                    case 'II':
+                        //
+                        break;
+                }                
+                break;
+            case 2:
+                switch ($semester){
+                    case 'I':
+                        //
+                        break;
+                    case 'II':
+                        //
+                        break;
+                }                
+                break;
+            case 3:
+                switch ($semester){
+                    case 'I':
+                        //
+                        break;
+                    case 'II':
+                        //
+                        break;
+                }                
+                break;
+            case 4:
+                switch ($semester){
+                    case 'I':
+                        //
+                        break;
+                    case 'II':
+                        //
+                        break;
+                }                
+                break;
+            case 5:
+                switch ($semester){
+                    case 'I':
+                        //
+                        break;
+                    case 'II':
+                        //
+                        break;
+                }                
+                break;
+        }
         switch ($dept_name) {
             case 'computer science':
                 $dept = Computer_Science::all();
@@ -54,10 +107,16 @@ class StudentController extends Controller
                 //
                 break;
         }
-        // echo $a->count();
+        $years = array();
+        for ($i=0; $i < $year; $i++) {
+            array_push($years, $i);
+            array_push($years, $i);
+        }
+        // echo count($years);
         return view('yeneta.student.gradeReport')
                     ->with('fullname', $fullname)
                     ->with('year', $year)
+                    ->with('years', $years)
                     ->with('semester', $semester)
                     ->with('courses', $courses)
                     ->with('dept', $dept);

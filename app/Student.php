@@ -19,10 +19,10 @@ class Student extends Model
         'id_paid',  
         'is_promoted'
     ];
-     public function user()
-     {
-         return $this->belongsTo(User::class);
-     }
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
  
      public function setIsPaidAttribute($value)
      {
@@ -33,6 +33,15 @@ class Student extends Model
      {
          return !!$this->paid_at;
      }
+
+    public function computer_sciences(){
+        return $this->BelongsToMany('App\Computer_Science');
+    }
+
+    public function accountings(){
+        return $this->BelongsToMany('App\Accounting');
+    }
+     
  }
  
 

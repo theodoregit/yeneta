@@ -19,5 +19,9 @@ class StudentAuthsTableSeeder extends Seeder
             'idnumber' => 'UR/5656/12',
             'password' =>bcrypt('password')
         ]);
+        App\StudentAuth::create([
+            'idnumber' => 'UR/2256/12',
+            'password' =>bcrypt('password')
+        ]);
     }
 }

@@ -22,4 +22,8 @@ class Computer_Science extends Model
         'year',
         'semester',
     ];
+
+    public function students(){
+        return $this->belongsToMany('App\Student');
+    }
 }

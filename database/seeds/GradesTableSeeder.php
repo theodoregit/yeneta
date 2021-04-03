@@ -74,5 +74,53 @@ class GradesTableSeeder extends Seeder
             'total' => 82,
             'grade_type' => 'A-',
         ]);
+
+
+
+        App\Grade::create([
+            'stud_id' => 'UR/5656/12',
+            'course_code' =>'Math1011',
+            'assessment' => 25,
+            'mid_exam' => 22,
+            'final_exam' => 35,
+            'total' => 82,
+            'grade_type' => 'A',
+        ]);
+        App\Grade::create([
+            'stud_id' => 'UR/5656/12',
+            'course_code' =>'FLEn1011',
+            'assessment' => 25,
+            'mid_exam' => 22,
+            'final_exam' => 35,
+            'total' => 82,
+            'grade_type' => 'B+',
+        ]);
+        App\Grade::create([
+            'stud_id' => 'UR/5656/12',
+            'course_code' =>'Phys1011',
+            'assessment' => 25,
+            'mid_exam' => 22,
+            'final_exam' => 35,
+            'total' => 82,
+            'grade_type' => 'A-',
+        ]);
+        App\Grade::create([
+            'stud_id' => 'UR/5656/12',
+            'course_code' =>'Psch1011',
+            'assessment' => 25,
+            'mid_exam' => 22,
+            'final_exam' => 35,
+            'total' => 82,
+            'grade_type' => 'A',
+        ]);
+        App\Grade::create([
+            'stud_id' => 'UR/2256/12',
+            'course_code' =>'LoCT1011',
+            'assessment' => 25,
+            'mid_exam' => 22,
+            'final_exam' => 35,
+            'total' => 82,
+            'grade_type' => 'C',
+        ]);
     }
 }

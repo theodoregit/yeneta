@@ -22,4 +22,8 @@ class Accounting extends Model
         'year',
         'semester',
     ];
+
+    public function students(){
+        return $this->BelongsToMany('App\Student');
+    }
 }

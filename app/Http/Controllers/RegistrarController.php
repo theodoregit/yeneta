@@ -55,6 +55,8 @@ class RegistrarController extends Controller
         $student->semester = $request->semester;
         $student->save();
 
+        // echo $student->accountings()->attach($request->dept_name);
+        // // dd($request->all());
     return redirect()->back();
     }
     public function listStudents(){

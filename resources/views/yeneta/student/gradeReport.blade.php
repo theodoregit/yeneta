@@ -81,14 +81,15 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-9">
+                        @foreach($years as $y)
                         <div class="row">
-                                <p>{{$fullname}} --</p>
-                                <p><u><strong>Year: {{$year}} -</strong></u></p>
-                                <p><u><strong>Semester: {{$semester}}</strong></u></p>          
+                                <p><u><strong>Year: {{$y+1}}</strong></u></p>
+                                <!-- <p><u><strong>Semester: {{$semester}}</strong></u></p>           -->
                                 <table class="table">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">Course</th>
+                                            <th scope="col">Semester</th>
                                             <th scope="col">Assessment</th>
                                             <th scope="col">Mid Exam</th>
                                             <th scope="col">Final Exam</th>
@@ -100,12 +101,13 @@
                                 <tbody>
                                     @foreach($courses as $course)
                                     <tr>
-                                        <td>{{$course->course_code}}</td>
+                                        <td>{{$course->course_title}}</td>
+                                        <td></td>
                                         <td>{{$course->assessment}}</td>
                                         <td>{{$course->mid_exam}}</td>
                                         <td>{{$course->final_exam}}</td>
                                         <td>{{$course->total}}</td>
-                                        <td>{{$course->course_code}}</td>
+                                        <td>{{$course->credit_hrs}}</td>
                                         <td>{{$course->grade_type}}</td>
                                     </tr>
                                     @endforeach
@@ -116,9 +118,10 @@
                                 <p>Comulative GPA: <strong></strong></p>
                                 <p>Status: <strong></strong></p>
                             </div>
+                            
 
-
-                        </div>
+                        </div><hr>
+                        @endforeach
                     </div>
                 </div>
             </div>

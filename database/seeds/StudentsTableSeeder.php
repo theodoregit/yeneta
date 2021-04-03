@@ -29,5 +29,14 @@ class StudentsTableSeeder extends Seeder
             'year' => 1,
             'semester' => 'I'
         ]);
+        App\student::create([
+            'idnumber' => 'UR/2256/12',
+            'fullname' => 'chane gedefaw',
+            'gender' => 'male',
+            'dept_name' => 'accounting',
+            'section' => '2',
+            'year' => 3,
+            'semester' => 'I'
+        ]);
     }
 }

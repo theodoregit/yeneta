@@ -17,6 +17,7 @@ class CreateComputerSciencesTable extends Migration
             $table->increments('id');
             $table->string('dept_name');
             $table->string('course_code');
+            $table->foreign('course_code')->references('course_code')->on('students');
             $table->string('course_title');
             $table->integer('ects');
             $table->integer('credit_hrs');

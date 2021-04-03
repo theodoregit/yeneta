@@ -110,7 +110,10 @@
                         </div>
                         <div class="modal-body">
                           <form method = "POST" action="{{route('registrar.update.todo', ['id' => $todo->id])}}">
-                            {{ csrf_field() }}
+                          <div class="panel panel-default">
+                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
+                <p><b><SPAN STYLE="color: black; font-size: 40pt; font-family: Times New Roman">Students List</SPAN></b></p>
+                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->{{ csrf_field() }}
 
                             <div class="form-group">
                               <input type="text" value="{{$todo->todo}}" name="todo" class="form-control">

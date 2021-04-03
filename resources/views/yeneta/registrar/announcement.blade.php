@@ -88,9 +88,7 @@
             <div class="col-md-9">
               <div class="row">
                 <div class="panel panel-default">
-                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
-                <p><b><i><SPAN STYLE="color: black; font-size: 40pt">Create Announcement</SPAN></b></i></p>
-                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
+                <p><b><SPAN STYLE="color: black; font-size: 40pt">Create Announcement</SPAN></b></p>
 
                 <div class="panel-body">
 

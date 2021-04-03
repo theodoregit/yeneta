@@ -20,6 +20,18 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="../../app/css/style.css">
+    <style>
+      tbody {
+          display:block;
+          height:400px;
+          overflow:auto;
+      }
+      thead, tbody tr {
+          display:table;
+          width:100%;
+          table-layout:fixed;
+      }
+    </style>
 
     <title>Yeneta</title>
   </head>
@@ -84,7 +96,128 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-                Grade Reports
+                Student Grade Reports
+                <div class="table-responsive">
+                  <table class="table table-fixed w-auto table-hover table-bordered">
+                    <thead>
+                      <tr>
+                        <th scope="col">Student Id</th>
+                        <th scope="col">Full Name</th>
+                        <th scope="col">Department</th>
+                        <th scope="col">Section</th>
+                        <th scope="col">Year</th>
+                        <th scope="col">Semester</th>
+                        <th scope="col">SGPA</th>
+                        <th scope="col">CGPA</th>
+                        <th scope="col">Action</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">YR/7845/12</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>computer science</td>
+                        <td>II</td>
+                        <td>2</td>
+                        <td>I</td>
+                        <td>3.33</td>
+                        <td>3.33</td>
+                        <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">YR/7845/12</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>computer science</td>
+                        <td>II</td>
+                        <td>2</td>
+                        <td>I</td>
+                        <td>3.33</td>
+                        <td>3.33</td>
+                        <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">YR/7845/12</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>computer science</td>
+                        <td>II</td>
+                        <td>2</td>
+                        <td>I</td>
+                        <td>3.33</td>
+                        <td>3.33</td>
+                        <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">YR/7845/12</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>computer science</td>
+                        <td>II</td>
+                        <td>2</td>
+                        <td>I</td>
+                        <td>3.33</td>
+                        <td>3.33</td>
+                        <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">YR/7845/12</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>computer science</td>
+                        <td>II</td>
+                        <td>2</td>
+                        <td>I</td>
+                        <td>3.33</td>
+                        <td>3.33</td>
+                        <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">YR/7845/12</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>computer science</td>
+                        <td>II</td>
+                        <td>2</td>
+                        <td>I</td>
+                        <td>3.33</td>
+                        <td>3.33</td>
+                        <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">YR/7845/12</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>computer science</td>
+                        <td>II</td>
+                        <td>2</td>
+                        <td>I</td>
+                        <td>3.33</td>
+                        <td>3.33</td>
+                        <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">YR/7845/12</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>computer science</td>
+                        <td>II</td>
+                        <td>2</td>
+                        <td>I</td>
+                        <td>3.33</td>
+                        <td>3.33</td>
+                        <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+                      </tr>
+                      <tr>
+                        <th scope="row">YR/7845/12</th>
+                        <td>Mark zuckenb elon</td>
+                        <td>computer science</td>
+                        <td>II</td>
+                        <td>2</td>
+                        <td>I</td>
+                        <td>3.33</td>
+                        <td>3.33</td>
+                        <td><a href="#" class="btn btn-info btn-sm">More</a></td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+            </div>
+
               </div>
             </div>
 

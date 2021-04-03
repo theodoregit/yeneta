@@ -141,7 +141,7 @@
                   <hr>
             @endforeach
                   @else
-                      <h3>First please add a Todo</h3>
+                  <h3><p><b><i> <p style="color: black">First please add a Todo</b></i></p></h3>
                   @endif
                   <div class="col-lg-6 col-lg-offset-3 text-center">
                     <form action="{{route('registrar.store.todo')}}" method="POST">

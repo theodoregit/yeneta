@@ -81,12 +81,17 @@
       
     </aside>
     <main>
+    
       <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-9">
             
                         </div>
+                        <div class="panel panel-default">
+                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
+                <p><b><SPAN STYLE="color: black; font-size: 40pt; font-family: Times New Roman">Payment</SPAN></b></p>
+                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
               <div class="row">
                 <div class=" container">
                 <input type="text" class="form-control" name="search" id="" placeholder="Search here...">

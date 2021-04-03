@@ -85,9 +85,14 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-9">
+            
+                        </div>
               <div class="row">
                 <div class=" container">
-                  <input class="form-control col-md-3" id="myInput" type="text" placeholder="Search..">
+                <input type="text" class="form-control" name="search" id="" placeholder="Search here...">
+
+                   <button type="submit" class="btn btn-primary">Search</button>
+
                 <table class="table table-dark w-auto table-hover table-bordered">
                   <thead>
                     <tr>

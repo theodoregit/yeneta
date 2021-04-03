@@ -85,6 +85,10 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <form action="{{route('register.store')}}" method="post">
+              <div class="panel panel-default">
+                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
+                <p><b><SPAN STYLE="color: black; font-size: 40pt; font-family: Times New Roman">Register</SPAN></b></p>
+                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
                 {{ csrf_field() }}
                 <div class="form-row">
                   <div class="form-group col-md-4">

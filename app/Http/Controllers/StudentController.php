@@ -9,6 +9,7 @@ use App\Grade;
 use App\Computer_Science;
 use App\Accounting;
 use App\Management;
+use DB;
 
 class StudentController extends Controller
 {
@@ -41,11 +42,57 @@ class StudentController extends Controller
         $courses = Grade::where('stud_id', '=', $user)->get();
         $dept_name = preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('dept_name'));
         
+        
+        $table_1_I = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
+                                    ->selectRaw('*')
+                                    ->where('year', '=', 1)
+                                    ->where('semester', '=', 'I')
+                                    ->get();
+        $table_1_II = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
+                                    ->selectRaw('*')
+                                    ->where('year', '=', 1)
+                                    ->where('semester', '=', 'II')
+                                    ->get();
+        $table_2_I = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
+                                    ->selectRaw('*')
+                                    ->where('year', '=', 2)
+                                    ->where('semester', '=', 'I')
+                                    ->get();
+        $table_2_II = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
+                                    ->selectRaw('*')
+                                    ->where('year', '=', 2)
+                                    ->where('semester', '=', 'II')
+                                    ->get();
+        $table_3_I = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
+                                    ->selectRaw('*')
+                                    ->where('year', '=', 3)
+                                    ->where('semester', '=', 'I')
+                                    ->get();
+        $table_3_II = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
+                                    ->selectRaw('*')
+                                    ->where('year', '=', 3)
+                                    ->where('semester', '=', 'II')
+                                    ->get();
+        $table_4_I = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
+                                    ->selectRaw('*')
+                                    ->where('year', '=', 4)
+                                    ->where('semester', '=', 'I')
+                                    ->get();
+        $table_4_II = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
+                                    ->selectRaw('*')
+                                    ->where('year', '=', 4)
+                                    ->where('semester', '=', 'II')
+                                    ->get();
         switch ($year) {
             case 1:
                 switch ($semester){
                     case 'I':
-                        //
+                        $table_1_I = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
+                                    ->selectRaw('*')
+                                    ->where('year', '=', $year+0)
+                                    ->where('semester', '=', $semester)
+                                    ->get();
+                        
                         break;
                     case 'II':
                         //
@@ -93,15 +140,19 @@ class StudentController extends Controller
                 }                
                 break;
         }
+        $grade_report_table = 0;
         switch ($dept_name) {
             case 'computer science':
                 $dept = Computer_Science::all();
+                $grade_report_table = 8;
                 break;
             case 'accounting':
                 $dept = Accounting::all();
+                $grade_report_table = 6;
                 break;
             case 'management':
                 $dept = Management::all();
+                $grade_report_table = 6;
                 break;
             default:
                 //
@@ -112,14 +163,23 @@ class StudentController extends Controller
             array_push($years, $i);
             array_push($years, $i);
         }
-        // echo count($years);
+        
+        
+
         return view('yeneta.student.gradeReport')
                     ->with('fullname', $fullname)
                     ->with('year', $year)
-                    ->with('years', $years)
                     ->with('semester', $semester)
                     ->with('courses', $courses)
-                    ->with('dept', $dept);
+                    ->with('table_1_I', $table_1_I)
+                    ->with('table_1_II', $table_1_II)
+                    ->with('table_2_I', $table_2_I)
+                    ->with('table_2_II', $table_2_II)
+                    ->with('table_3_I', $table_3_I)
+                    ->with('table_3_II', $table_3_II)
+                    ->with('table_4_I', $table_4_I)
+                    ->with('table_4_II', $table_4_II)
+                    ->with('dept', $dept_name);
     }
     public function announcements(){
         return view('yeneta.student.readAnnouncements');

@@ -149,9 +149,9 @@
                   <div class="form-group col-md-4">
                     <label for="semester">Semester</label>
                     <select class="form-control" name="semester" id="">
-                      <option value="1">I</option>
-                      <option value="2">II</option>
-                      <option value="3">III</option>
+                      <option value="I">I</option>
+                      <option value="II">II</option>
+                      <option value="III">III</option>
                     </select>
                   </div>
                 </div>

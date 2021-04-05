@@ -81,15 +81,13 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-9">
-                        @foreach($years as $y)
                         <div class="row">
-                                <p><u><strong>Year: {{$y+1}}</strong></u></p>
-                                <!-- <p><u><strong>Semester: {{$semester}}</strong></u></p>           -->
+                            <h4>Year 1 --- Semester I</h4>
                                 <table class="table">
                                     <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">Course</th>
-                                            <th scope="col">Semester</th>
+                                            <th scope="col">Year / Semester</th>
                                             <th scope="col">Assessment</th>
                                             <th scope="col">Mid Exam</th>
                                             <th scope="col">Final Exam</th>
@@ -98,21 +96,22 @@
                                             <th scope="col">Grade</th>
                                         </tr>
                                     </thead>
-                                <tbody>
-                                    @foreach($courses as $course)
-                                    <tr>
-                                        <td>{{$course->course_title}}</td>
-                                        <td></td>
-                                        <td>{{$course->assessment}}</td>
-                                        <td>{{$course->mid_exam}}</td>
-                                        <td>{{$course->final_exam}}</td>
-                                        <td>{{$course->total}}</td>
-                                        <td>{{$course->credit_hrs}}</td>
-                                        <td>{{$course->grade_type}}</td>
-                                    </tr>
-                                    @endforeach
-                                </tbody>
-                            </table>
+                                    <tbody>
+                                        @foreach($table_1_I as $table)
+                                        <tr>
+                                            <td>{{$table->course_name}}</td>
+                                            <td>{{$table->year}} / {{$table->semester}}</td>
+                                            <td>{{$table->assessment}}</td>
+                                            <td>{{$table->mid_exam}}</td>
+                                            <td>{{$table->final_exam}}</td>
+                                            <td>{{$table->total}}</td>
+                                            <td>{{$table->credit_hrs}}</td>
+                                            <td>{{$table->grade_type}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                
                             <div style="margin-left=100%">
                                 <p>Semester GPA: <strong></strong></p>
                                 <p>Comulative GPA: <strong></strong></p>
@@ -121,7 +120,272 @@
                             
 
                         </div><hr>
-                        @endforeach
+                        <div class="row">
+                            <h4>Year 1 --- Semester II</h4>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Assessment</th>
+                                            <th scope="col">Mid Exam</th>
+                                            <th scope="col">Final Exam</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Credit Hour</th>
+                                            <th scope="col">Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($table_1_II as $table)
+                                        <tr>
+                                            <td>{{$table->course_name}}</td>
+                                            <td>{{$table->assessment}}</td>
+                                            <td>{{$table->mid_exam}}</td>
+                                            <td>{{$table->final_exam}}</td>
+                                            <td>{{$table->total}}</td>
+                                            <td>{{$table->credit_hrs}}</td>
+                                            <td>{{$table->grade_type}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                
+                            <div style="margin-left=100%">
+                                <p>Semester GPA: <strong></strong></p>
+                                <p>Comulative GPA: <strong></strong></p>
+                                <p>Status: <strong></strong></p>
+                            </div>
+                            
+
+                        </div><hr>
+                        <div class="row">
+                            <h4>Year 2 --- Semester I</h4>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Assessment</th>
+                                            <th scope="col">Mid Exam</th>
+                                            <th scope="col">Final Exam</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Credit Hour</th>
+                                            <th scope="col">Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($table_2_I as $table)
+                                        <tr>
+                                            <td>{{$table->course_name}}</td>
+                                            <td>{{$table->assessment}}</td>
+                                            <td>{{$table->mid_exam}}</td>
+                                            <td>{{$table->final_exam}}</td>
+                                            <td>{{$table->total}}</td>
+                                            <td>{{$table->credit_hrs}}</td>
+                                            <td>{{$table->grade_type}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                
+                            <div style="margin-left=100%">
+                                <p>Semester GPA: <strong></strong></p>
+                                <p>Comulative GPA: <strong></strong></p>
+                                <p>Status: <strong></strong></p>
+                            </div>
+                            
+
+                        </div><hr>
+                        <div class="row">
+                            <h4>Year 2 --- Semester II</h4>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Assessment</th>
+                                            <th scope="col">Mid Exam</th>
+                                            <th scope="col">Final Exam</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Credit Hour</th>
+                                            <th scope="col">Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($table_2_II as $table)
+                                        <tr>
+                                            <td>{{$table->course_name}}</td>
+                                            <td>{{$table->year}}</td>
+                                            <td>{{$table->semester}}</td>
+                                            <td>{{$table->assessment}}</td>
+                                            <td>{{$table->mid_exam}}</td>
+                                            <td>{{$table->final_exam}}</td>
+                                            <td>{{$table->total}}</td>
+                                            <td>{{$table->credit_hrs}}</td>
+                                            <td>{{$table->grade_type}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                
+                            <div style="margin-left=100%">
+                                <p>Semester GPA: <strong></strong></p>
+                                <p>Comulative GPA: <strong></strong></p>
+                                <p>Status: <strong></strong></p>
+                            </div>
+                            
+
+                        </div><hr>
+                        <div class="row">
+                            <h4>Year 3 --- Semester I</h4>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Assessment</th>
+                                            <th scope="col">Mid Exam</th>
+                                            <th scope="col">Final Exam</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Credit Hour</th>
+                                            <th scope="col">Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($table_3_I as $table)
+                                        <tr>
+                                            <td>{{$table->course_name}}</td>
+                                            <td>{{$table->assessment}}</td>
+                                            <td>{{$table->mid_exam}}</td>
+                                            <td>{{$table->final_exam}}</td>
+                                            <td>{{$table->total}}</td>
+                                            <td>{{$table->credit_hrs}}</td>
+                                            <td>{{$table->grade_type}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                
+                            <div style="margin-left=100%">
+                                <p>Semester GPA: <strong></strong></p>
+                                <p>Comulative GPA: <strong></strong></p>
+                                <p>Status: <strong></strong></p>
+                            </div>
+                            
+
+                        </div><hr>
+                        <div class="row">
+                            <h4>Year 3 --- Semester II</h4>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Assessment</th>
+                                            <th scope="col">Mid Exam</th>
+                                            <th scope="col">Final Exam</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Credit Hour</th>
+                                            <th scope="col">Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($table_3_II as $table)
+                                        <tr>
+                                            <td>{{$table->course_name}}</td>
+                                            <td>{{$table->assessment}}</td>
+                                            <td>{{$table->mid_exam}}</td>
+                                            <td>{{$table->final_exam}}</td>
+                                            <td>{{$table->total}}</td>
+                                            <td>{{$table->credit_hrs}}</td>
+                                            <td>{{$table->grade_type}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                
+                            <div style="margin-left=100%">
+                                <p>Semester GPA: <strong></strong></p>
+                                <p>Comulative GPA: <strong></strong></p>
+                                <p>Status: <strong></strong></p>
+                            </div>
+                            
+
+                        </div><hr>
+                        @if($dept == 'computer science')
+                        <div class="row">
+                            <h4>Year 4 --- Semester I</h4>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Assessment</th>
+                                            <th scope="col">Mid Exam</th>
+                                            <th scope="col">Final Exam</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Credit Hour</th>
+                                            <th scope="col">Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($table_4_I as $table)
+                                        <tr>
+                                            <td>{{$table->course_name}}</td>
+                                            <td>{{$table->assessment}}</td>
+                                            <td>{{$table->mid_exam}}</td>
+                                            <td>{{$table->final_exam}}</td>
+                                            <td>{{$table->total}}</td>
+                                            <td>{{$table->credit_hrs}}</td>
+                                            <td>{{$table->grade_type}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                
+                            <div style="margin-left=100%">
+                                <p>Semester GPA: <strong></strong></p>
+                                <p>Comulative GPA: <strong></strong></p>
+                                <p>Status: <strong></strong></p>
+                            </div>
+                            
+
+                        </div><hr>
+                        <div class="row">
+                            <h4>Year 4 --- Semester II</h4>
+                                <table class="table">
+                                    <thead class="thead-dark">
+                                        <tr>
+                                            <th scope="col">Course</th>
+                                            <th scope="col">Assessment</th>
+                                            <th scope="col">Mid Exam</th>
+                                            <th scope="col">Final Exam</th>
+                                            <th scope="col">Total</th>
+                                            <th scope="col">Credit Hour</th>
+                                            <th scope="col">Grade</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                        @foreach($table_4_II as $table)
+                                        <tr>
+                                            <td>{{$table->course_name}}</td>
+                                            <td>{{$table->assessment}}</td>
+                                            <td>{{$table->mid_exam}}</td>
+                                            <td>{{$table->final_exam}}</td>
+                                            <td>{{$table->total}}</td>
+                                            <td>{{$table->credit_hrs}}</td>
+                                            <td>{{$table->grade_type}}</td>
+                                        </tr>
+                                        @endforeach
+                                    </tbody>
+                                </table>
+                                
+                            <div style="margin-left=100%">
+                                <p>Semester GPA: <strong></strong></p>
+                                <p>Comulative GPA: <strong></strong></p>
+                                <p>Status: <strong></strong></p>
+                            </div>
+                            
+
+                        </div>
+                        @else
+                        
+                        @endif
+                        
                     </div>
                 </div>
             </div>

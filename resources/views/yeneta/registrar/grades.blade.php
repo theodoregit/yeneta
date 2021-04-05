@@ -87,7 +87,11 @@
             <div class="col-md-9">
               <div class="row">
                 <h2>
+<<<<<<< HEAD
                   @include('includes.filter-grade')
+=======
+                  Grade
+>>>>>>> e93aff66ea0bed0fb8cf689931c22b7edea5a87b
                 </h2>
               </div>
             </div>

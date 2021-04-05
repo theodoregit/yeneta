@@ -88,6 +88,21 @@
             <div class="col-md-9">
               <div class="row">
                 <div class="col-md-9" style="background-color: rgb(194, 194, 194)">
+                  <div class="form-row">
+                    <div class="form-group col-md-5">
+                      <form class="form-inline" action="{{route('registrar.store.todo')}}" method="POST">
+                        {{ csrf_field() }}
+                            <input type="text" class="col-md-8" name="todo" placeholder="Create a new Todo">
+                            <button href="" class="btn btn-sm btn-success col-md-4" type="submit">Add</button>
+                      </form>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <a href="#" class="btn btn-primary btn-sm">Create Announcement</a>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <a href="#" class="btn btn-info btn-sm">File Transfer</a>
+                    </div>
+                  </div>
 
                   @if ($todos->count()>0)
                   @foreach ($todos as $todo)
@@ -96,67 +111,58 @@
 
                   <a href=" {{route('registrar.delete.todo', ['id'=> $todo->id ])}}" class="btn btn-sm btn-danger float-right">Delete</a>
 
-                  <!-- Button trigger modal -->
-                  <a type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal">Edit</a>
-                  <!-- Button trigger modal -->
+                 
+                   <!-- Button trigger modal -->
+                   <a type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal">Edit</a>
+                   <!-- Button trigger modal -->
+ 
+                   <!-- Modal -->
+                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                     <div class="modal-dialog" role="document">
+                       <div class="modal-content">
+                         <div class="modal-header">
+                           <h4 class="modal-title" id="myModalLabel">Editing</h4>
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         </div>
+                         <div class="modal-body">
+                           <form method = "POST" action="{{route('registrar.update.todo', ['id' => $todo->id])}}">
+                             <div class="panel panel-default">    
+                               {{ csrf_field() }}
+                               <div class="form-group">
+                                 <input type="text" value="{{$todo->todo}}" name="todo" class="form-control">
+                               </div>
+                         </div>
+                         <div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                               <button type="submit" class="btn btn-primary">Save changes</button>
+                         </div>
+                       </form>
+                       </div>
+                     </div>
+                   </div>
+                   </div>
+           <!-- Modal -->
 
-                  <!-- Modal -->
-                  <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                    <div class="modal-dialog" role="document">
-                      <div class="modal-content">
-                        <div class="modal-header">
-                          <h4 class="modal-title" id="myModalLabel">Editing</h4>
-                          <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                        </div>
-                        <div class="modal-body">
-                          <form method = "POST" action="{{route('registrar.update.todo', ['id' => $todo->id])}}">
-                          <div class="panel panel-default">
-                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
-                <p><b><SPAN STYLE="color: black; font-size: 40pt; font-family: Times New Roman">Students List</SPAN></b></p>
-                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->{{ csrf_field() }}
+                  @if ($todo->completed)
+                  <a href="{{ route('registrar.uncompleted.todo', ['id'=> $todo->id ] ) }} " class="btn btn-sm btn-warning float-right">Uncompleted</a>
+                  @endif
 
-                            <div class="form-group">
-                              <input type="text" value="{{$todo->todo}}" name="todo" class="form-control">
-                            </div>
-                          </form>
-                        </div>
-                        <div class="modal-footer">
-                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                              <button type="submit" class="btn btn-primary">Save changes</button>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-          <!-- Modal -->
-
-
-          @if ($todo->completed)
-          <a href="{{ route('registrar.uncompleted.todo', ['id'=> $todo->id ] ) }} " class="btn btn-sm btn-warning float-right">Uncompleted</a>
-          @endif
-                    @if(!$todo->completed)
+                  @if(!$todo->completed)
                         <a href="{{ route('registrar.completed.todo', ['id'=> $todo->id ] ) }} " class="btn btn-sm btn-success float-right">Completed</a>
-                    @else
+                  @else
 
                         <span class="text-success float-right">Completed</span>
 
-                    @endif
+                  @endif
                     
                   <hr>
-            @endforeach
-                  @else
+                  @endforeach
+                @else
                   <h3><p><b><i> <p style="color: black">First please add a Todo</b></i></p></h3>
-                 @endif
-                    <div class="col-lg-9 col-lg-offset-6 text-center">
-                    <form action="{{route('registrar.store.todo')}}" method="POST">
-                        {{ csrf_field() }}
-                        <input type="text" class="form-control" name="todo" placeholder="Create a new Todo">
-                        <button href="" class="btn btn-xs btn-success" type="submit">Add</button>
-                    </form>
-                </div>
+                @endif
           </div>
           <hr>
                 </div>
-                <h2></h2>
               </div>
             </div>
           </div>

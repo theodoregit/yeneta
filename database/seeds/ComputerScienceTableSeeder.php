@@ -498,6 +498,164 @@ class ComputerScienceTableSeeder extends Seeder
             'year' => 3,
             'semester' => 'II',
         ]);
+
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc4035',
+            'course_title' => 'Network and System Administration',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 1,
+            'year' => 4,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc4011',
+            'course_title' => 'Introduction t Artificial Intelligence',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 2,
+            'year' => 4,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc4073',
+            'course_title' => 'Computer Vision and Image Processing',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 2,
+            'year' => 4,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc4035',
+            'course_title' => 'Research Methods in Computer Science',
+            'ects' => 3,
+            'credit_hrs' => 2,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 0,
+            'tutor_hrs' => 0,
+            'year' => 4,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoScXXXX',
+            'course_title' => 'Elective I',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 1,
+            'year' => 4,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'MGMT4101',
+            'course_title' => 'Enterpreneurship & Business Development',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 3,
+            'lab_hrs' => 0,
+            'tutor_hrs' => 0,
+            'year' => 4,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc4125',
+            'course_title' => 'Final Project I',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 0,
+            'lab_hrs' => 0,
+            'tutor_hrs' => 0,
+            'year' => 4,
+            'semester' => 'I',
+        ]);
+
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc4036',
+            'course_title' => 'Computer Security',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 1,
+            'year' => 4,
+            'semester' => 'II',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc4037',
+            'course_title' => 'Introduction to Distributed  Systems',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 2,
+            'year' => 4,
+            'semester' => 'II',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc4132',
+            'course_title' => 'Selected Topics in Computer Science',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 3,
+            'lab_hrs' => 0,
+            'tutor_hrs' => 0,
+            'year' => 4,
+            'semester' => 'II',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc4026',
+            'course_title' => 'Real-Time and Embedded Systems',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 2,
+            'year' => 4,
+            'semester' => 'II',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoScXXXX',
+            'course_title' => 'Elective II',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 1,
+            'year' => 4,
+            'semester' => 'II',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc4026',
+            'course_title' => 'Final Project II',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 0,
+            'lab_hrs' => 0,
+            'tutor_hrs' => 0,
+            'year' => 4,
+            'semester' => 'II',
+        ]);
         
     }
 }

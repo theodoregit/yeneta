@@ -10,6 +10,7 @@ use App\Computer_Science;
 use App\Accounting;
 use App\Management;
 use DB;
+use App\Custom\HelperClass;;
 
 class StudentController extends Controller
 {
@@ -48,41 +49,132 @@ class StudentController extends Controller
                                     ->where('year', '=', 1)
                                     ->where('semester', '=', 'I')
                                     ->get();
+        //calculating gpas
+        $gpa = new HelperClass();
+        $credit_hrs_counter = 1;
+        $value = 0;
+        for ($i=0; $i < count($table_1_I); $i++) { 
+            $value += $gpa->gpa_calculator($table_1_I->pluck('credit_hrs')[$i], $table_1_I->pluck('grade_type')[$i]);
+            $credit_hrs_counter += $table_1_I->pluck('credit_hrs')[$i];
+            // echo $value;
+        }
+        $gpa_1_I = round(($value / $credit_hrs_counter), 2);
+        // echo $value;
+
         $table_1_II = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
                                     ->selectRaw('*')
                                     ->where('year', '=', 1)
                                     ->where('semester', '=', 'II')
                                     ->get();
+        
+        $gpa12 = new HelperClass();
+        $credit_hrs_counter12 = 1;
+        $value12 = 0;
+        for ($i=0; $i < count($table_1_II); $i++) { 
+            $value12 += $gpa12->gpa_calculator($table_1_II->pluck('credit_hrs')[$i], $table_1_II->pluck('grade_type')[$i]);
+            $credit_hrs_counter12 += $table_1_II->pluck('credit_hrs')[$i];
+            // echo $value;
+        }
+        $gpa_1_II = round(($value12 / $credit_hrs_counter12), 2);
+        
+
         $table_2_I = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
                                     ->selectRaw('*')
                                     ->where('year', '=', 2)
                                     ->where('semester', '=', 'I')
                                     ->get();
+        $gpa21 = new HelperClass();
+        $credit_hrs_counter21 = 1;
+        $value21 = 0;
+        for ($i=0; $i < count($table_2_I); $i++) { 
+            $value21 += $gpa21->gpa_calculator($table_2_I->pluck('credit_hrs')[$i], $table_2_I->pluck('grade_type')[$i]);
+            $credit_hrs_counter21 += $table_2_I->pluck('credit_hrs')[$i];
+            // echo $value;
+        }
+        $gpa_2_I = round(($value21 / $credit_hrs_counter21), 2);
+        
+        
         $table_2_II = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
                                     ->selectRaw('*')
                                     ->where('year', '=', 2)
                                     ->where('semester', '=', 'II')
                                     ->get();
+        $gpa = new HelperClass();
+        $credit_hrs_counter = 1;
+        $value = 0;
+        for ($i=0; $i < count($table_2_II); $i++) { 
+            $value += $gpa->gpa_calculator($table_1_I->pluck('credit_hrs')[$i], $table_2_II->pluck('grade_type')[$i]);
+            $credit_hrs_counter += $table_2_II->pluck('credit_hrs')[$i];
+            // echo $value;
+        }
+        $gpa_2_II = round(($value / $credit_hrs_counter), 2);
+
+
         $table_3_I = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
                                     ->selectRaw('*')
                                     ->where('year', '=', 3)
                                     ->where('semester', '=', 'I')
                                     ->get();
+        $gpa = new HelperClass();
+        $credit_hrs_counter = 1;
+        $value = 0;
+        for ($i=0; $i < count($table_3_I); $i++) { 
+            $value += $gpa->gpa_calculator($table_3_I->pluck('credit_hrs')[$i], $table_3_I->pluck('grade_type')[$i]);
+            $credit_hrs_counter += $table_3_I->pluck('credit_hrs')[$i];
+            // echo $value;
+        }
+        $gpa_3_I = round(($value / $credit_hrs_counter), 2);
+
+
         $table_3_II = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
                                     ->selectRaw('*')
                                     ->where('year', '=', 3)
                                     ->where('semester', '=', 'II')
                                     ->get();
+        $gpa = new HelperClass();
+        $credit_hrs_counter = 1;
+        $value = 0;
+        for ($i=0; $i < count($table_3_II); $i++) { 
+            $value += $gpa->gpa_calculator($table_1_I->pluck('credit_hrs')[$i], $table_3_II->pluck('grade_type')[$i]);
+            $credit_hrs_counter += $table_3_II->pluck('credit_hrs')[$i];
+            // echo $value;
+        }
+        $gpa_3_II = round(($value / $credit_hrs_counter), 2);
+
+
         $table_4_I = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
                                     ->selectRaw('*')
                                     ->where('year', '=', 4)
                                     ->where('semester', '=', 'I')
                                     ->get();
+        $gpa = new HelperClass();
+        $credit_hrs_counter = 1;
+        $value = 0;
+        for ($i=0; $i < count($table_4_I); $i++) { 
+            $value += $gpa->gpa_calculator($table_4_I->pluck('credit_hrs')[$i], $table_4_I->pluck('grade_type')[$i]);
+            $credit_hrs_counter += $table_4_I->pluck('credit_hrs')[$i];
+            // echo $value;
+        }
+        $gpa_4_I = round(($value / $credit_hrs_counter), 2);
+
+
         $table_4_II = DB::table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->pluck('idnumber')))
                                     ->selectRaw('*')
                                     ->where('year', '=', 4)
                                     ->where('semester', '=', 'II')
                                     ->get();
+        $gpa = new HelperClass();
+        $credit_hrs_counter = 1;
+        $value = 0;
+        for ($i=0; $i < count($table_4_II); $i++) { 
+            $value += $gpa->gpa_calculator($table_4_II->pluck('credit_hrs')[$i], $table_4_II->pluck('grade_type')[$i]);
+            $credit_hrs_counter += $table_4_II->pluck('credit_hrs')[$i];
+            // echo $value;
+        }
+        $gpa_4_II = round(($value / $credit_hrs_counter), 2);
+
+
+
         switch ($year) {
             case 1:
                 switch ($semester){
@@ -179,7 +271,15 @@ class StudentController extends Controller
                     ->with('table_3_II', $table_3_II)
                     ->with('table_4_I', $table_4_I)
                     ->with('table_4_II', $table_4_II)
-                    ->with('dept', $dept_name);
+                    ->with('dept', $dept_name)
+                    ->with('gpa_1_I', $gpa_1_I)
+                    ->with('gpa_1_II', $gpa_1_II)
+                    ->with('gpa_2_I', $gpa_2_I)
+                    ->with('gpa_2_II', $gpa_2_II)
+                    ->with('gpa_3_I', $gpa_3_I)
+                    ->with('gpa_3_II', $gpa_3_II)
+                    ->with('gpa_4_I', $gpa_4_I)
+                    ->with('gpa_4_II', $gpa_4_II);
     }
     public function announcements(){
         return view('yeneta.student.readAnnouncements');

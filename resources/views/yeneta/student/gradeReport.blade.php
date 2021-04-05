@@ -87,7 +87,6 @@
                                     <thead class="thead-dark">
                                         <tr>
                                             <th scope="col">Course</th>
-                                            <th scope="col">Year / Semester</th>
                                             <th scope="col">Assessment</th>
                                             <th scope="col">Mid Exam</th>
                                             <th scope="col">Final Exam</th>
@@ -100,7 +99,6 @@
                                         @foreach($table_1_I as $table)
                                         <tr>
                                             <td>{{$table->course_name}}</td>
-                                            <td>{{$table->year}} / {{$table->semester}}</td>
                                             <td>{{$table->assessment}}</td>
                                             <td>{{$table->mid_exam}}</td>
                                             <td>{{$table->final_exam}}</td>
@@ -113,7 +111,7 @@
                                 </table>
                                 
                             <div style="margin-left=100%">
-                                <p>Semester GPA: <strong></strong></p>
+                                <p>Semester GPA: {{$gpa_1_I}}<strong></strong></p>
                                 <p>Comulative GPA: <strong></strong></p>
                                 <p>Status: <strong></strong></p>
                             </div>
@@ -150,7 +148,7 @@
                                 </table>
                                 
                             <div style="margin-left=100%">
-                                <p>Semester GPA: <strong></strong></p>
+                                <p>Semester GPA: {{$gpa_1_II}}<strong></strong></p>
                                 <p>Comulative GPA: <strong></strong></p>
                                 <p>Status: <strong></strong></p>
                             </div>
@@ -383,7 +381,7 @@
 
                         </div>
                         @else
-                        
+
                         @endif
                         
                     </div>

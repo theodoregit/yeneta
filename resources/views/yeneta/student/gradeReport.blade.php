@@ -81,7 +81,412 @@
             <div class="container">
                 <div class="row justify-content-center">
                     <div class="col-md-9">
-                        <div class="row">
+                    
+                        <div class="accordion" id="accordionExample">
+                            <div class="card">
+                                <div class="card-header" id="headingOne">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link" type="button" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                        Year 1 --- Semester I
+                                    </button>
+                                </h2>
+                                </div>
+
+                                <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="row">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">Course</th>
+                                                        <th scope="col">Assessment</th>
+                                                        <th scope="col">Mid Exam</th>
+                                                        <th scope="col">Final Exam</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Credit Hour</th>
+                                                        <th scope="col">Grade</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($table_1_I as $table)
+                                                    <tr>
+                                                        <td>{{$table->course_name}}</td>
+                                                        <td>{{$table->assessment}}</td>
+                                                        <td>{{$table->mid_exam}}</td>
+                                                        <td>{{$table->final_exam}}</td>
+                                                        <td>{{$table->total}}</td>
+                                                        <td>{{$table->credit_hrs}}</td>
+                                                        <td>{{$table->grade_type}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            
+                                        <div style="margin-left=100%">
+                                            <p>Semester GPA: {{$gpa_1_I}}<strong></strong></p>
+                                            <p>Comulative GPA: <strong></strong></p>
+                                            <p>Status: <strong></strong></p>
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingTwo">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">
+                                        Year 1 --- Semester II
+                                    </button>
+                                </h2>
+                                </div>
+                                <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="row">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">Course</th>
+                                                        <th scope="col">Assessment</th>
+                                                        <th scope="col">Mid Exam</th>
+                                                        <th scope="col">Final Exam</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Credit Hour</th>
+                                                        <th scope="col">Grade</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($table_1_II as $table)
+                                                    <tr>
+                                                        <td>{{$table->course_name}}</td>
+                                                        <td>{{$table->assessment}}</td>
+                                                        <td>{{$table->mid_exam}}</td>
+                                                        <td>{{$table->final_exam}}</td>
+                                                        <td>{{$table->total}}</td>
+                                                        <td>{{$table->credit_hrs}}</td>
+                                                        <td>{{$table->grade_type}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            
+                                        <div style="margin-left=100%">
+                                            <p>Semester GPA: {{$gpa_1_II}}<strong></strong></p>
+                                            <p>Comulative GPA: <strong></strong></p>
+                                            <p>Status: <strong></strong></p>
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingSix">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSix" aria-expanded="false" aria-controls="collapseSix">
+                                        Year 2 --- Semester I
+                                    </button>
+                                </h2>
+                                </div>
+                                <div id="collapseSix" class="collapse" aria-labelledby="headingSix" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="row">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">Course</th>
+                                                        <th scope="col">Assessment</th>
+                                                        <th scope="col">Mid Exam</th>
+                                                        <th scope="col">Final Exam</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Credit Hour</th>
+                                                        <th scope="col">Grade</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($table_2_I as $table)
+                                                    <tr>
+                                                        <td>{{$table->course_name}}</td>
+                                                        <td>{{$table->assessment}}</td>
+                                                        <td>{{$table->mid_exam}}</td>
+                                                        <td>{{$table->final_exam}}</td>
+                                                        <td>{{$table->total}}</td>
+                                                        <td>{{$table->credit_hrs}}</td>
+                                                        <td>{{$table->grade_type}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            
+                                        <div style="margin-left=100%">
+                                            <p>Semester GPA: <strong></strong></p>
+                                            <p>Comulative GPA: <strong></strong></p>
+                                            <p>Status: <strong></strong></p>
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingThree">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+                                        Year 2 --- Semester II
+                                    </button>
+                                </h2>
+                                </div>
+                                <div id="collapseThree" class="collapse" aria-labelledby="headingThree" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="row">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">Course</th>
+                                                        <th scope="col">Assessment</th>
+                                                        <th scope="col">Mid Exam</th>
+                                                        <th scope="col">Final Exam</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Credit Hour</th>
+                                                        <th scope="col">Grade</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($table_2_II as $table)
+                                                    <tr>
+                                                        <td>{{$table->course_name}}</td>
+                                                        <td>{{$table->year}}</td>
+                                                        <td>{{$table->semester}}</td>
+                                                        <td>{{$table->assessment}}</td>
+                                                        <td>{{$table->mid_exam}}</td>
+                                                        <td>{{$table->final_exam}}</td>
+                                                        <td>{{$table->total}}</td>
+                                                        <td>{{$table->credit_hrs}}</td>
+                                                        <td>{{$table->grade_type}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            
+                                        <div style="margin-left=100%">
+                                            <p>Semester GPA: <strong></strong></p>
+                                            <p>Comulative GPA: <strong></strong></p>
+                                            <p>Status: <strong></strong></p>
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFour">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFour" aria-expanded="false" aria-controls="collapseFour">
+                                        Year 3 --- Semester I
+                                    </button>
+                                </h2>
+                                </div>
+                                <div id="collapseFour" class="collapse" aria-labelledby="headingFour" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="row">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">Course</th>
+                                                        <th scope="col">Assessment</th>
+                                                        <th scope="col">Mid Exam</th>
+                                                        <th scope="col">Final Exam</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Credit Hour</th>
+                                                        <th scope="col">Grade</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($table_3_I as $table)
+                                                    <tr>
+                                                        <td>{{$table->course_name}}</td>
+                                                        <td>{{$table->assessment}}</td>
+                                                        <td>{{$table->mid_exam}}</td>
+                                                        <td>{{$table->final_exam}}</td>
+                                                        <td>{{$table->total}}</td>
+                                                        <td>{{$table->credit_hrs}}</td>
+                                                        <td>{{$table->grade_type}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            
+                                        <div style="margin-left=100%">
+                                            <p>Semester GPA: <strong></strong></p>
+                                            <p>Comulative GPA: <strong></strong></p>
+                                            <p>Status: <strong></strong></p>
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingFive">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseFive" aria-expanded="false" aria-controls="collapseFive">
+                                        Year 3 --- Semester II
+                                    </button>
+                                </h2>
+                                </div>
+                                <div id="collapseFive" class="collapse" aria-labelledby="headingFive" data-parent="#accordionExample">
+                                <div class="card-body">
+                                   <div class="row">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">Course</th>
+                                                        <th scope="col">Assessment</th>
+                                                        <th scope="col">Mid Exam</th>
+                                                        <th scope="col">Final Exam</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Credit Hour</th>
+                                                        <th scope="col">Grade</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($table_3_II as $table)
+                                                    <tr>
+                                                        <td>{{$table->course_name}}</td>
+                                                        <td>{{$table->assessment}}</td>
+                                                        <td>{{$table->mid_exam}}</td>
+                                                        <td>{{$table->final_exam}}</td>
+                                                        <td>{{$table->total}}</td>
+                                                        <td>{{$table->credit_hrs}}</td>
+                                                        <td>{{$table->grade_type}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            
+                                        <div style="margin-left=100%">
+                                            <p>Semester GPA: <strong></strong></p>
+                                            <p>Comulative GPA: <strong></strong></p>
+                                            <p>Status: <strong></strong></p>
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            
+                            @if($dept == 'computer science')
+                            <div class="card">
+                                <div class="card-header" id="headingSeven">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseSeven" aria-expanded="false" aria-controls="collapseSeven">
+                                        Year 4 --- Semester I
+                                    </button>
+                                </h2>
+                                </div>
+                                <div id="collapseSeven" class="collapse" aria-labelledby="headingSeven" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="row">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">Course</th>
+                                                        <th scope="col">Assessment</th>
+                                                        <th scope="col">Mid Exam</th>
+                                                        <th scope="col">Final Exam</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Credit Hour</th>
+                                                        <th scope="col">Grade</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($table_4_I as $table)
+                                                    <tr>
+                                                        <td>{{$table->course_name}}</td>
+                                                        <td>{{$table->assessment}}</td>
+                                                        <td>{{$table->mid_exam}}</td>
+                                                        <td>{{$table->final_exam}}</td>
+                                                        <td>{{$table->total}}</td>
+                                                        <td>{{$table->credit_hrs}}</td>
+                                                        <td>{{$table->grade_type}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            
+                                        <div style="margin-left=100%">
+                                            <p>Semester GPA: <strong></strong></p>
+                                            <p>Comulative GPA: <strong></strong></p>
+                                            <p>Status: <strong></strong></p>
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            <div class="card">
+                                <div class="card-header" id="headingEight">
+                                <h2 class="mb-0">
+                                    <button class="btn btn-link collapsed" type="button" data-toggle="collapse" data-target="#collapseEight" aria-expanded="false" aria-controls="collapseEight">
+                                        Year 4 --- Semester II
+                                    </button>
+                                </h2>
+                                </div>
+                                <div id="collapseEight" class="collapse" aria-labelledby="headingEight" data-parent="#accordionExample">
+                                <div class="card-body">
+                                    <div class="row">
+                                            <table class="table">
+                                                <thead class="thead-dark">
+                                                    <tr>
+                                                        <th scope="col">Course</th>
+                                                        <th scope="col">Assessment</th>
+                                                        <th scope="col">Mid Exam</th>
+                                                        <th scope="col">Final Exam</th>
+                                                        <th scope="col">Total</th>
+                                                        <th scope="col">Credit Hour</th>
+                                                        <th scope="col">Grade</th>
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach($table_4_II as $table)
+                                                    <tr>
+                                                        <td>{{$table->course_name}}</td>
+                                                        <td>{{$table->assessment}}</td>
+                                                        <td>{{$table->mid_exam}}</td>
+                                                        <td>{{$table->final_exam}}</td>
+                                                        <td>{{$table->total}}</td>
+                                                        <td>{{$table->credit_hrs}}</td>
+                                                        <td>{{$table->grade_type}}</td>
+                                                    </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                            
+                                        <div style="margin-left=100%">
+                                            <p>Semester GPA: <strong></strong></p>
+                                            <p>Comulative GPA: <strong></strong></p>
+                                            <p>Status: <strong></strong></p>
+                                        </div>
+                                        
+
+                                    </div>
+                                </div>
+                                </div>
+                            </div>
+                            @else
+
+                            @endif
+                        </div>
+
+
+                        <!-- <div class="row">
                             <h4>Year 1 --- Semester I</h4>
                                 <table class="table">
                                     <thead class="thead-dark">
@@ -382,7 +787,7 @@
                         </div>
                         @else
 
-                        @endif
+                        @endif -->
                         
                     </div>
                 </div>

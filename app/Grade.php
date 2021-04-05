@@ -16,6 +16,6 @@ class Grade extends Model
         'final_exam',
         'total',
         'grade_type',
-        'is_promoted',            
+        'is_promoted',
     ];
 }

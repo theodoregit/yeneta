@@ -113,15 +113,15 @@
 
                  
                    <!-- Button trigger modal -->
-                   <a type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal">Edit</a>
+                   <a type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal{{$todo->id}}">Edit</a>
                    <!-- Button trigger modal -->
  
                    <!-- Modal -->
-                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                   <div class="modal fade" id="myModal{{$todo->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                      <div class="modal-dialog" role="document">
                        <div class="modal-content">
                          <div class="modal-header">
-                           <h4 class="modal-title" id="myModalLabel">Editing</h4>
+                           <h4 class="modal-title" id="myModalLabel">Editing <span style="color: yellowgreen">{{$todo->todo}}</span></h4>
                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                          </div>
                          <div class="modal-body">

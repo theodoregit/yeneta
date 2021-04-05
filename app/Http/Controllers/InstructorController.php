@@ -45,4 +45,8 @@ class InstructorController extends Controller
     public function submitGrades(Request $request){
         dd($request->all());
     }
+    public function massassignment(){
+        $students = Student::all();
+        return view('yeneta.instructor.MassAssignment')->with('students', $students);    
+    }
 }

@@ -340,6 +340,164 @@ class ComputerScienceTableSeeder extends Seeder
             'year' => 2,
             'semester' => 'II',
         ]);
+
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3023',
+            'course_title' => 'Operating Systems',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 2,
+            'year' => 3,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'MATH3081',
+            'course_title' => 'Numerical Analysis',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 0,
+            'year' => 3,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3053',
+            'course_title' => 'Advanced Java Programming',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 2,
+            'year' => 3,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3061',
+            'course_title' => 'Software Engineering',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 3,
+            'lab_hrs' => 0,
+            'tutor_hrs' => 2,
+            'year' => 3,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3101',
+            'course_title' => 'Automata and Complexity Theory',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 3,
+            'lab_hrs' => 0,
+            'tutor_hrs' => 2,
+            'year' => 3,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3024',
+            'course_title' => 'Microprocessor and Assembly Language Programming',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 1,
+            'year' => 3,
+            'semester' => 'I',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'IRGI3021',
+            'course_title' => 'Global Trends',
+            'ects' => 4,
+            'credit_hrs' => 2,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 0,
+            'tutor_hrs' => 0,
+            'year' => 3,
+            'semester' => 'I',
+        ]);
+
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3034',
+            'course_title' => 'Wireless Communication and Mobile Computing',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 1,
+            'year' => 3,
+            'semester' => 'II',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3082',
+            'course_title' => 'Web Programming',
+            'ects' => 7,
+            'credit_hrs' => 4,
+            'lecture_hrs' => 3,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 1,
+            'year' => 3,
+            'semester' => 'II',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3034',
+            'course_title' => 'Design and Analysis of Algorithms',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 3,
+            'lab_hrs' => 0,
+            'tutor_hrs' => 0,
+            'year' => 3,
+            'semester' => 'II',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3102',
+            'course_title' => 'Compiler Design',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 2,
+            'year' => 3,
+            'semester' => 'II',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3072',
+            'course_title' => 'Computer Graphics',
+            'ects' => 5,
+            'credit_hrs' => 3,
+            'lecture_hrs' => 2,
+            'lab_hrs' => 3,
+            'tutor_hrs' => 1,
+            'year' => 3,
+            'semester' => 'II',
+        ]);
+        App\Computer_Science::create([
+            'dept_name' => 'computer_science',
+            'course_code' => 'CoSc3122',
+            'course_title' => 'Industrial Practice',
+            'ects' => 3,
+            'credit_hrs' => 2,
+            'lecture_hrs' => 0,
+            'lab_hrs' => 0,
+            'tutor_hrs' => 0,
+            'year' => 3,
+            'semester' => 'II',
+        ]);
         
     }
 }

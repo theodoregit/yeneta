@@ -97,7 +97,7 @@
                       </form>
                     </div>
                     <div class="form-group col-md-4">
-                      <a href="#" class="btn btn-primary btn-sm">Create Announcement</a>
+                      <a href="{{route('announcementsR')}} " class="btn btn-primary btn-sm">Create Announcement</a>
                     </div>
                     <div class="form-group col-md-3">
                       <a href="#" class="btn btn-info btn-sm">File Transfer</a>

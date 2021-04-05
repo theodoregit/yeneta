@@ -87,7 +87,7 @@
             <div class="col-md-9">
               <div class="row">
                 <h2>
-                  @include('includes.filter')
+                  @include('includes.filter-grade')
                 </h2>
               </div>
             </div>

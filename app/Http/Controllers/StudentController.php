@@ -10,7 +10,7 @@ use App\Computer_Science;
 use App\Accounting;
 use App\Management;
 use DB;
-use App\Custom\HelperClass;;
+use App\Custom\HelperClass;
 
 class StudentController extends Controller
 {

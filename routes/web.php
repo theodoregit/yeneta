@@ -30,6 +30,7 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/announcement', 'RegistrarController@announcement')->name('announcements');
 
     Route::get('/studentsList', 'RegistrarController@listStudents')->name('studentsList');
+    Route::get('/student-detail/{idnumber}', 'RegistrarController@studentDetail')->name('studentdetail');
     Route::get('/grades', 'RegistrarController@viewGrades')->name('gradesR');
     Route::get('/payment', 'RegistrarController@payment')->name('paymentR');
     Route::get('/announcements', 'RegistrarController@announcement')->name('announcementsR');
@@ -47,7 +48,7 @@ Route::prefix('yeneta/instructor')->group(function(){
     Route::get('/studentsGrades', 'InstructorController@fillGrades')->name('studentsGrades');
     Route::get('/announcement', 'InstructorController@announcement')->name('announcement');
 
-    Route::post('/submitGrades', 'InstructorController@submitGrades')->name('submitGrades');
+    Route::post('/submitGrades/{idnumber}', 'InstructorController@submitGrades')->name('submitGrades');
 });
 
 Route::prefix('yeneta/student')->group(function(){

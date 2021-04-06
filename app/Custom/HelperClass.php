@@ -42,4 +42,8 @@ class HelperClass {
         
         return $value;
     }
+    public function stringInsert($str,$insertstr,$pos){
+        $str = substr($str, 0, $pos) . $insertstr . substr($str, $pos);
+        return $str;
+    }
 }

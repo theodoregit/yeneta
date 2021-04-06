@@ -142,28 +142,30 @@
                                 {{$student->fullname}}
                                 <hr>
                                 @if(1==1)
-                                <form action="" method="post">
+                                <form action="{{route('submitGrades', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" method="post">
+                                  {{csrf_field()}}
                                   <div class="row">
                                     <div class="col-md-4">
                                       <label for="assessment">Assessment</label>
-                                      <input class="form-control" name="assessment" type="number" placeholder="Assessment">
+                                      <input class="form-control" name="assessment" type="number" placeholder="">
                                     </div>
                                     <div class="col-md-4">
                                       <label for="mid">Mid Exam</label>
-                                      <input class="form-control" name="mid" type="number" placeholder="Mid Exam">
+                                      <input class="form-control" name="mid" type="number" placeholder="">
                                     </div>
                                     <div class="col-md-4">
                                       <label for="final">Final Exam</label>
-                                      <input class="form-control" name="final" type="number" placeholder="Final Exam">
+                                      <input class="form-control" name="final" type="number" placeholder="">
                                     </div>
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
                                   </div>
                                 </form>
                                 @else
                                 <form action="" method="post">
+                                  {{csrf_field()}}
                                   <div class="row">
                                     <div class="col-md-4">
                                       <label for="assessment">Assessment</label>

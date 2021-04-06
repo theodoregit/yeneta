@@ -21,5 +21,6 @@ class DatabaseSeeder extends Seeder
         $this->call(ComputerScienceTableSeeder::class);
         $this->call(AccountingTableSeeder::class);
         $this->call(ManagementTableSeeder::class);
+        $this->call(InstructorTableSeeder::class);
     }
 }

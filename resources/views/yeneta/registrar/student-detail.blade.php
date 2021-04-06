@@ -11,15 +11,15 @@
 
     <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
 
-    <link rel="stylesheet" href="../../app/fonts/icomoon/style.css">
+    <link rel="stylesheet" href="../../../app/fonts/icomoon/style.css">
 
-    <link rel="stylesheet" href="../../app/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="../../../app/css/owl.carousel.min.css">
 
     <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../app/css/bootstrap.min.css">
+    <link rel="stylesheet" href="../../../app/css/bootstrap.min.css">
     
     <!-- Style -->
-    <link rel="stylesheet" href="../../app/css/style.css">
+    <link rel="stylesheet" href="../../../app/css/style.css">
 
     <title>Yeneta</title>
   </head>
@@ -87,54 +87,77 @@
             <div class="col-md-11">
               <div class="row">
                 <div class="row">
-                  <div class="col-md-11">
-                    <form action="">
-                    <div class="panel panel-default">
-                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
-                <p><b><SPAN STYLE="color: black; font-size: 40pt; font-family: Times New Roman">Students List</SPAN></b></p>
-                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
-                      {{ csrf_field() }}
-                      <div class="row">
-                        <div class="col-md-9">
-                          <input type="text" class="form-control" name="search" id="" placeholder="Search here...">
-                        </div>
-                        <div class="col-md-3">
-                          <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                      </div>                      
-                    </form>
+                  <div class="col-md-11">                    
                   </div>
                 </div><br><br>
+                <h4>{{$students->fullname}} [<strong>{{$students->idnumber}}</strong>]</h4>
+                @if($students->dept_name == 'computer science')
                 <table class="table table-hover table-striped">
                   <thead class="thead-dark">
-                    <tr>
-                      <th scope="col">ID Number</th>
-                      <th scope="col">Full Name</th>
-                      <th scope="col">Gender</th>
+                    <tr>                      
                       <th scope="col">Department</th>
                       <th scope="col">Year</th>
                       <th scope="col">Semester</th>
-                      <th scope="col">CCPA</th>
-                      <th scope="col"></th>
+                      <th scope="col">Year 1 - Sem I</th>
+                      <th scope="col">Year 1 - Sem II</th>
+                      <th scope="col">Year 2 - Sem I</th>
+                      <th scope="col">Year 2 - Sem II</th>
+                      <th scope="col">Year 3 - Sem I</th>
+                      <th scope="col">Year 3 - Sem II</th>
+                      <th scope="col">Year 4 - Sem I</th>
+                      <th scope="col">Year 4 - Sem II</th>
+                      <th scope="col">CGPA</th>
                     </tr>
                   </thead>
                   <tbody>
-                    @foreach($students as $student)
                     <tr>
-                      <th scope="row">{{$student->idnumber}}</th>
-                      <td>{{$student->fullname}}</td>
-                      <td>{{$student->gender}}</td>
-                      <td>{{$student->dept_name}}</td>
-                      <td>{{$student->year}}</td>
-                      <td>{{$student->semester}}</td>
-                      <td>{{$student->cgpa}}</td>
-                      <td>
-                        <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-primary btn-sm">See Detail</a>
-                      </td>
+                      <th scope="row">{{$students->dept_name}}</th>
+                      <td>{{$students->year}}</td>
+                      <td>{{$students->semester}}</td>
+                      <td>{{$students->s11gpa}}</td>
+                      <td>{{$students->s12gpa}}</td>
+                      <td>{{$students->s21gpa}}</td>
+                      <td>{{$students->s22gpa}}</td>
+                      <td>{{$students->s31gpa}}</td>
+                      <td>{{$students->s32gpa}}</td>
+                      <td>{{$students->s41gpa}}</td>
+                      <td>{{$students->s42gpa}}</td>
+                      <td>{{$students->cgpa}}</td>                      
                     </tr>
-                    @endforeach
                   </tbody>
                 </table>
+                @else
+                <table class="table table-hover table-striped">
+                  <thead class="thead-dark">
+                    <tr>                      
+                      <th scope="col">Department</th>
+                      <th scope="col">Year</th>
+                      <th scope="col">Semester</th>
+                      <th scope="col">Year 1 - Sem I</th>
+                      <th scope="col">Year 1 - Sem II</th>
+                      <th scope="col">Year 2 - Sem I</th>
+                      <th scope="col">Year 2 - Sem II</th>
+                      <th scope="col">Year 3 - Sem I</th>
+                      <th scope="col">Year 3 - Sem II</th>
+                      <th scope="col">CGPA</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">{{$students->dept_name}}</th>
+                      <td>{{$students->year}}</td>
+                      <td>{{$students->semester}}</td>
+                      <td>{{$students->s11gpa}}</td>
+                      <td>{{$students->s12gpa}}</td>
+                      <td>{{$students->s21gpa}}</td>
+                      <td>{{$students->s22gpa}}</td>
+                      <td>{{$students->s31gpa}}</td>
+                      <td>{{$students->s32gpa}}</td>
+                      <td>{{$students->cgpa}}</td>                      
+                    </tr>
+                  </tbody>
+                </table>
+                @endif
               </div>
               </div>
             </div>
@@ -145,10 +168,10 @@
     
     
 
-    <script src="../../app/js/jquery-3.3.1.min.js"></script>
-    <script src="../../app/js/popper.min.js"></script>
-    <script src="../../app/js/bootstrap.min.js"></script>
-    <script src="../../app/js/main.js"></script>
+    <script src="../../../app/js/jquery-3.3.1.min.js"></script>
+    <script src="../../../app/js/popper.min.js"></script>
+    <script src="../../../app/js/bootstrap.min.js"></script>
+    <script src="../../../app/js/main.js"></script>
   </body>
 </html>
 

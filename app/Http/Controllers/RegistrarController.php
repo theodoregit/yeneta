@@ -11,6 +11,7 @@ use App\Computer_Science;
 use App\Accounting;
 use App\Management;
 use DB;
+use App\Custom\HelperClass;
 
 class RegistrarController extends Controller
 {
@@ -143,6 +144,16 @@ class RegistrarController extends Controller
     public function listStudents(){
         $students = Student::all();
         return view('yeneta.registrar.students')
+                    ->with('students', $students);
+    } 
+    public function studentDetail($idnumber){
+        $insertStr = new HelperClass();
+        $newstring = $insertStr->stringInsert($idnumber, '/', 2);
+        $newstring = $insertStr->stringInsert($newstring, '/', 7);
+        // echo $newstring;
+
+        $students = Student::where('idnumber', '=', $newstring)->first();
+        return view('yeneta.registrar.student-detail')
                     ->with('students', $students);
     }
     public function viewGrades(){

@@ -4,6 +4,10 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Student;
+use App\Custom\HelperClass;
+use DB;
+use App\Instructor;
+use Auth;
 
 class InstructorController extends Controller
 {
@@ -30,7 +34,12 @@ class InstructorController extends Controller
         return view('yeneta.instructor.courses');
     }
     public function viewStudents(){
-        $students = Student::all();
+        $user = Auth::user()->email;
+        $department = Instructor::where('email', '=', $user)->pluck('department');
+        $department = preg_replace("/[^a-zA-Z0-9\s]/", "", $department);
+
+        $students = Student::where('dept_name', '=', $department)->get();
+        // dd($students);
         return view('yeneta.instructor.students')
                     ->with('students', $students);
     }
@@ -42,7 +51,55 @@ class InstructorController extends Controller
     public function announcement(){
         return view('yeneta.instructor.announcement');
     }
-    public function submitGrades(Request $request){
-        dd($request->all());
+    public function submitGrades(Request $request, $idnumber){
+        $assessment = $request->assessment;
+        $mid_exam = $request->mid;
+        $final_exam = $request->final;
+        $total = $assessment + $mid_exam + $final_exam;
+        $grade_type = 'NG';
+        if ($total >= 90) {
+            $grade_type = 'A+';
+        }
+        else if ($total >= 85) {
+            $grade_type = 'A';
+        }
+        else if ($total >= 80) {
+            $grade_type = 'A-';
+        }
+        else if ($total >= 75) {
+            $grade_type = 'B+';
+        }
+        else if ($total >= 70) {
+            $grade_type = 'B';
+        }else if ($total >= 65) {
+            $grade_type = 'B-';
+        }
+        else if ($total >= 60) {
+            $grade_type = 'C+';
+        }
+        else if ($total >= 50) {
+            $grade_type = 'C';
+        }
+        else if ($total >= 45) {
+            $grade_type = 'C-';
+        }
+        else if ($total >= 40) {
+            $grade_type = 'D';
+        }else if ($total < 40) {
+            $grade_type = 'F';
+        }
+        $values = array('assessment' => $assessment, 
+                        'mid_exam' => $mid_exam, 
+                        'final_exam' => $final_exam, 
+                        'total' => $total, 
+                        'grade_type' => $grade_type);
+        // dd($values);
+        $user = Auth::user()->email;
+        $course = Instructor::where('email', '=', $user)->pluck('course');
+        $course = preg_replace("/[^a-zA-Z0-9\s]/", "", $course);
+
+        DB::table($idnumber)->where('course_name',$course)->update($values);
+        
+        return redirect()->back();
     }
 }

@@ -61,7 +61,7 @@
             <li><a href="{{route('studentsList')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
             <li><a href="{{route('gradesR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
             <li><a href="{{route('paymentR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="{{route('announcementsR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
+            <li><a href="{{route('announcements')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -100,7 +100,7 @@
                       <a href="{{route('announcementsR')}} " class="btn btn-primary btn-sm">Create Announcement</a>
                     </div>
                     <div class="form-group col-md-3">
-                      <a href="#" class="btn btn-info btn-sm">File Transfer</a>
+                      <a href="{{route('filetransfer')}} " class="btn btn-info btn-sm">File Transfer</a>
                     </div>
                   </div>
 

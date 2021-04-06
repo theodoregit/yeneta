@@ -42,7 +42,10 @@ class InstructorController extends Controller
     public function announcement(){
         return view('yeneta.instructor.announcement');
     }
-    public function submitGrades(Request $request){
+    public function submitGrades(Request $request, $idnumber){
+        $students = Student::find($idnumber);
+        $studentsTable = DB::table($students->idnumber);
+
         dd($request->all());
     }
     public function massassignment(){

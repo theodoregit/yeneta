@@ -8,6 +8,8 @@ class  Announcement extends Model
 {
     protected $fillable = [
         'title',
-        'body',
+        'content',
+        'CreatedFor',
+        'FileUploaded'
     ];
 }

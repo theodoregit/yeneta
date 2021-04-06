@@ -28,11 +28,15 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/grades', 'RegistrarController@viewGrades')->name('gradesR');
     Route::get('/payment', 'RegistrarController@payment')->name('payment');
     Route::get('/announcement', 'RegistrarController@announcement')->name('announcements');
+    Route::post('/announcement/store', 'RegistrarController@announcementstore')->name('announcementstore');
 
     Route::get('/studentsList', 'RegistrarController@listStudents')->name('studentsList');
     Route::get('/grades', 'RegistrarController@viewGrades')->name('gradesR');
     Route::get('/payment', 'RegistrarController@payment')->name('paymentR');
     Route::get('/announcements', 'RegistrarController@announcement')->name('announcementsR');
+
+    Route::get('/filetransfer', 'RegistrarController@filetransfer')->name('filetransfer');
+    Route::post('/filetransfer/store', 'RegistrarController@filetransferstore')->name('filetransferstore');
 
     
 });

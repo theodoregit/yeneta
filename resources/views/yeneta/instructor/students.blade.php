@@ -84,21 +84,18 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-11">
-              <form action="">
-                {{csrf_field()}}
                 <div class="row">
+
                   <div class="col-md-5">
+<form action="{{route('submitGrades')}}" method="POST">
                     <select name="course" class="form-control" id="">
                       <option value="course1">Course One</option>
                       <option value="course1">Course Two</option>
                       <option value="course1">Course Three</option>
                     </select>
                   </div>
-                  <div class="col-md-3">
-                    <button type="submit" class="btn btn-primary">Select</button>
-                  </div>
                 </div>                      
-              </form><br>
+                <br>
 
               <div class="row">                
                 <table class="table table-hover table-striped">
@@ -141,49 +138,28 @@
                               <div class="modal-body">
                                 {{$student->fullname}}
                                 <hr>
-                                @if(1==1)
-                                <form action="" method="post">
+
+                                  {{ csrf_field() }}
                                   <div class="row">
                                     <div class="col-md-4">
                                       <label for="assessment">Assessment</label>
-                                      <input class="form-control" name="assessment" type="number" placeholder="Assessment">
+                                      <input class="form-control" name="assessment{{$student->idnumber}}" value="assessment{{$student->idnumber}}" type="number" placeholder="Assessment">
                                     </div>
                                     <div class="col-md-4">
                                       <label for="mid">Mid Exam</label>
-                                      <input class="form-control" name="mid" type="number" placeholder="Mid Exam">
+                                      <input class="form-control" name="mid{{$student->idnumber}}" value="mid{{$student->idnumber}}" type="number" placeholder="Mid Exam">
                                     </div>
                                     <div class="col-md-4">
                                       <label for="final">Final Exam</label>
-                                      <input class="form-control" name="final" type="number" placeholder="Final Exam">
+                                      <input class="form-control" name="final{{$student->idnumber}}" value="final{{$student->idnumber}}" type="number" placeholder="Final Exam">
                                     </div>
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
                                   </div>
-                                </form>
-                                @else
-                                <form action="" method="post">
-                                  <div class="row">
-                                    <div class="col-md-4">
-                                      <label for="assessment">Assessment</label>
-                                      <input class="form-control" name="assessment" value="12" type="number" placeholder="Assessment">
-                                    </div>
-                                    <div class="col-md-4">
-                                      <label for="mid">Mid Exam</label>
-                                      <input class="form-control" name="mid" value="22" type="number" placeholder="Mid Exam">
-                                    </div>
-                                    <div class="col-md-4">
-                                      <label for="final">Final Exam</label>
-                                      <input class="form-control" name="final" value="33" type="number" placeholder="Final Exam">
-                                    </div>
-                                  </div>
-                                  <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save</button>
-                                  </div>
-                                </form>
-                                @endif
+                               
+</form>                              
                               </div>                              
                             </div>
                           </div>

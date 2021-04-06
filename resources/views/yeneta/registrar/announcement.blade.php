@@ -40,11 +40,11 @@
       <div class="side-inner">
 
         <div class="logo-wrap">
-          <div class="logo">
-            <span>Y</span>
+          <div class="">
+         </div>
+         <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
           </div>
-          <span class="logo-text">{{ Auth::user()->name }}</span>
-        </div>
+          
           
         <!-- <div class="search-form">
           <form action="#">
@@ -88,24 +88,81 @@
             <div class="col-md-9">
               <div class="row">
                 <div class="panel panel-default">
-                <p><b><SPAN STYLE="color: black; font-size: 40pt">Create Announcement</SPAN></b></p>
+                <p><b><SPAN STYLE="color: blue; font-size: 40pt">Create Announcement</SPAN></b></p>
 
                 <div class="panel-body">
-
                     <ul class="nav nav-tabs" id="myTab" role="tablist">
                         <li class="nav-item">
-                            <a class="nav-link active" id="home-tab" data-toggle="tab" href="#home" role="tab" aria-controls="home" aria-selected="true">Create Announcement</a>
+                            <a class="nav-link active" id="createannouncement-tab" data-toggle="tab" href="#createannouncement" role="tab" aria-controls="create-announcement" aria-selected="true">Create Announcement</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link" id="profile-tab" data-toggle="tab" href="#profile" role="tab" aria-controls="profile" aria-selected="false">All Announcements</a>
+                            <a class="nav-link" id="readannouncements-tab" data-toggle="tab" href="#readannouncements" role="tab" aria-controls="read-announcement" aria-selected="false">All Announcements</a>
                         </li>
                     </ul>
+                </div>
+              <div class="tab-content" id="myTabcontent">
+                <div class="tab-pane fade show active" id="createannouncement" role="tabpanel" aria-labelledby="createannouncement-tab">
+                  <form action="{{route('announcementstore')}}" method="POST" enctype="multipart/form-data">
+                    {{ csrf_field() }}
+                      <div class="form-row mt-3">
+                          <div class="form-group col-md-4">
+                              <label for="filetransferreceiver" class="form-label">Who can read</label>
+                              <select class="form-control" aria-label="Default select example" id="CreatedFor" name="CreatedFor">
+                                  <option selected>Send to</option>
+                                  <option value="finance">Student</option>
+                                  <option value="instructor">Instructor</option>
+                              </select>
+                          </div>
+                          <div class="form-group col-md-4">
+                              <label for="title" class="form-label">Title</label>
+                              <input type="text" class="form-control" id="title" placeholder="ex. letter" name="title">
+                          </div>
+                          <div class="form-group col-md-4">
+                              <label for="fileupload" class="form-label">Add File</label>
+                              <input type="file" class="form-control" id="FileUploaded" name="FileUploaded">
+                          </div>
+                      </div>
+                      <div class="mb-3">
+                          <label for="content" class="form-label">Content</label>
+                          <textarea class="form-control" id="content" rows="5" cols="5" name="details"></textarea>
+                      </div>
+                      <button type="submit" class="btn btn-primary">Post</button>
+                  </form>
+                </div>
 
+                <div class="tab-pane fade mt-3" id="readannouncements" role="tabpanel" aria-labelledby="read-announcements-tab">
+                  <table class="table table-striped">
+                    <thead class="table-dark">
+                      <tr>
+                        <th scope="col">ID</th>
+                        <th scope="col">Title</th>
+                        <th scope="col">Content</th>
+                        <th scope="col">Uploaded File</th>
+                        <th scope="col">Created For</th>
+                        <th scope="col">Craeted By</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      @foreach ($announcements as $announcement)
+                          <tr>
+                            <th scope="row">{{$announcement->id}}</th>
+                            <td>{{$announcement->title}}</td>
+                            <td>{{$announcement->content}}</td>
+                            <td>{{$announcement->Fileuploaded}}</td>
+                            <td>{{$announcement->CreatedFor}}</td>
+                            <td>{{$announcement->CreatedBy}}</td>
+                          </tr>
+                      @endforeach
+                    </tbody>
+                  </table>
               </div>
+            </div>
             </div>
           </div>
         </div>
       </div>  
+  </div>
+</div>
     </main>
     
     

@@ -10,6 +10,8 @@ use App\StudentAuth;
 use App\Computer_Science;
 use App\Accounting;
 use App\Management;
+use App\FileTransfer;
+use App\Announcement;
 use DB;
 use App\Custom\HelperClass;
 
@@ -163,7 +165,54 @@ class RegistrarController extends Controller
         return view('yeneta.registrar.payment')->with('students', Student::all());
     }
     public function announcement(){
-        return view('yeneta.registrar.announcement');
+        return view('yeneta.registrar.announcement')->with('announcements', Announcement::all());
+    }
+    public function announcementstore(Request $request){
+        $this->validate($request, [
+            'title' => 'required',
+            'content' => 'required',
+            'CreatedFor' => 'required',
+        ]);
+        $fileuploaded = $request->fileuploaded;
+        $fileuploaded_new_name = time().$fileuploaded->getClientOriginalName();
+        $fileuploaded -> move('uploads/filetransfer', $fileuploaded_new_name);
+
+        $announcement = new Announcement;
+        $announcement -> title = $request->title;
+        $announcement -> content = $request->content;
+        $announcement -> CreatedFor = $request->CreatedFor;
+        $announcement -> fileuploaded ='uploads/announcements'.$fileupload_new_name;
+        $announcement -> CreatedBy = 'registrar';
+        $announcement->save();
+    return redirect()->back();
+
+    }
+    public function filetransfer(){
+        return view('yeneta.registrar.filetransfer');
+    }
+    public function filetransferstore(Request $request){
+        $this->validate($request, [
+            'title' => 'required',
+            'receiver' => 'required',
+            'details' => 'required',
+            'fileupload' => 'required|file' 
+        ]);
+        $fileupload = $request->fileupload;
+        $fileupload_new_name = time().$fileupload->getClientOriginalName();
+        $fileupload -> move('uploads/filetransfer', $fileupload_new_name);
+
+
+
+
+        $filetransfer = new FileTransfer;
+            $filetransfer->title = $request->title;
+            $filetransfer->details = $request->details;
+            $filetransfer->receiver = $request->receiver;
+            $filetransfer->fileupload ='uploads/filetransfer'.$fileupload_new_name;
+            $filetransfer->sender = 'registrar';
+            $filetransfer->save();
+        
+        return redirect()->back();
     }
 
     

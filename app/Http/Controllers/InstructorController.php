@@ -101,5 +101,13 @@ class InstructorController extends Controller
         DB::table($idnumber)->where('course_name',$course)->update($values);
         
         return redirect()->back();
+        $students = Student::find($idnumber);
+        $studentsTable = DB::table($students->idnumber);
+
+        dd($request->all());
+    }
+    public function massassignment(){
+        $students = Student::all();
+        return view('yeneta.instructor.MassAssignment')->with('students', $students);    
     }
 }

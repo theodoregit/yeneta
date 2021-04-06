@@ -20,16 +20,17 @@
     
     <!-- Style -->
     <link rel="stylesheet" href="../../app/css/style.css">
+
     <title>Yeneta</title>
   </head>
   <body>
   
-    
+
   <header class="row">
   @include('includes.registrar-header')
 </header>
     <br><br>
-
+    
     <aside class="sidebar">
       <div class="toggle">
         <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
@@ -38,11 +39,12 @@
       </div>
       <div class="side-inner">
 
-      <div class="logo-wrap">
-          <div class="">
-            </div>
-            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
-             </div>
+        <div class="logo-wrap">
+          <div class="logo">
+            <span>Y</span>
+          </div>
+          <span class="logo-text">{{ Auth::user()->name }}</span>
+        </div>
           
         <!-- <div class="search-form">
           <form action="#">
@@ -58,8 +60,8 @@
             <li><a href="{{route('register')}}" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
             <li><a href="{{route('studentsList')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
             <li><a href="{{route('gradesR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
-            <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="{{route('announcementsR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
+            <li><a href="{{route('paymentR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
+            <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -80,57 +82,39 @@
       
     </aside>
     <main>
-    
       <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-9">
-            
+                <form action="{{route('filetransferstore')}}" method="POST" enctype="multipart/form-data">
+                  {{ csrf_field() }}
+                <div class="panel panel-default">
+                    <div class="form-row">
+                        <div class="form-group col-md-4">
+                            <label for="filetransferreceiver" class="form-label">Select the Receiver</label>
+                            <select class="form-control" aria-label="Default select example" id="receiver" name="receiver">
+                                <option selected>Send to</option>
+                                <option value="dean">Dean</option>
+                                <option value="finance">Finance</option>
+                                <option value="instructor">Instructor</option>
+                            </select>
                         </div>
-                        <div class="panel panel-default">
-                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
-                <p><b><i><SPAN STYLE="color: blue; font-size: 40pt; font-family: Times New Roman">Payment</SPAN></i></b></p>
-                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
-              <div class="row">
-                <div class=" container">
-                <input type="text" class="form-control" name="search" id="" placeholder="Search here...">
-
-                   <button type="submit" class="btn btn-primary">Search</button>
-
-                <table class="table table-dark w-auto table-hover table-bordered">
-                  <thead>
-                    <tr>
-                      <th scope="col">Student ID</th>
-                      <th scope="col">Full name</th>
-                      <th scope="col">Paid For</th>
-                      <th scope="col">Last Payment on</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach ($students as $student)
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>{{$student->firstname}} {{$student->middlename}} {{$student->lastname}}</td>
-                      <td>Otto</td>
-                      <td>31 march 2021</td>
-                      <td><a href="" class="btn btn-sm btn-success">pay</a></td>
-                    </tr>
-                    @endforeach
-                    
-                    
-                  </tbody>
-                </table>
-              </div>
-                <script>
-                  $(document).ready(function(){
-                    $("#myInput").on("keyup", function() {
-                      var value = $(this).val().toLowerCase();
-                      $("#myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                      });
-                    });
-                  });
-                  </script>
+                        <div class="form-group col-md-4">
+                            <label for="title" class="form-label">Title</label>
+                            <input type="text" class="form-control" id="title" placeholder="ex. letter" name="title">
+                        </div>
+                        <div class="form-group col-md-4">
+                            <label for="fileupload" class="form-label">Add File</label>
+                            <input type="file" class="form-control" id="fileupload" name="fileupload">
+                        </div>
+                    </div>
+                    <div class="mb-3">
+                        <label for="details" class="form-label">Details</label>
+                        <textarea class="form-control" id="details" rows="5" cols="5" name="details"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send</button>
+                  </form>
+                </div>
               </div>
             </div>
           </div>

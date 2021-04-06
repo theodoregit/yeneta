@@ -39,12 +39,11 @@
       </div>
       <div class="side-inner">
 
-        <div class="logo-wrap">
-          <div class="logo">
-            <span>Y</span>
-          </div>
-          <span class="logo-text">{{ Auth::user()->name }}</span>
-        </div>
+      <div class="logo-wrap">
+          <div class="">
+            </div>
+            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
+             </div>
           
         <!-- <div class="search-form">
           <form action="#">
@@ -61,7 +60,7 @@
             <li><a href="{{route('studentsList')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
             <li><a href="{{route('gradesR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
             <li><a href="{{route('paymentR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
-            <li><a href="{{route('announcementsR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
+            <li><a href="{{route('announcements')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
             <li>
                 <a href="{{ route('logout') }}"
                     onclick="event.preventDefault();
@@ -100,7 +99,7 @@
                       <a href="{{route('announcementsR')}} " class="btn btn-primary btn-sm">Create Announcement</a>
                     </div>
                     <div class="form-group col-md-3">
-                      <a href="#" class="btn btn-info btn-sm">File Transfer</a>
+                      <a href="{{route('filetransfer')}} " class="btn btn-info btn-sm">File Transfer</a>
                     </div>
                   </div>
 
@@ -113,15 +112,15 @@
 
                  
                    <!-- Button trigger modal -->
-                   <a type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal">Edit</a>
+                   <a type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal{{$todo->id}}">Edit</a>
                    <!-- Button trigger modal -->
  
                    <!-- Modal -->
-                   <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                   <div class="modal fade" id="myModal{{$todo->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
                      <div class="modal-dialog" role="document">
                        <div class="modal-content">
                          <div class="modal-header">
-                           <h4 class="modal-title" id="myModalLabel">Editing</h4>
+                           <h4 class="modal-title" id="myModalLabel">Editing <span style="color: yellowgreen">{{$todo->todo}}</span></h4>
                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
                          </div>
                          <div class="modal-body">
@@ -158,7 +157,7 @@
                   <hr>
                   @endforeach
                 @else
-                  <h3><p><b><i> <p style="color: black">First please add a Todo</b></i></p></h3>
+                  <h3><p><b><i> <p style="color: blue">First please add a Todo</b></i></p></h3>
                 @endif
           </div>
           <hr>

@@ -40,11 +40,11 @@
       <div class="side-inner">
 
         <div class="logo-wrap">
-          <div class="logo">
-            <span>Y</span>
+          <div class="">
+         </div>
+         <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
           </div>
-          <span class="logo-text">{{ Auth::user()->name }}</span>
-        </div>
+          
           
         <!-- <div class="search-form">
           <form action="#">
@@ -88,7 +88,7 @@
             <div class="col-md-9">
               <div class="row">
                 <div class="panel panel-default">
-                <p><b><SPAN STYLE="color: black; font-size: 40pt">Create Announcement</SPAN></b></p>
+                <p><b><SPAN STYLE="color: blue; font-size: 40pt">Create Announcement</SPAN></b></p>
 
                 <div class="panel-body">
                     <ul class="nav nav-tabs" id="myTab" role="tablist">

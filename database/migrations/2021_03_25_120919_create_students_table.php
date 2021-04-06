@@ -21,7 +21,14 @@ class CreateStudentsTable extends Migration
             $table->string('dept_name');
             $table->foreign('dept_name')->references('dept_name')->on('department');
             $table->string('section');
-            $table->float('sgpa')->default(0.0);
+            $table->float('s11gpa')->default(0.0);
+            $table->float('s12gpa')->default(0.0);
+            $table->float('s21gpa')->default(0.0);
+            $table->float('s22gpa')->default(0.0);
+            $table->float('s31gpa')->default(0.0);
+            $table->float('s32gpa')->default(0.0);
+            $table->float('s41gpa')->default(0.0);
+            $table->float('s42gpa')->default(0.0);
             $table->float('cgpa')->default(0.0);
             $table->string('year');
             $table->string('semester');

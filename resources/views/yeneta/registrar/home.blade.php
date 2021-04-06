@@ -39,12 +39,11 @@
       </div>
       <div class="side-inner">
 
-        <div class="logo-wrap">
-          <div class="logo">
-            <span>Y</span>
-          </div>
-          <span class="logo-text">{{ Auth::user()->name }}</span>
-        </div>
+      <div class="logo-wrap">
+          <div class="">
+            </div>
+            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
+             </div>
           
         <!-- <div class="search-form">
           <form action="#">
@@ -158,7 +157,7 @@
                   <hr>
                   @endforeach
                 @else
-                  <h3><p><b><i> <p style="color: black">First please add a Todo</b></i></p></h3>
+                  <h3><p><b><i> <p style="color: blue">First please add a Todo</b></i></p></h3>
                 @endif
           </div>
           <hr>

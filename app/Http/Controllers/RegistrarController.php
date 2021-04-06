@@ -51,31 +51,31 @@ class RegistrarController extends Controller
             'year' => 'required',
             'semester' => 'required',
         ]);
-        
-        $student = new Student;
-        $student->idnumber = $request->idnumber;
-        $student->fullname = $request->firstname . ' ' . $request->middlename . ' ' . $request->lastname;
-        $student->gender = $request->gender;
-        $student->dept_name = $request->department;
-        $student->section = $request->section;
-        $student->year = $request->year;
-        $student->semester = $request->semester;
-        $student->save();
+
+        $student = Student::create([
+            'idnumber' => $request->idnumber,
+            'fullname' => $request->firstname . ' ' . $request->middlename . ' ' . $request->lastname,
+            'gender' => $request->gender,
+            'dept_name' => $request->department,
+            'section' => $request->section,
+            'year' => $request->year,
+            'semester' => $request->semester,
+        ]);
 
         // echo $student->accountings()->attach($request->dept_name);
         // // dd($request->all());
 
         $std = new CreateTables();
-        $std->create_table(preg_replace("/[^a-zA-Z0-9\s]/", "", $student->idnumber));
+        $std->create_table(preg_replace("/[^a-zA-Z0-9\s]/", "", $request->idnumber));
         
         //let's create a student's account
-        $student_account = new StudentAuth;
-        $student_account->idnumber = $request->idnumber;
-        $student_account->password = bcrypt('password');
-        $student_account->save();
+        $student_account = StudentAuth::create([
+            'idnumber' => $request->idnumber,
+            'password' => bcrypt('password'),
+        ]);
 
         //fill student's private table with ...
-        $std = preg_replace("/[^a-zA-Z0-9\s]/", "", $student->idnumber);
+        $std = preg_replace("/[^a-zA-Z0-9\s]/", "", $request->idnumber);
         switch ($request->department) {
             case 'computer science':
                 $comp = Computer_Science::where('year', '=', $request->year)

@@ -124,7 +124,7 @@
                                             
                                         <div style="margin-left=100%">
                                             <p>Semester GPA: {{$gpa_1_I}}<strong></strong></p>
-                                            <p>Comulative GPA: <strong></strong></p>
+                                            <p>Comulative GPA: {{$cgpa}}<strong></strong></p>
                                             <p>Status: <strong></strong></p>
                                         </div>
                                         

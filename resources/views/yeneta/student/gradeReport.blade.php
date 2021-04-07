@@ -41,7 +41,7 @@
           <div class="logo">
             <span>Y</span>
           </div>
-          <span class="logo-text">Yeneta</span>
+          <span class="logo-text">{{Auth::user()->idnumber}}</span>
         </div>
           
         <!-- <div class="search-form">

@@ -23,7 +23,7 @@ class InstructorTableSeeder extends Seeder
             'fullname' => 'alemu chanie abtie',
             'employee_id' => 'ins/024/10',
             'department' => 'computer science',
-            'course' => '',
+            'course' => 'Mathematics for Natural Science',
             'phone_number' => '+251-945259636',
             'email' => 'alex@gmail.com',
         ]);

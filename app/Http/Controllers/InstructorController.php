@@ -97,7 +97,8 @@ class InstructorController extends Controller
         $user = Auth::user()->email;
         $course = Instructor::where('email', '=', $user)->pluck('course');
         $course = preg_replace("/[^a-zA-Z0-9\s]/", "", $course);
-
+        
+        // dd($course);
         DB::table($idnumber)->where('course_name',$course)->update($values);
         
         return redirect()->back();

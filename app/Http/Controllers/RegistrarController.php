@@ -142,9 +142,13 @@ class RegistrarController extends Controller
         return redirect()->back();
     }
     public function listStudents(){
-        $students = Student::all();
+        $students_management = Student::where('dept_name', '=', 'management')->get();
+        $students_accounting = Student::where('dept_name', '=', 'accounting')->get();
+        $students_computer_science = Student::where('dept_name', '=', 'computer science')->get();
         return view('yeneta.registrar.students')
-                    ->with('students', $students);
+                    ->with('students_m', $students_management)
+                    ->with('students_a', $students_accounting)
+                    ->with('students_c', $students_computer_science);
     } 
     public function studentDetail($idnumber){
         $insertStr = new HelperClass();

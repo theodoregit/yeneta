@@ -87,54 +87,131 @@
             <div class="col-md-11">
               <div class="row">
                 <div class="row">
-                  <div class="col-md-11">
-                    <form action="">
-                    <div class="panel panel-default">
-                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
-                <p><b><SPAN STYLE="color: black; font-size: 40pt; font-family: Times New Roman">Students List</SPAN></b></p>
-                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
-                      {{ csrf_field() }}
-                      <div class="row">
-                        <div class="col-md-9">
-                          <input type="text" class="form-control" name="search" id="" placeholder="Search here...">
-                        </div>
-                        <div class="col-md-3">
-                          <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                      </div>                      
-                    </form>
+                  <div class="col-md-12">
+
+                    <nav>
+                      <div class="nav nav-tabs" id="nav-tab" role="tablist">
+                        <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Accounting</a>
+                        <a class="nav-item nav-link" id="nav-profile-tab" data-toggle="tab" href="#nav-profile" role="tab" aria-controls="nav-profile" aria-selected="false">Management</a>
+                        <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Computer Science</a>
+                      </div>
+                    </nav>
+                    <div class="tab-content" id="nav-tabContent">
+                      <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
+
+                        <table class="table table-hover table-striped">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">ID Number</th>
+                              <th scope="col">Full Name</th>
+                              <th scope="col">Gender</th>
+                              <th scope="col">Department</th>
+                              <th scope="col">Section</th>
+                              <th scope="col">Year</th>
+                              <th scope="col">Semester</th>
+                              <th scope="col">CCPA</th>
+                              <th scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach($students_a as $student)
+                            <tr>
+                              <th scope="row">{{$student->idnumber}}</th>
+                              <td>{{$student->fullname}}</td>
+                              <td>{{$student->gender}}</td>
+                              <td>{{$student->dept_name}}</td>
+                              <td>{{$student->section}}</td>
+                              <td>{{$student->year}}</td>
+                              <td>{{$student->semester}}</td>
+                              <td>{{$student->cgpa}}</td>
+                              <td>
+                                <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-primary btn-sm">See Detail</a>
+                              </td>
+                            </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+
+                      </div>
+                      <div class="tab-pane fade" id="nav-profile" role="tabpanel" aria-labelledby="nav-profile-tab">
+
+                        <table class="table table-hover table-striped">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">ID Number</th>
+                              <th scope="col">Full Name</th>
+                              <th scope="col">Gender</th>
+                              <th scope="col">Department</th>
+                              <th scope="col">Section</th>
+                              <th scope="col">Year</th>
+                              <th scope="col">Semester</th>
+                              <th scope="col">CCPA</th>
+                              <th scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach($students_m as $student)
+                            <tr>
+                              <th scope="row">{{$student->idnumber}}</th>
+                              <td>{{$student->fullname}}</td>
+                              <td>{{$student->gender}}</td>
+                              <td>{{$student->dept_name}}</td>
+                              <td>{{$student->section}}</td>
+                              <td>{{$student->year}}</td>
+                              <td>{{$student->semester}}</td>
+                              <td>{{$student->cgpa}}</td>
+                              <td>
+                                <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-primary btn-sm">See Detail</a>
+                              </td>
+                            </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+
+                      </div>
+                      <div class="tab-pane fade" id="nav-contact" role="tabpanel" aria-labelledby="nav-contact-tab">
+
+                        <table class="table table-hover table-striped">
+                          <thead class="thead-dark">
+                            <tr>
+                              <th scope="col">ID Number</th>
+                              <th scope="col">Full Name</th>
+                              <th scope="col">Gender</th>
+                              <th scope="col">Department</th>
+                              <th scope="col">Section</th>
+                              <th scope="col">Year</th>
+                              <th scope="col">Semester</th>
+                              <th scope="col">CCPA</th>
+                              <th scope="col"></th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            @foreach($students_c as $student)
+                            <tr>
+                              <th scope="row">{{$student->idnumber}}</th>
+                              <td>{{$student->fullname}}</td>
+                              <td>{{$student->gender}}</td>
+                              <td>{{$student->dept_name}}</td>
+                              <td>{{$student->section}}</td>
+                              <td>{{$student->year}}</td>
+                              <td>{{$student->semester}}</td>
+                              <td>{{$student->cgpa}}</td>
+                              <td>
+                                <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-primary btn-sm">See Detail</a>
+                              </td>
+                            </tr>
+                            @endforeach
+                          </tbody>
+                        </table>
+
+                      </div>
+                    </div>
+
+
+                    
                   </div>
                 </div><br><br>
-                <table class="table table-hover table-striped">
-                  <thead class="thead-dark">
-                    <tr>
-                      <th scope="col">ID Number</th>
-                      <th scope="col">Full Name</th>
-                      <th scope="col">Gender</th>
-                      <th scope="col">Department</th>
-                      <th scope="col">Year</th>
-                      <th scope="col">Semester</th>
-                      <th scope="col">CCPA</th>
-                      <th scope="col"></th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach($students as $student)
-                    <tr>
-                      <th scope="row">{{$student->idnumber}}</th>
-                      <td>{{$student->fullname}}</td>
-                      <td>{{$student->gender}}</td>
-                      <td>{{$student->dept_name}}</td>
-                      <td>{{$student->year}}</td>
-                      <td>{{$student->semester}}</td>
-                      <td>{{$student->cgpa}}</td>
-                      <td>
-                        <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-primary btn-sm">See Detail</a>
-                      </td>
-                    </tr>
-                    @endforeach
-                  </tbody>
-                </table>
+                
               </div>
               </div>
             </div>

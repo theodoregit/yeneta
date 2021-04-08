@@ -86,7 +86,6 @@
         <div class="container">
           <div class="row justify-content-center">
             <div class="col-md-9">
-              <div class="row">
                 <div class="panel panel-default">
                 <p><b><SPAN STYLE="color: blue; font-size: 40pt">Create Announcement</SPAN></b></p>
 
@@ -102,7 +101,7 @@
                 </div>
               <div class="tab-content" id="myTabcontent">
                 <div class="tab-pane fade show active" id="createannouncement" role="tabpanel" aria-labelledby="createannouncement-tab">
-                  <form action="{{route('announcementstore')}}" method="POST" enctype="multipart/form-data">
+                  <form action="{{route('announcement.store')}} " method="POST" enctype="multipart/form-data">
                     {{ csrf_field() }}
                       <div class="form-row mt-3">
                           <div class="form-group col-md-4">
@@ -127,10 +126,10 @@
                           <textarea class="form-control" id="content" rows="5" cols="5" name="details"></textarea>
                       </div>
                       <button type="submit" class="btn btn-primary">Post</button>
-                  </form>
+                    </form>
                 </div>
-
-                <div class="tab-pane fade mt-3" id="readannouncements" role="tabpanel" aria-labelledby="read-announcements-tab">
+              
+                <div class="tab-pane fade show mt-3" id="readannouncements" role="tabpanel" aria-labelledby="read-announcements-tab">
                   <table class="table table-striped">
                     <thead class="table-dark">
                       <tr>
@@ -145,10 +144,10 @@
                     <tbody>
                       @foreach ($announcements as $announcement)
                           <tr>
-                            <th scope="row">{{$announcement->id}}</th>
+                            <th scope="row">{{$announcement->id}}</</th>
                             <td>{{$announcement->title}}</td>
                             <td>{{$announcement->content}}</td>
-                            <td>{{$announcement->Fileuploaded}}</td>
+                            <td><img src="{{$announcement->FileUploaded}}" alt="{{$announcement->title}}" width="90px" height="90px"></td>
                             <td>{{$announcement->CreatedFor}}</td>
                             <td>{{$announcement->CreatedBy}}</td>
                           </tr>
@@ -158,7 +157,7 @@
               </div>
             </div>
             </div>
-          </div>
+          
         </div>
       </div>  
   </div>

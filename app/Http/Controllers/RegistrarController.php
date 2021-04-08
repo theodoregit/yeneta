@@ -167,28 +167,31 @@ class RegistrarController extends Controller
     public function announcement(){
         return view('yeneta.registrar.announcement')->with('announcements', Announcement::all());
     }
+    public function testing(){
+        return view('yeneta.registrar.testing');
+    }
     public function announcementstore(Request $request){
         $this->validate($request, [
             'title' => 'required',
-            'content' => 'required',
+            'details' => 'required',
             'CreatedFor' => 'required',
         ]);
-        $fileuploaded = $request->fileuploaded;
+        
+        $fileuploaded = $request->file('fileuploaded');
         $fileuploaded_new_name = time().$fileuploaded->getClientOriginalName();
         $fileuploaded -> move('uploads/filetransfer', $fileuploaded_new_name);
 
         $announcement = new Announcement;
-        $announcement -> title = $request->title;
-        $announcement -> content = $request->content;
         $announcement -> CreatedFor = $request->CreatedFor;
+        $announcement -> title = $request->title;
+        $announcement -> details  = $request->details;
         $announcement -> fileuploaded ='uploads/announcements'.$fileupload_new_name;
         $announcement -> CreatedBy = 'registrar';
         $announcement->save();
     return redirect()->back();
-
     }
     public function filetransfer(){
-        return view('yeneta.registrar.filetransfer');
+        return view('yeneta.registrar.filetransfer')->with('files',FileTransfer::all());
     }
     public function filetransferstore(Request $request){
         $this->validate($request, [

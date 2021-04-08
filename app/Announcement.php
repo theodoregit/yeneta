@@ -12,4 +12,7 @@ class  Announcement extends Model
         'CreatedFor',
         'FileUploaded'
     ];
+    public function getFileUploadedAttribute($FileUploaded){
+        return asset($FileUploaded);
+    }
 }

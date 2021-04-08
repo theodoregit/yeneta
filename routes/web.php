@@ -28,7 +28,7 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/grades', 'RegistrarController@viewGrades')->name('gradesR');
     Route::get('/payment', 'RegistrarController@payment')->name('payment');
     Route::get('/announcement', 'RegistrarController@announcement')->name('announcements');
-    Route::post('/announcement/store', 'RegistrarController@announcementstore')->name('announcementstore');
+    Route::post('/announcement/store', 'RegistrarController@announcementstore')->name('announcement.store');
 
     Route::get('/studentsList', 'RegistrarController@listStudents')->name('studentsList');
     Route::get('/student-detail/{idnumber}', 'RegistrarController@studentDetail')->name('studentdetail');

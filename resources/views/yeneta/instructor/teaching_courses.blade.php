@@ -85,7 +85,7 @@
           <div class="row justify-content-center">
             <div class="col-md-12">
               <div class="row">
-                <!-- <div class="row">
+                <div class="row">
                   <form action="{{route('teaching_courses')}}" method="post" class="form-inline">
                     {{ csrf_field() }}
                     <div class="form-group mx-sm-3 mb-2">
@@ -98,7 +98,7 @@
                     </div>
                     <button type="submit" class="btn btn-primary mb-2">Select</button>
                   </form>
-                </div>             -->
+                </div>            
                 <table class="table table-hover table-striped">
                   <thead class="thead-dark">
                     <tr>
@@ -113,10 +113,6 @@
                   </thead>
                   <tbody>
                     @foreach($students as $student)
-                    <?php
-                      $id_table = preg_replace("/[^a-zA-Z0-9\s]/", "", $student->idnumber);
-                      
-                    ?>
                     <tr>
                       <th scope="row">{{$student->idnumber}}</th>
                       <td>{{$student->fullname}}</td>
@@ -146,15 +142,6 @@
                                 @if(1==1)
                                 <form action="{{route('submitGrades', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" method="post">
                                   {{csrf_field()}}
-                                  
-                                  <div class="form-group mx-sm-3 mb-2">
-                                      <select name="course" class="form-control" id="">
-                                        <option value="">--Select Course--</option>
-                                        @foreach($courses as $course)
-                                        <option value="{{$course->course}}">{{$course->course}}</option>
-                                        @endforeach
-                                      </select>
-                                    </div>
                                   <div class="row">
                                     <div class="col-md-4">
                                       <label for="assessment">Assessment</label>

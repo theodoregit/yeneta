@@ -92,7 +92,8 @@ class RegistrarController extends Controller
                                     'mid_exam' => 0.0,
                                     'final_exam' => 0.0,
                                     'total' => 0.0,
-                                    'grade_type' => 'NG');
+                                    'grade_type' => 'NG',
+                                    'isPassed' => 0);
                     DB::table($std)->insert($values);
                 }
                 // dd($values);
@@ -111,7 +112,8 @@ class RegistrarController extends Controller
                                     'mid_exam' => 0.0,
                                     'final_exam' => 0.0,
                                     'total' => 0.0,
-                                    'grade_type' => 'NG');
+                                    'grade_type' => 'NG',
+                                    'isPassed' => 0);
                     DB::table($std)->insert($values);
                 }
                 // dd($comp->all());
@@ -130,7 +132,8 @@ class RegistrarController extends Controller
                                     'mid_exam' => 0.0,
                                     'final_exam' => 0.0,
                                     'total' => 0.0,
-                                    'grade_type' => 'NG');
+                                    'grade_type' => 'NG',
+                                    'isPassed' => 0);
                     DB::table($std)->insert($values);
                 }
                 break;

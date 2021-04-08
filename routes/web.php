@@ -47,8 +47,9 @@ Route::prefix('yeneta/instructor')->group(function(){
     Route::get('/students', 'InstructorController@viewStudents')->name('students');
     Route::get('/studentsGrades', 'InstructorController@fillGrades')->name('studentsGrades');
     Route::get('/announcement', 'InstructorController@announcement')->name('announcement');
-
+    
     Route::post('/submitGrades/{idnumber}', 'InstructorController@submitGrades')->name('submitGrades');
+    Route::post('/teaching_courses', 'InstructorController@teachingCourses')->name('teaching_courses');
 });
 
 Route::prefix('yeneta/student')->group(function(){

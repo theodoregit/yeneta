@@ -20,6 +20,14 @@ class InstructorTableSeeder extends Seeder
             'email' => 'worku@gmail.com',
         ]);
         App\Instructor::create([
+            'fullname' => 'workneh tesema adefris',
+            'employee_id' => 'ins/023/10',
+            'department' => 'management',
+            'course' => 'Anthropology',
+            'phone_number' => '+251-945259636',
+            'email' => 'worku@gmail.com',
+        ]);
+        App\Instructor::create([
             'fullname' => 'alemu chanie abtie',
             'employee_id' => 'ins/024/10',
             'department' => 'computer science',

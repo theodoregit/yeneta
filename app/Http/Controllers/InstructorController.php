@@ -40,15 +40,19 @@ class InstructorController extends Controller
         // echo $department;
         $students = Student::where('dept_name', '=', $department)->get();
         // dd($students);
+        
+        $student_table = array();        
         foreach($students as $student){
             $student = preg_replace("/[^a-zA-Z0-9\s]/", "", $student->idnumber);
-            echo $student . '</br>';
+            $student = DB::table($student)->where('isPassed', 0)->get();
+            array_push($student_table, $student);       
         }
+
         $courses = Instructor::where('email', '=', $user)->get();
-        // echo count($courses);
 
         // return view('yeneta.instructor.students')
         //             ->with('students', $students)
+        //             ->with('enrolled', $student_table)
         //             ->with('courses', $courses);
     }
     public function teachingCourses(){

@@ -18,7 +18,8 @@ class CreateTables {
             mid_exam FLOAT NOT NULL,
             final_exam FLOAT NOT NULL,
             total FLOAT NOT NULL,
-            grade_type VARCHAR(30) NOT NULL
+            grade_type VARCHAR(30) NOT NULL,
+            isPassed INT NOT NULL
             )";
             
         if ($conn->query($sql) === TRUE) {

@@ -35,13 +35,24 @@ class InstructorController extends Controller
     }
     public function viewStudents(){
         $user = Auth::user()->email;
-        $department = Instructor::where('email', '=', $user)->pluck('department');
-        $department = preg_replace("/[^a-zA-Z0-9\s]/", "", $department);
-
+        $department = Instructor::where('email', '=', $user)->pluck('department');        
+        $department = preg_replace("/[^a-zA-Z0-9\s]/", "", $department[0]);
+        // echo $department;
         $students = Student::where('dept_name', '=', $department)->get();
         // dd($students);
-        return view('yeneta.instructor.students')
-                    ->with('students', $students);
+        foreach($students as $student){
+            $student = preg_replace("/[^a-zA-Z0-9\s]/", "", $student->idnumber);
+            echo $student . '</br>';
+        }
+        $courses = Instructor::where('email', '=', $user)->get();
+        // echo count($courses);
+
+        // return view('yeneta.instructor.students')
+        //             ->with('students', $students)
+        //             ->with('courses', $courses);
+    }
+    public function teachingCourses(){
+        return view('yeneta.instructor.teaching_courses');
     }
     public function fillgrades(){
         $loop = ['1', '2', '3', '4'];
@@ -97,7 +108,8 @@ class InstructorController extends Controller
         $user = Auth::user()->email;
         $course = Instructor::where('email', '=', $user)->pluck('course');
         $course = preg_replace("/[^a-zA-Z0-9\s]/", "", $course);
-
+        
+        // dd($course);
         DB::table($idnumber)->where('course_name',$course)->update($values);
         
         return redirect()->back();

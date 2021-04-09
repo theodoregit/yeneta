@@ -29,6 +29,8 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/payment', 'RegistrarController@payment')->name('payment');
     Route::get('/announcement', 'RegistrarController@announcement')->name('announcements');
     Route::post('/announcement/store', 'RegistrarController@announcementstore')->name('announcement.store');
+    Route::post('/announcement/edit{id}','RegistrarController@announcementedit')->name('announcement.edit');
+    Route::get('/announcement/delete/{id}','RegistrarController@announcementdelete')->name('announcement.delete');
 
     Route::get('/studentsList', 'RegistrarController@listStudents')->name('studentsList');
     Route::get('/student-detail/{idnumber}', 'RegistrarController@studentDetail')->name('studentdetail');
@@ -51,12 +53,7 @@ Route::prefix('yeneta/instructor')->group(function(){
     Route::get('/students', 'InstructorController@viewStudents')->name('students');
     Route::get('/studentsGrades', 'InstructorController@fillGrades')->name('studentsGrades');
     Route::get('/announcement', 'InstructorController@announcement')->name('announcement');
-<<<<<<< HEAD
     Route::get('/massassignment', 'InstructorController@massassignment')->name('massassignment');
-
-=======
-    
->>>>>>> 1a5676c83f15569ca661ac0b4c3f74ec37dfba82
     Route::post('/submitGrades/{idnumber}', 'InstructorController@submitGrades')->name('submitGrades');
     Route::post('/teaching_courses', 'InstructorController@teachingCourses')->name('teaching_courses');
 });

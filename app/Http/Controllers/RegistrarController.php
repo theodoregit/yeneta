@@ -180,21 +180,47 @@ class RegistrarController extends Controller
     public function announcementstore(Request $request){
         $this->validate($request, [
             'title' => 'required',
-            'details' => 'required',
+            'content' => 'required',
             'CreatedFor' => 'required',
+            'deadline' => 'required',
         ]);
-        
-        $fileuploaded = $request->file('fileuploaded');
-        $fileuploaded_new_name = time().$fileuploaded->getClientOriginalName();
-        $fileuploaded -> move('uploads/filetransfer', $fileuploaded_new_name);
 
         $announcement = new Announcement;
         $announcement -> CreatedFor = $request->CreatedFor;
         $announcement -> title = $request->title;
-        $announcement -> details  = $request->details;
-        $announcement -> fileuploaded ='uploads/announcements'.$fileupload_new_name;
+        $announcement -> content  = $request->content;
         $announcement -> CreatedBy = 'registrar';
+        $announcement -> deadline = $request->deadline;
+
+        if($request->FileUploaded){
+            $FileUploaded = $request->FileUploaded;
+            $FileUploaded_new_name = time().$FileUploaded->getClientOriginalName();
+            $FileUploaded -> move('uploads/announcements', $FileUploaded_new_name);
+
+            $announcement -> FileUploaded ='uploads/announcements'.$FileUploaded_new_name;
+        }
+
         $announcement->save();
+    return redirect()->back();
+    }
+    public function announcementedit(Request $request,$id){
+        $this->validate($request,[
+            'title'=>'required'
+        ]);
+
+            $announcement = Announcement::find($id);
+            $announcement -> CreatedFor = $request->CreatedFor;
+            $announcement -> title = $request->title;
+            $announcement -> content  = $request->content;
+            $announcement -> deadline = $request->deadline;
+            $announcement-> CreatedBy = 'Registrar';
+            $announcement->save();
+            
+    return redirect()->back();
+    }
+    public function announcementdelete($id){
+        $announcement = Announcement::find($id);
+        $announcement->delete();
     return redirect()->back();
     }
     public function filetransfer(){

@@ -105,11 +105,12 @@
                     {{ csrf_field() }}
                       <div class="form-row mt-3">
                           <div class="form-group col-md-4">
-                              <label for="filetransferreceiver" class="form-label">Who can read</label>
+                              <label for="CreatedFor" class="form-label">Who can read</label>
                               <select class="form-control" aria-label="Default select example" id="CreatedFor" name="CreatedFor">
                                   <option selected>Send to</option>
-                                  <option value="finance">Student</option>
-                                  <option value="instructor">Instructor</option>
+                                  <option value="Student">Student</option>
+                                  <option value="Instructor">Instructor</option>
+                                  <option value="Other Employees">Other Employees</option>
                               </select>
                           </div>
                           <div class="form-group col-md-4">
@@ -117,13 +118,20 @@
                               <input type="text" class="form-control" id="title" placeholder="ex. letter" name="title">
                           </div>
                           <div class="form-group col-md-4">
-                              <label for="fileupload" class="form-label">Add File</label>
+                              <label for="FileUploaded" class="form-label">Add File</label>
                               <input type="file" class="form-control" id="FileUploaded" name="FileUploaded">
                           </div>
                       </div>
-                      <div class="mb-3">
+                      
+                      <div class="form-row">
+                        <div class="form-group col-md-9">
                           <label for="content" class="form-label">Content</label>
-                          <textarea class="form-control" id="content" rows="5" cols="5" name="details"></textarea>
+                          <textarea class="form-control" id="content" rows="5" cols="5" name="content"></textarea>
+                      </div>
+                      <div class="form-group col-md-3">
+                        <label for="deadline" class="form-label">Deadline</label>
+                        <input type="date" name="deadline" id="deadline" name="deadline">
+                      </div>
                       </div>
                       <button type="submit" class="btn btn-primary">Post</button>
                     </form>
@@ -138,7 +146,11 @@
                         <th scope="col">Content</th>
                         <th scope="col">Uploaded File</th>
                         <th scope="col">Created For</th>
-                        <th scope="col">Craeted By</th>
+                        <th scope="col">Created By</th>
+                        <th scope="col">Created At</th>
+                        <th scope="col">Deadline</th>
+                        <th scope="col"></th>
+                        <th scope="col"></th>
                       </tr>
                     </thead>
                     <tbody>
@@ -150,6 +162,70 @@
                             <td><img src="{{$announcement->FileUploaded}}" alt="{{$announcement->title}}" width="90px" height="90px"></td>
                             <td>{{$announcement->CreatedFor}}</td>
                             <td>{{$announcement->CreatedBy}}</td>
+                            <td>{{$announcement->created_at}}</td>
+                            <td>{{$announcement->deadline}}</td>
+                            <td>
+                                <!-- Button trigger modal -->
+                                <a type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal{{$announcement->id}}">Edit</a>
+                                <!-- Button trigger modal -->
+              
+                                <!-- Modal -->
+                                  <div class="modal fade" id="myModal{{$announcement->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h4 class="modal-title" id="myModalLabel">Editing <span style="color: yellowgreen">{{$announcement->title}}</span></h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <form method = "POST" action="{{route('announcement.edit', ['id' => $announcement->id])}}">
+                                              <div class="panel panel-default">    
+                                                {{ csrf_field() }}
+                                                <div class="form-group">
+                                                  <div class="form-row mt-3">
+                                                    <div class="form-group col-md-4">
+                                                        <label for="CreatedFor" class="form-label">Who can read</label>
+                                                        <select class="form-control" aria-label="Default select example" id="CreatedFor" name="CreatedFor">
+                                                            <option selected>{{$announcement->CreatedFor}}</option>
+                                                            <option value="Student">Student</option>
+                                                            <option value="Instructor">Instructor</option>
+                                                            <option value="Other Employees">Other Employees</option>
+                                                        </select>
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="title" class="form-label">Title</label>
+                                                        <input type="text" class="form-control" value="{{$announcement->title}}" id="title" placeholder="ex. letter" name="title">
+                                                    </div>
+                                                    <div class="form-group col-md-4">
+                                                        <label for="FileUploaded" class="form-label">Add File</label>
+                                                        <input type="file" class="form-control" value="{{$announcement->FileUploaded}}" id="FileUploaded" name="FileUploaded">
+                                                    </div>
+                                                </div>
+                                                
+                                                <div class="form-row">
+                                                  <div class="form-group col-md-8">
+                                                    <label for="content" class="form-label">Content</label>
+                                                    <textarea class="form-control" id="content" rows="5" cols="5" name="content">{{$announcement->content}}</textarea>
+                                                </div>
+                                                <div class="form-group col-md-4">
+                                                  <label for="deadline" class="form-label">Deadline</label>
+                                                  <input type="date" class="form-control" value="{{$announcement->deadline}}" name="deadline" id="deadline" name="deadline">
+                                                </div>
+                                                </div>
+                                                </div>
+                                              </div>
+                                              <div class="modal-footer">
+                                              <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                                  <button type="submit" class="btn btn-primary">Save changes</button>
+                                              </div>
+                                          </form>
+                                        </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                               <!-- Modal -->
+                            </td>
+                            <td><a href="{{route('announcement.delete', ['id' => $announcement->id])}} " class="btn btn-danger btn-sm">Delete</a></td>
                           </tr>
                       @endforeach
                     </tbody>

@@ -131,10 +131,6 @@
                   </thead>
                   <tbody>
                     @foreach($students as $student)
-                    <?php
-                      $id_table = preg_replace("/[^a-zA-Z0-9\s]/", "", $student->idnumber);
-                      
-                    ?>
                     <tr>
                       <th scope="row">{{$student->idnumber}}</th>
                       <td>{{$student->fullname}}</td>

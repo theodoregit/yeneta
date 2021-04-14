@@ -172,7 +172,8 @@ class RegistrarController extends Controller
         return view('yeneta.registrar.payment')->with('students', Student::all());
     }
     public function announcement(){
-        return view('yeneta.registrar.announcement')->with('announcements', Announcement::all());
+        return view('yeneta.registrar.announcement')->with('announcements', Announcement::all())
+                                                    ->with('viewer', 'registrar');
     }
     public function testing(){
         return view('yeneta.registrar.testing');
@@ -249,6 +250,16 @@ class RegistrarController extends Controller
             $filetransfer->save();
         
         return redirect()->back();
+    }
+    public function search(Request $request){
+        $search = $request->input('search');
+
+        $students = Student::query()
+                    ->Where('fullname', 'LIKE' ,"%{$search}%")
+                    ->orWhere('idnumber', 'LIKE', "%{$search}%")
+                    ->get();
+
+        return view('yeneta.registrar.SearchStudent', compact('students'));
     }
 
     

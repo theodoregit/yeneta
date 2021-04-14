@@ -95,6 +95,17 @@
             <div class="col-md-9 w-auto">
               <div class="row">
                 <h2>Payment</h2> 
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span>
+                        <label for="search">search</label>
+                        <input type="text" name="paymentsearch" id="paymentsearch" class="form-control float-right">
+                        <span> <i class="glyphicon glyphicon-search"></i></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
                 <div class="table-responsive">
                   <table class="table table-fixed w-auto table-hover table-bordered">
                     <thead>
@@ -213,6 +224,10 @@
                     </tbody>
                   </table>
                 </div>
+                <div style="height: 15px;"></div>
+                <a href="#" class="btn btn-sm btn-primary">
+                  <i class="glyphicon glyphicon-home"></i>Take Me Home
+                </a>
               </div>
             </div>
 

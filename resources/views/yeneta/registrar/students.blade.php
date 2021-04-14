@@ -86,26 +86,16 @@
             <div class="col-md-11">
               <div class="row">
                 <div class="row">
-<<<<<<< HEAD
-                  <div class="col-md-11">
-                    <form action="">
-                    <div class="panel panel-default">
-                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
-                <p><b><i><SPAN STYLE="color: blue; font-size: 40pt; font-family: Times New Roman">Students List</SPAN></i></b></p>
-                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
-                      {{ csrf_field() }}
-                      <div class="row">
-                        <div class="col-md-9">
-                          <input type="text" class="form-control" name="search" id="" placeholder="Search here...">
-                        </div>
-                        <div class="col-md-3">
-                          <button type="submit" class="btn btn-primary">Search</button>
-                        </div>
-                      </div>                      
-                    </form>
-=======
                   <div class="col-md-12">
-
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <form action="{{route('search')}}">
+                            <input type="text" name="search" id="search" placeholder="search" required>
+                            <span class="glyphicon glyphicon-search"></span>
+                            <button type="submit">search</button>
+                          </form>
+                        </div>
+                      </div>
                     <nav>
                       <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Accounting</a>
@@ -113,6 +103,9 @@
                         <a class="nav-item nav-link" id="nav-contact-tab" data-toggle="tab" href="#nav-contact" role="tab" aria-controls="nav-contact" aria-selected="false">Computer Science</a>
                       </div>
                     </nav>
+                    <div>
+                      </div>
+                    </div>
                     <div class="tab-content" id="nav-tabContent">
                       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
 
@@ -226,7 +219,6 @@
 
 
                     
->>>>>>> 1a5676c83f15569ca661ac0b4c3f74ec37dfba82
                   </div>
                 </div><br><br>
                 

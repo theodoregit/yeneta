@@ -15,12 +15,6 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::post('/login', 'Auth\RegistrarLoginController@login')->name('registrar.login.submit');
     
 
-    Route::post('/create/todo','TodoController@store')->name('registrar.store.todo');
-    Route::get('/delete/todo/{id}','TodoController@destroy')->name('registrar.delete.todo');
-    Route::post('/update/todo/{id}','TodoController@update')->name('registrar.update.todo');
-    Route::get('/completed/todo/{id}','TodoController@completed')->name('registrar.completed.todo');
-    Route::get('/uncompleted/todo/{id}','TodoController@uncompleted')->name('registrar.uncompleted.todo');
-
     Route::get('/', 'RegistrarController@index')->name('registrar'); 
     Route::get('/register', 'RegistrarController@registerStudent')->name('register');
     Route::post('/register', 'RegistrarController@registerStudentStore')->name('register.store');
@@ -41,7 +35,7 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/filetransfer', 'RegistrarController@filetransfer')->name('filetransfer');
     Route::post('/filetransfer/store', 'RegistrarController@filetransferstore')->name('filetransferstore');
 
-    
+    Route::get('/search' , 'RegistrarController@search')->name('search');    
 });
 
 Route::prefix('yeneta/instructor')->group(function(){
@@ -85,4 +79,10 @@ Route::prefix('yeneta/finance')->group(function(){
     Route::get('/statistics', 'FinanceController@stats')->name('statisticsF');
     Route::get('/payemts', 'FinanceController@payments')->name('paymentsF');
 });
+
+Route::post('/create/todo','TodoController@store')->name('registrar.store.todo');
+Route::get('/delete/todo/{id}','TodoController@destroy')->name('registrar.delete.todo');
+Route::post('/update/todo/{id}','TodoController@update')->name('registrar.update.todo');
+Route::get('/completed/todo/{id}','TodoController@completed')->name('registrar.completed.todo');
+Route::get('/uncompleted/todo/{id}','TodoController@uncompleted')->name('registrar.uncompleted.todo');
 

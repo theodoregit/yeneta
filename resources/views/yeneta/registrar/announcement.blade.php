@@ -106,12 +106,19 @@
                       <div class="form-row mt-3">
                           <div class="form-group col-md-4">
                               <label for="CreatedFor" class="form-label">Who can read</label>
+                              @if ($viewer == 'instructor')
                               <select class="form-control" aria-label="Default select example" id="CreatedFor" name="CreatedFor">
-                                  <option selected>Send to</option>
-                                  <option value="Student">Student</option>
-                                  <option value="Instructor">Instructor</option>
-                                  <option value="Other Employees">Other Employees</option>
-                              </select>
+                                <option selected>Send to</option>
+                                <option value="Student">Student</option>
+                            </select>
+                              @else
+                              <select class="form-control" aria-label="Default select example" id="CreatedFor" name="CreatedFor">
+                                <option selected>Send to</option>
+                                <option value="Student">Student</option>
+                                <option value="Instructor">Instructor</option>
+                                <option value="Other Employees">Other Employees</option>
+                            </select>
+                              @endif
                           </div>
                           <div class="form-group col-md-4">
                               <label for="title" class="form-label">Title</label>
@@ -154,7 +161,6 @@
                       </tr>
                     </thead>
                     <tbody>
-                      @foreach ($announcements as $announcement)
                           <tr>
                             <th scope="row">{{$announcement->id}}</</th>
                             <td>{{$announcement->title}}</td>

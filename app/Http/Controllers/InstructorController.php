@@ -8,6 +8,7 @@ use App\Custom\HelperClass;
 use DB;
 use App\Instructor;
 use Auth;
+use App\Announcement;
 
 class InstructorController extends Controller
 {
@@ -64,7 +65,8 @@ class InstructorController extends Controller
                     ->with('loops', $loop);
     }
     public function announcement(){
-        return view('yeneta.instructor.announcement');
+        return view('yeneta.registrar.announcement')->with('announcements', Announcement::all())
+                                                    ->with('viewer', 'instructor');
     }
     public function submitGrades(Request $request, $idnumber){
         $assessment = $request->assessment;

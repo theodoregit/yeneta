@@ -66,9 +66,11 @@ Route::prefix('yeneta/dean')->group(function(){
     Route::post('/login', 'Auth\DeanLoginController@login')->name('dean.login.submit');
 
     Route::get('/', 'DeanController@index')->name('index');
-    Route::get('/statistics', 'DeanController@viewStats')->name('statistics');
+    //Route::get('/statistics', 'DeanController@viewStats')->name('statistics');
     Route::get('/studentsGrades', 'DeanController@viewGrades')->name('grades');
     Route::get('/payments', 'DeanController@viewPayment')->name('payments');
+
+    Route::get('/statistics', 'ChartController@index')->name('statistics');
 });
 
 Route::prefix('yeneta/finance')->group(function(){

@@ -84,11 +84,22 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-                Reports
+                {!! $chart->html() !!}
+
+                {!! $pie_charts->html() !!}
+
+                {!! $dept->html() !!}
+
+                {!! $stud_gender->html() !!}
+
               </div>
             </div>
 
-
+            {!! charts::scripts() !!}
+            {!! $chart->script() !!}
+            {!! $pie_charts->script() !!}
+            {!! $dept->script() !!}
+            {!! $stud_gender->script() !!}
           </div>
         </div>
       </div>  

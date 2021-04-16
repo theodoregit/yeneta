@@ -165,8 +165,8 @@ class RegistrarController extends Controller
         return view('yeneta.registrar.student-detail')
                     ->with('students', $students);
     }
-    public function viewGrades(){
-        return view('yeneta.registrar.grades');
+    public function assignInstructors(){
+        return view('yeneta.registrar.assign');
     }
     public function payment(){
         return view('yeneta.registrar.payment')->with('students', Student::all());
@@ -260,6 +260,15 @@ class RegistrarController extends Controller
                     ->get();
 
         return view('yeneta.registrar.SearchStudent', compact('students'));
+    }
+
+    public function search(Request $request){
+        $this->validate($request, [
+            'query' => 'required',
+        ]);
+        $results = Student::where('idnumber', 'like', '%' . request('query') . '%')->get();
+        // dd($results[0]->fullname);
+        return view('yeneta.registrar.results')->with('results', $results);
     }
 
     

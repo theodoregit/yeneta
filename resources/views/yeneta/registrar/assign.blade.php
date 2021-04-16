@@ -57,7 +57,7 @@
             <li><a href="{{route('registrar')}}" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
             <li><a href="{{route('register')}}" class="d-flex align-items-center"><span class="wrap-icon icon-file-text mr-3"></span><span class="menu-text">Register</span></a></li>
             <li><a href="{{route('studentsList')}}" class="d-flex align-items-center"><span class="wrap-icon icon-table mr-3"></span><span class="menu-text">Students</span></a></li>
-            <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grades</span></a></li>
+            <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-male mr-3"></span><span class="menu-text">Assign</span></a></li>
             <li><a href="{{route('paymentR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payment</span></a></li>
             <li><a href="{{route('announcementsR')}}" class="d-flex align-items-center"><span class="wrap-icon icon-volume-up mr-3"></span><span class="menu-text">Announcement</span></a></li>
             <li>
@@ -85,12 +85,17 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
+<<<<<<< HEAD:resources/views/yeneta/registrar/grades.blade.php
               <div class="panel panel-default">
                 <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
                 <p><b><i><SPAN STYLE="color: blue; font-size: 40pt; font-family: Times New Roman">Grades</SPAN></i></b></p>
                 <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
                 <h2>
                   @include('includes.filter-grade')
+=======
+                <h2>                  
+                  Assign
+>>>>>>> 6b36a8d835a30600401409be571d7852457d5d99:resources/views/yeneta/registrar/assign.blade.php
                 </h2>
               </div>
             </div>

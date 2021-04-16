@@ -19,7 +19,7 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/register', 'RegistrarController@registerStudent')->name('register');
     Route::post('/register', 'RegistrarController@registerStudentStore')->name('register.store');
     Route::get('/students', 'RegistrarController@listStudents')->name('studentsList');
-    Route::get('/grades', 'RegistrarController@viewGrades')->name('gradesR');
+    Route::get('/assign', 'RegistrarController@assignInstructors')->name('assign');
     Route::get('/payment', 'RegistrarController@payment')->name('payment');
     Route::get('/announcement', 'RegistrarController@announcement')->name('announcements');
     Route::post('/announcement/store', 'RegistrarController@announcementstore')->name('announcement.store');
@@ -32,10 +32,17 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/payment', 'RegistrarController@payment')->name('paymentR');
     Route::get('/announcements', 'RegistrarController@announcement')->name('announcementsR');
 
+<<<<<<< HEAD
     Route::get('/filetransfer', 'RegistrarController@filetransfer')->name('filetransfer');
     Route::post('/filetransfer/store', 'RegistrarController@filetransferstore')->name('filetransferstore');
 
     Route::get('/search' , 'RegistrarController@search')->name('search');    
+=======
+
+    Route::get('/results', 'RegistrarController@search')->name('results');
+    
+    
+>>>>>>> 6b36a8d835a30600401409be571d7852457d5d99
 });
 
 Route::prefix('yeneta/instructor')->group(function(){

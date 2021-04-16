@@ -90,8 +90,8 @@
                   <div class="col-md-11">                    
                   </div>
                 </div><br><br>
-                <h4>{{$students->fullname}} [<strong>{{$students->idnumber}}</strong>]</h4>
-                @if($students->dept_name == 'computer science')
+                <h4>{{$results[0]->fullname}} [<strong>{{$results[0]->idnumber}}</strong>]</h4>
+                @if($results[0]->dept_name == 'computer science')
                 <table class="table table-hover table-striped">
                   <thead class="thead-dark">
                     <tr>                      
@@ -111,18 +111,18 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">{{$students->dept_name}}</th>
-                      <td>{{$students->year}}</td>
-                      <td>{{$students->semester}}</td>
-                      <td>{{$students->s11gpa}}</td>
-                      <td>{{$students->s12gpa}}</td>
-                      <td>{{$students->s21gpa}}</td>
-                      <td>{{$students->s22gpa}}</td>
-                      <td>{{$students->s31gpa}}</td>
-                      <td>{{$students->s32gpa}}</td>
-                      <td>{{$students->s41gpa}}</td>
-                      <td>{{$students->s42gpa}}</td>
-                      <td>{{$students->cgpa}}</td>                      
+                      <th scope="row">{{$results[0]->dept_name}}</th>
+                      <td>{{$results[0]->year}}</td>
+                      <td>{{$results[0]->semester}}</td>
+                      <td>{{$results[0]->s11gpa}}</td>
+                      <td>{{$results[0]->s12gpa}}</td>
+                      <td>{{$results[0]->s21gpa}}</td>
+                      <td>{{$results[0]->s22gpa}}</td>
+                      <td>{{$results[0]->s31gpa}}</td>
+                      <td>{{$results[0]->s32gpa}}</td>
+                      <td>{{$results[0]->s41gpa}}</td>
+                      <td>{{$results[0]->s42gpa}}</td>
+                      <td>{{$results[0]->cgpa}}</td>                      
                     </tr>
                   </tbody>
                 </table>
@@ -144,16 +144,16 @@
                   </thead>
                   <tbody>
                     <tr>
-                      <th scope="row">{{$students->dept_name}}</th>
-                      <td>{{$students->year}}</td>
-                      <td>{{$students->semester}}</td>
-                      <td>{{$students->s11gpa}}</td>
-                      <td>{{$students->s12gpa}}</td>
-                      <td>{{$students->s21gpa}}</td>
-                      <td>{{$students->s22gpa}}</td>
-                      <td>{{$students->s31gpa}}</td>
-                      <td>{{$students->s32gpa}}</td>
-                      <td>{{$students->cgpa}}</td>                      
+                      <th scope="row">{{$results[0]->dept_name}}</th>
+                      <td>{{$results[0]->year}}</td>
+                      <td>{{$results[0]->semester}}</td>
+                      <td>{{$results[0]->s11gpa}}</td>
+                      <td>{{$results[0]->s12gpa}}</td>
+                      <td>{{$results[0]->s21gpa}}</td>
+                      <td>{{$results[0]->s22gpa}}</td>
+                      <td>{{$results[0]->s31gpa}}</td>
+                      <td>{{$results[0]->s32gpa}}</td>
+                      <td>{{$results[0]->cgpa}}</td>                      
                     </tr>
                   </tbody>
                 </table>

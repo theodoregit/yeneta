@@ -8,6 +8,7 @@ use App\Custom\HelperClass;
 use DB;
 use App\Instructor;
 use Auth;
+use stdClass;
 
 class InstructorController extends Controller
 {
@@ -37,23 +38,29 @@ class InstructorController extends Controller
         $user = Auth::user()->email;
         $department = Instructor::where('email', '=', $user)->pluck('department');        
         $department = preg_replace("/[^a-zA-Z0-9\s]/", "", $department[0]);
-        // echo $department;
-        $students = Student::where('dept_name', '=', $department)->get();
-        // dd($students);
         
-        $student_table = array();        
-        foreach($students as $student){
-            $student = preg_replace("/[^a-zA-Z0-9\s]/", "", $student->idnumber);
-            $student = DB::table($student)->where('isPassed', 0)->get();
-            array_push($student_table, $student);       
-        }
-
         $courses = Instructor::where('email', '=', $user)->get();
+        foreach($courses as $course){
+            $course = $course->course;
+        }
+        $q = '"';
+        
+        $students = Student::where('dept_name', '=', $department)->get();
+        $c = count($students);
+        for ($i=0; $i < $c; $i++) { 
+            $student_t = DB::select('SELECT isPassed FROM ' . preg_replace("/[^a-zA-Z0-9\s]/", "", $students[$i]->idnumber) . ' WHERE course_name = ' . $q . $course . $q);
+            if($student_t[0]->isPassed == 1){
+                unset($students[$i]);                
+            }
+            
+        }
+        
+        
 
-        // return view('yeneta.instructor.students')
-        //             ->with('students', $students)
-        //             ->with('enrolled', $student_table)
-        //             ->with('courses', $courses);
+        return view('yeneta.instructor.students')
+                    ->with('students', $students)
+                    ->with('course', $course)
+                    ->with('courses', $courses);
     }
     public function teachingCourses(){
         return view('yeneta.instructor.teaching_courses');
@@ -67,6 +74,7 @@ class InstructorController extends Controller
         return view('yeneta.instructor.announcement');
     }
     public function submitGrades(Request $request, $idnumber){
+        $course_name = $request->course;
         $assessment = $request->assessment;
         $mid_exam = $request->mid;
         $final_exam = $request->final;
@@ -100,7 +108,8 @@ class InstructorController extends Controller
         }
         else if ($total >= 40) {
             $grade_type = 'D';
-        }else if ($total < 40) {
+        }
+        else if ($total < 40) {
             $grade_type = 'F';
         }
         $values = array('assessment' => $assessment, 
@@ -114,7 +123,7 @@ class InstructorController extends Controller
         $course = preg_replace("/[^a-zA-Z0-9\s]/", "", $course);
         
         // dd($course);
-        DB::table($idnumber)->where('course_name',$course)->update($values);
+        DB::table($idnumber)->where('course_name', $course_name)->update($values);
         
         return redirect()->back();
     }

@@ -5,6 +5,9 @@ class HelperClass {
     public function gpa_calculator($credit_hrs, $grade_type){
         $value = null;
         switch ($grade_type) {
+            case 'A+':
+                $value = $credit_hrs * 4;
+                break;
             case 'A':
                 $value = $credit_hrs * 4;
                 break;

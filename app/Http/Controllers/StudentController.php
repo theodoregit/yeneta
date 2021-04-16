@@ -49,18 +49,20 @@ class StudentController extends Controller
                                     ->where('year', '=', 1)
                                     ->where('semester', '=', 'I')
                                     ->get();
+        // dd($table_1_I);
         //calculating gpas
         //year 1 semester I
-        $gpa = new HelperClass();
-        $credit_hrs_counter = 1;
-        $value = 0;
+        $gpa11 = new HelperClass();
+        $credit_hrs_counter11 = 1;
+        $value11 = 0;
         for ($i=0; $i < count($table_1_I); $i++) { 
-            $value += $gpa->gpa_calculator($table_1_I->pluck('credit_hrs')[$i], $table_1_I->pluck('grade_type')[$i]);
-            $credit_hrs_counter += $table_1_I->pluck('credit_hrs')[$i];
-            // echo $value;
+            $value11 += $gpa11->gpa_calculator($table_1_I->pluck('credit_hrs')[$i], $table_1_I->pluck('grade_type')[$i]);
+            $credit_hrs_counter11 += $table_1_I->pluck('credit_hrs')[$i];
         }
-        $gpa_1_I = round(($value / $credit_hrs_counter), 2);
-        
+        if($credit_hrs_counter11 > 1){
+            $credit_hrs_counter11 -= 1;
+        }
+        $gpa_1_I = round(($value11 / $credit_hrs_counter11), 2);
         //let's insert this gpa to the students table
         $std_gpa11 = Student::where('idnumber', '=', $user)->first();
         $std_gpa11->s11gpa = $gpa_1_I;
@@ -77,11 +79,14 @@ class StudentController extends Controller
         
         $gpa12 = new HelperClass();
         $credit_hrs_counter12 = 1;
-        $value12 = 0;
+        $value12 = 0;        
         for ($i=0; $i < count($table_1_II); $i++) { 
             $value12 += $gpa12->gpa_calculator($table_1_II->pluck('credit_hrs')[$i], $table_1_II->pluck('grade_type')[$i]);
             $credit_hrs_counter12 += $table_1_II->pluck('credit_hrs')[$i];
             // echo $value;
+        }
+        if($credit_hrs_counter12 > 1){
+            $credit_hrs_counter12 -= 1;
         }
         $gpa_1_II = round(($value12 / $credit_hrs_counter12), 2);
         
@@ -100,6 +105,9 @@ class StudentController extends Controller
             $credit_hrs_counter21 += $table_2_I->pluck('credit_hrs')[$i];
             // echo $value;
         }
+        if($credit_hrs_counter21 > 1){
+            $credit_hrs_counter21 -= 1;
+        }
         $gpa_2_I = round(($value21 / $credit_hrs_counter21), 2);
         
         
@@ -116,6 +124,9 @@ class StudentController extends Controller
             $value22 += $gpa->gpa_calculator($table_1_I->pluck('credit_hrs')[$i], $table_2_II->pluck('grade_type')[$i]);
             $credit_hrs_counter22 += $table_2_II->pluck('credit_hrs')[$i];
             // echo $value;
+        }
+        if($credit_hrs_counter22 > 1){
+            $credit_hrs_counter22 -= 1;
         }
         $gpa_2_II = round(($value22 / $credit_hrs_counter22), 2);
 
@@ -134,6 +145,9 @@ class StudentController extends Controller
             $credit_hrs_counter31 += $table_3_I->pluck('credit_hrs')[$i];
             // echo $value;
         }
+        if($credit_hrs_counter31 > 1){
+            $credit_hrs_counter31 -= 1;
+        }
         $gpa_3_I = round(($value31 / $credit_hrs_counter31), 2);
 
 
@@ -150,6 +164,9 @@ class StudentController extends Controller
             $value32 += $gpa->gpa_calculator($table_1_I->pluck('credit_hrs')[$i], $table_3_II->pluck('grade_type')[$i]);
             $credit_hrs_counter32 += $table_3_II->pluck('credit_hrs')[$i];
             // echo $value;
+        }
+        if($credit_hrs_counter32 > 1){
+            $credit_hrs_counter32 -= 1;
         }
         $gpa_3_II = round(($value32 / $credit_hrs_counter32), 2);
 
@@ -168,6 +185,9 @@ class StudentController extends Controller
             $credit_hrs_counter41 += $table_4_I->pluck('credit_hrs')[$i];
             // echo $value;
         }
+        if($credit_hrs_counter41 > 1){
+            $credit_hrs_counter41 -= 1;
+        }
         $gpa_4_I = round(($value41 / $credit_hrs_counter41), 2);
 
 
@@ -184,6 +204,9 @@ class StudentController extends Controller
             $value42 += $gpa->gpa_calculator($table_4_II->pluck('credit_hrs')[$i], $table_4_II->pluck('grade_type')[$i]);
             $credit_hrs_counter42 += $table_4_II->pluck('credit_hrs')[$i];
             // echo $value;
+        }
+        if($credit_hrs_counter42 > 1){
+            $credit_hrs_counter42 -= 1;
         }
         $gpa_4_II = round(($value42 / $credit_hrs_counter42), 2);
 
@@ -275,9 +298,9 @@ class StudentController extends Controller
         
         
         //let's compute the cgpa for all semesters
-        $total_credit_hours = 0;
-        if($credit_hrs_counter > 1){
-            $total_credit_hours += $credit_hrs_counter;
+        $total_credit_hours = 0;        
+        if($credit_hrs_counter11 > 1){
+            $total_credit_hours += $credit_hrs_counter11;
         }
         if($credit_hrs_counter12 > 1){
             $total_credit_hours += $credit_hrs_counter12;
@@ -302,13 +325,14 @@ class StudentController extends Controller
         }
              
         
-        $total_values = $value + $value12 + $value21 + $value22 + $value31 + $value32 + $value41 + $value42;
+        $total_values = $value11 + $value12 + $value21 + $value22 + $value31 + $value32 + $value41 + $value42;
+        
         if($total_credit_hours > 0){
             $cgpa = round(($total_values/$total_credit_hours), 2);
             $std_cgpa = Student::where('idnumber', '=', $user)->first();
             $std_cgpa->cgpa = $cgpa;
             $std_cgpa->save();
-        }        
+        }    
 
         return view('yeneta.student.gradeReport')
                     ->with('fullname', $fullname)

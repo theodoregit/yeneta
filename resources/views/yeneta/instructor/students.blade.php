@@ -122,7 +122,8 @@
                       <td>{{$student->year}} / {{$student->semester}}</td>
                       <td>
                         <!-- Button trigger modal -->
-                        <a href="" class="btn btn-sm btn-primary" data-toggle="modal" data-target="#exampleModalCenter{{$student->id}}">
+                        
+                        <a href="" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModalCenter{{$student->id}}">
                           Fill Grade
                         </a>
 
@@ -154,15 +155,15 @@
                                   <div class="row">
                                     <div class="col-md-4">
                                       <label for="assessment">Assessment</label>
-                                      <input class="form-control" name="assessment" type="number" placeholder="">
+                                      <input class="form-control" value="" name="assessment" type="number" placeholder="">
                                     </div>
                                     <div class="col-md-4">
                                       <label for="mid">Mid Exam</label>
-                                      <input class="form-control" name="mid" type="number" placeholder="">
+                                      <input class="form-control" value="" name="mid" type="number" placeholder="">
                                     </div>
                                     <div class="col-md-4">
                                       <label for="final">Final Exam</label>
-                                      <input class="form-control" name="final" type="number" placeholder="">
+                                      <input class="form-control" value="" name="final" type="number" placeholder="">
                                     </div>
                                   </div>
                                   <div class="modal-footer">

@@ -91,8 +91,9 @@
     <main>
       <div class="site-section">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-9 w-auto">
+        <h3>Payments</h3>
+          <div class="row">
+            <!-- <div class="col-md-12 w-auto">
               <div class="row">
                 <h2>Payment</h2> 
                 <div class="table-responsive">
@@ -214,9 +215,53 @@
                   </table>
                 </div>
               </div>
+            </div> -->            
+            <div class="col-md-3">
+              <form action="{{route('payment_result')}}" method="get">
+                <div class="input-group nav-item">                          
+                  <input type="text" name="query" class="form-control rounded" placeholder="Search" aria-label="Search"
+                    aria-describedby="search-addon" required />
+                  <button type="submit" class="btn btn-outline-primary">search</button>                          
+                </div>
+              </form>
             </div>
-
-
+            <div class="col-md-9">
+              <h4>Unpaid Students</h4>
+                <table class="table table-hover">
+                  <thead>
+                    <tr>
+                      <th scope="col">ID Number</th>
+                      <th scope="col">Full Name</th>
+                      <th scope="col">Department</th>
+                      <th scope="col">Last Paid</th>
+                      <th scope="col">Arrears</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <th scope="row">UR/0966/12</th>
+                      <td>Marko Alonso</td>
+                      <td>Management</td>
+                      <td>07-22-2021</td>
+                      <td>50 ETB</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">UR/0966/12</th>
+                      <td>Marko Alonso</td>
+                      <td>Management</td>
+                      <td>07-22-2021</td>
+                      <td>50 ETB</td>
+                    </tr>
+                    <tr>
+                      <th scope="row">UR/0966/12</th>
+                      <td>Marko Alonso</td>
+                      <td>Management</td>
+                      <td>07-22-2021</td>
+                      <td>50 ETB</td>
+                    </tr>
+                  </tbody>
+                </table>
+            </div>
           </div>
         </div>
       </div>  

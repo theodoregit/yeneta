@@ -132,7 +132,7 @@
                               <td>{{$student->semester}}</td>
                               <td>{{$student->cgpa}}</td>
                               <td>
-                                <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-primary btn-sm">See Detail</a>
+                                <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-outline-primary btn-sm">See Detail</a>
                               </td>
                             </tr>
                             @endforeach
@@ -168,7 +168,7 @@
                               <td>{{$student->semester}}</td>
                               <td>{{$student->cgpa}}</td>
                               <td>
-                                <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-primary btn-sm">See Detail</a>
+                                <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-outline-primary btn-sm">See Detail</a>
                               </td>
                             </tr>
                             @endforeach
@@ -204,7 +204,7 @@
                               <td>{{$student->semester}}</td>
                               <td>{{$student->cgpa}}</td>
                               <td>
-                                <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-primary btn-sm">See Detail</a>
+                                <a href="{{route('studentdetail', ['idnumber' => preg_replace('/[^a-zA-Z0-9\s]/', '', $student->idnumber)])}}" class="btn btn-outline-primary btn-sm">See Detail</a>
                               </td>
                             </tr>
                             @endforeach

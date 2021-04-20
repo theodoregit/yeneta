@@ -141,7 +141,7 @@
                       <td>
                         <!-- Button trigger modal -->
                         
-                        <a href="" class="btn btn-sm btn-success" data-toggle="modal" data-target="#exampleModalCenter{{$student->id}}">
+                        <a href="" class="btn btn-sm btn-outline-success" data-toggle="modal" data-target="#exampleModalCenter{{$student->id}}">
                           Fill Grade
                         </a>
 
@@ -185,8 +185,8 @@
                                     </div>
                                   </div>
                                   <div class="modal-footer">
-                                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="submit" class="btn btn-primary">Save</button>
+                                    <button type="button" class="btn btn-outline-secondary" data-dismiss="modal">Close</button>
+                                    <button type="submit" class="btn btn-outline-primary">Save</button>
                                   </div>
                                 </form>
                                 @else

@@ -31,4 +31,12 @@ class FinanceController extends Controller
     public function payments(){
         return view('yeneta.finance.trackPayment');
     }
+    public function paymentResult(Request $request){
+        // dd($request[0]);
+        foreach($request->query as $query){
+            $query = $query;
+        }
+        return view('yeneta.finance.payment-result')
+                    ->with('query', $query);
+    }
 }

@@ -269,7 +269,7 @@ class RegistrarController extends Controller
             'query' => 'required',
         ]);
         $results = Student::where('idnumber', 'like', '%' . request('query') . '%')->get();
-        // dd($results[0]->fullname);
+       
         return view('yeneta.registrar.results')->with('results', $results);
     }
     public function paymentstore(Request $request)

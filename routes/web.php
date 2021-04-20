@@ -81,6 +81,8 @@ Route::prefix('yeneta/finance')->group(function(){
     Route::get('/', 'FinanceController@index')->name('finance');
     Route::get('/statistics', 'FinanceController@stats')->name('statisticsF');
     Route::get('/payemts', 'FinanceController@payments')->name('paymentsF');
+
+    Route::get('/result', 'FinanceController@paymentResult')->name('payment_result');
 });
 
 Route::post('/create/todo','TodoController@store')->name('registrar.store.todo');

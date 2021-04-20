@@ -80,62 +80,159 @@
       
     </aside>
     <main>
-    
       <div class="site-section">
         <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-9">
-            
-                        </div>
-                        <div class="panel panel-default">
-                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
-                <p><b><i><SPAN STYLE="color: blue; font-size: 40pt; font-family: Times New Roman">Payment</SPAN></i></b></p>
-                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
-              <div class="row">
-                <div class=" container">
-                <input type="text" class="form-control" name="search" id="" placeholder="Search here...">
-
-                   <button type="submit" class="btn btn-primary">Search</button>
-
-                <table class="table table-dark w-auto table-hover table-bordered">
-                  <thead>
-                    <tr>
-                      <th scope="col">Student ID</th>
-                      <th scope="col">Full name</th>
-                      <th scope="col">Paid For</th>
-                      <th scope="col">Last Payment on</th>
-                    </tr>
-                  </thead>
-                  <tbody>
-                    @foreach ($students as $student)
-                    <tr>
-                      <th scope="row">1</th>
-                      <td>{{$student->firstname}} {{$student->middlename}} {{$student->lastname}}</td>
-                      <td>Otto</td>
-                      <td>31 march 2021</td>
-                      <td><a href="" class="btn btn-sm btn-success">pay</a></td>
-                    </tr>
-                    @endforeach
-                    
-                    
-                  </tbody>
-                </table>
+            <div class="row justify-content-center">
+              <div class="row-group col-md-7">
+                <div class="col-md-12">
+                  <div class="panel panel-default">
+                    <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
+                    <p><b><i><SPAN STYLE="color: blue; font-size: 40pt; font-family: Times New Roman">Payment</SPAN></i></b></p>
+                    <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
+                  <div class="row">
+                    <div class=" container">
+                    <input type="text" class="form-control" name="search" id="" placeholder="Search here...">
+    
+                       <button type="submit" class="btn btn-primary">Search</button>
+    
+                    <table class="table table-dark w-auto table-hover table-bordered">
+                      <thead>
+                        <tr>
+                          <th scope="col">Student ID</th>
+                          <th scope="col">Full name</th>
+                          <th scope="col">Paid For</th>
+                          <th scope="col">Amount</th>
+                          <th scope="col">Arrears</th>
+                          <th scope="col">Total</th>
+                          <th scope="col"></th>
+                          <th scope="col"></th>
+                        </tr>
+                      </thead>
+                      <tbody>
+                      @foreach ($payments as $payment)
+                      @php
+                        $gregorian = new DateTime('now');
+                        $ethiopic = Andegna\DateTimeFactory::fromDateTime($gregorian);
+                      @endphp   
+                        <td>{{$payment->idnumber}}</td>
+                        <td>{{$payment->fullname}}</td>
+                        <td>
+                          <select class="form-select" aria-label="Default select example">
+                            
+                            <option selected value={{$ethiopic->format('m')}}>
+                             @if ($ethiopic->format('m') == 1)
+                             January
+                             @elseif ($ethiopic->format('m') == 2)
+                             February
+                             @elseif ($ethiopic->format('m') == 3)
+                             March
+                             @elseif ($ethiopic->format('m') == 4)
+                             April
+                             @elseif ($ethiopic->format('m') == 5)
+                             May
+                             @elseif ($ethiopic->format('m') == 6)
+                             June
+                             @elseif ($ethiopic->format('m') == 7)
+                             July
+                             @elseif ($ethiopic->format('m') == 8)
+                             ሚያዝያ
+                             @elseif ($ethiopic->format('m') == 9)
+                             September
+                             @elseif ($ethiopic->format('m') == 10)
+                             October
+                             @elseif ($ethiopic->format('m') == 11)
+                             November
+                             @elseif ($ethiopic->format('m') == 12)
+                             December
+                             @endif
+                            </option>
+                            <option value="1">September</option>
+                            <option value="2">October</option>
+                            <option value="3">November</option>
+                            <option value="3">December</option>
+                            <option value="3">January</option>
+                            <option value="3">February</option>
+                            <option value="3">March</option>
+                            <option value="3">April</option>
+                            <option value="3">May</option>
+                            <option value="3">June</option>
+                            <option value="3">July</option>
+                            <option value="3">August</option>
+                          </select>
+                        </td>
+                        <td>
+                          @php
+                            if ($payment->dept_name == 'management'){
+                                $amount = 300.0;
+                                echo $amount;
+                              }
+                            elseif ($payment->dept_name == 'accounting'){
+                                $amount = 350.0;
+                                echo $amount;
+                              }
+                            else{
+                                $amount = 400.0;
+                                echo $amount;
+                              }
+                          @endphp
+                        </td>
+                        <td>
+                        @php
+                          if ($ethiopic->format('d') <= 2) {
+                            $arrears = 0.0;
+                            echo $arrears;
+                          } elseif ($ethiopic->format('d') >= 3 && $ethiopic->format('d') <= 7) {
+                            $arrears = 15.0;
+                            echo $arrears;
+                          } elseif ($ethiopic->format('d') >= 8 && $ethiopic->format('d') <= 15) {
+                            $arrears = 50.0;
+                            echo $arrears;
+                          }else{
+                            $temp = 50.0;
+                            for ($i=16; $i <= $ethiopic->format('d'); $i++) { 
+                              $perday = $perday + 5;
+                            }
+                            $arrears = $temp + $perday;
+                            echo $arrears;
+                          }
+                        @endphp
+                        </td>
+                        <td>
+                          @php
+                            $total = $amount + $arrears;
+                            echo $total;
+                          @endphp
+                        </td>
+                        <td>
+                          <button class="btn btn-sm btn-primary">Pay</button>
+                        </td>
+                                                  
+                      @endforeach
+                      </tbody>
+                    </table>
+                  </div>
+                  </div>
+                </div>
               </div>
-                <script>
-                  $(document).ready(function(){
-                    $("#myInput").on("keyup", function() {
-                      var value = $(this).val().toLowerCase();
-                      $("#myTable tr").filter(function() {
-                        $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
-                      });
-                    });
-                  });
-                  </script>
               </div>
-            </div>
+              <div class="row-group col-md-5">
+                <div class="col-md-5">
+                  @include('includes.filter-payment')
+                </div>
+              </div>
           </div>
-        </div>
       </div>  
+      </div>
+      <script>
+        $(document).ready(function(){
+          $("#myInput").on("keyup", function() {
+            var value = $(this).val().toLowerCase();
+            $("#myTable tr").filter(function() {
+              $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+            });
+          });
+        });
+        </script>
     </main>
     
     

@@ -19,10 +19,6 @@
           <input type="checkbox" class="form-check-input filled-in" id="unpaid">
           <label class="form-check-label small text-uppercase card-link-secondary" for="unpaid">Unpaid</label>
         </div>
-        <a class="btn btn-link text-muted p-0" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          More
-        </a>
-        <div class="collapse pt-3" id="collapseExample">
           <div class="form-check pl-0 mb-3">
             <input type="checkbox" class="form-check-input filled-in" id="lastpay">
             <label class="form-check-label small text-uppercase card-link-secondary" for="lastpay">Last Pay</label>
@@ -58,7 +54,6 @@
               <option value="3">august</option>
             </select>
           </div>
-        </div>
         <a href="#" class="btn btn-sm btn-primary">Filter</a>
   
       </section>

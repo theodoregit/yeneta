@@ -32,17 +32,11 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/payment', 'RegistrarController@payment')->name('paymentR');
     Route::get('/announcements', 'RegistrarController@announcement')->name('announcementsR');
 
-<<<<<<< HEAD
     Route::get('/filetransfer', 'RegistrarController@filetransfer')->name('filetransfer');
     Route::post('/filetransfer/store', 'RegistrarController@filetransferstore')->name('filetransferstore');
 
-    Route::get('/search' , 'RegistrarController@search')->name('search');    
-=======
-
-    Route::get('/results', 'RegistrarController@search')->name('results');
-    
-    
->>>>>>> 6b36a8d835a30600401409be571d7852457d5d99
+    Route::get('/search' , 'RegistrarController@search')->name('search');   
+    Route::post('/paymentstore' ,'RegistrarController@paymentstore')->name('paymentstore'); 
 });
 
 Route::prefix('yeneta/instructor')->group(function(){

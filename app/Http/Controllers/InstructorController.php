@@ -8,11 +8,7 @@ use App\Custom\HelperClass;
 use DB;
 use App\Instructor;
 use Auth;
-<<<<<<< HEAD
 use App\Announcement;
-=======
-use stdClass;
->>>>>>> 6b36a8d835a30600401409be571d7852457d5d99
 
 class InstructorController extends Controller
 {

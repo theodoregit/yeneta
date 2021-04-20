@@ -85,17 +85,12 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-<<<<<<< HEAD:resources/views/yeneta/registrar/grades.blade.php
               <div class="panel panel-default">
                 <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
                 <p><b><i><SPAN STYLE="color: blue; font-size: 40pt; font-family: Times New Roman">Grades</SPAN></i></b></p>
                 <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
                 <h2>
                   @include('includes.filter-grade')
-=======
-                <h2>                  
-                  Assign
->>>>>>> 6b36a8d835a30600401409be571d7852457d5d99:resources/views/yeneta/registrar/assign.blade.php
                 </h2>
               </div>
             </div>

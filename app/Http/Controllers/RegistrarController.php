@@ -14,6 +14,7 @@ use App\FileTransfer;
 use App\Announcement;
 use DB;
 use App\Custom\HelperClass;
+use App\Payment;
 
 class RegistrarController extends Controller
 {
@@ -169,7 +170,8 @@ class RegistrarController extends Controller
         return view('yeneta.registrar.assign');
     }
     public function payment(){
-        return view('yeneta.registrar.payment')->with('students', Student::all());
+        return view('yeneta.registrar.payment')->with('students', Student::all())
+                                                ->with('payments', Payment::all());
     }
     public function announcement(){
         return view('yeneta.registrar.announcement')->with('announcements', Announcement::all())
@@ -262,13 +264,27 @@ class RegistrarController extends Controller
         return view('yeneta.registrar.SearchStudent', compact('students'));
     }
 
-    public function search(Request $request){
+    public function searchs(Request $request){
         $this->validate($request, [
             'query' => 'required',
         ]);
         $results = Student::where('idnumber', 'like', '%' . request('query') . '%')->get();
         // dd($results[0]->fullname);
         return view('yeneta.registrar.results')->with('results', $results);
+    }
+    public function paymentstore(Request $request)
+    {
+        $gregorian = new DateTime('now');
+        $ethiopic = Andegna\DateTimeFactory::fromDateTime($gregorian);
+        $payment = new Payment;
+        $pay = $request->month;
+        for ($i=1; $i <= 5; $i++) { 
+            for ($j=1; $j <= 12; $j++) { 
+                if ($j.$i == $pay) {
+                    $payment->$j.$i = $pay;
+                }
+            }
+        }
     }
 
     

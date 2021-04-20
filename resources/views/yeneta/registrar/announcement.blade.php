@@ -161,6 +161,7 @@
                       </tr>
                     </thead>
                     <tbody>
+                      @foreach ($announcements as $announcement)
                           <tr>
                             <th scope="row">{{$announcement->id}}</</th>
                             <td>{{$announcement->title}}</td>

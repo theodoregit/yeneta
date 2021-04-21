@@ -282,7 +282,7 @@ class RegistrarController extends Controller
         $payment->total = $payment->total + $pay;
         for ($i=1; $i <= 5; $i++) { 
             for ($j=1; $j <= 12; $j++) { 
-                if ($j.$i > 0.00 | $j.$i == NULL) {
+                if ($j.$i = 0.00 | $j.$i == NULL) {
                     $payment->$j.$i = $pay;
                     $payment->save();
                     break;

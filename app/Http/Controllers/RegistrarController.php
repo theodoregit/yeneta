@@ -274,17 +274,18 @@ class RegistrarController extends Controller
     }
     public function paymentstore(Request $request)
     {
-        $gregorian = new DateTime('now');
-        $ethiopic = Andegna\DateTimeFactory::fromDateTime($gregorian);
+        
         $payment = new Payment;
         $pay = $request->month;
         for ($i=1; $i <= 5; $i++) { 
             for ($j=1; $j <= 12; $j++) { 
                 if ($j.$i == $pay) {
                     $payment->$j.$i = $pay;
+                    $payment->save();
                 }
             }
         }
+    return redirect()->back();
     }
 
     

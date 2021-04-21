@@ -110,6 +110,8 @@
                       </thead>
                       <tbody>
                       @foreach ($payments as $payment)
+                      <form action="{{route('paymentstore', ['idnumber' => $payment->idnumber])}}" method="POST">
+                        {{ csrf_field() }}
                       @php
                         $gregorian = new DateTime('now');
                         $ethiopic = Andegna\DateTimeFactory::fromDateTime($gregorian);
@@ -206,7 +208,7 @@
                         <td>
                           <button class="btn btn-sm btn-primary">Pay</button>
                         </td>
-                                                  
+                      </form>                 
                       @endforeach
                       </tbody>
                     </table>

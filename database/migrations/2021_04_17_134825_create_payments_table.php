@@ -19,7 +19,7 @@ class CreatePaymentsTable extends Migration
             $table->string('idnumber');
             $table->string('dept_name');
             $table->float('amount');
-            $table->float('arrears');
+            $table->float('penality');
             $table->float('total');
             $table->timestamps();
             $table->float('11');
@@ -70,38 +70,6 @@ class CreatePaymentsTable extends Migration
             $table->float('104');
             $table->float('114');
             $table->float('124');
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
         });
     }
 

@@ -36,7 +36,7 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::post('/filetransfer/store', 'RegistrarController@filetransferstore')->name('filetransferstore');
 
     Route::get('/search' , 'RegistrarController@search')->name('search');   
-    Route::post('/paymentstore' ,'RegistrarController@paymentstore')->name('paymentstore'); 
+    Route::post('/paymentstore/{idnumber}' ,'RegistrarController@paymentstore')->name('paymentstore'); 
 });
 
 Route::prefix('yeneta/instructor')->group(function(){

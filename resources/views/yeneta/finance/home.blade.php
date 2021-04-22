@@ -34,15 +34,14 @@
         <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
               <span></span>
             </a>
-      </div>
+            </div>
       <div class="side-inner">
 
-        <div class="logo-wrap">
-          <div class="logo">
-            <span>Y</span>
-          </div>
-          <span class="logo-text">Yeneta</span>
-        </div>
+      <div class="logo-wrap">
+          <div class="">
+            </div>
+            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
+             </div>
           
         <!-- <div class="search-form">
           <form action="#">
@@ -66,7 +65,7 @@
                     <span class="menu-text">
                         Logout
                     </span>
-                </a>
+                    </a>
                 <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
                     {{ csrf_field() }}
                 </form>
@@ -82,16 +81,89 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-                Home
+                <div class="col-md-9" style="background-color: rgb(194, 194, 194)">
+                  <div class="form-row">
+                    <div class="form-group col-md-5">
+                      <form class="form-inline" action="{{route('finance.store.todo')}}" method="POST">
+                        {{ csrf_field() }}
+                            <input type="text" class="col-md-8" name="todo" placeholder="Create a new Todo">
+                            <button href="" class="btn btn-sm btn-success col-md-4" type="submit">Add</button>
+                      </form>
+                    </div>
+                    <div class="form-group col-md-4">
+                      <a href="{{route('announcements')}} " class="btn btn-primary btn-sm">Create Announcement</a>
+                    </div>
+                    <div class="form-group col-md-3">
+                      <a href="{{route('filetransfer')}} " class="btn btn-info btn-sm">File Transfer</a>
+                    </div>
+                  </div>
+
+                  @if ($todos->count()>0)
+                  @foreach ($todos as $todo)
+
+                  {{$todo->todo}}
+
+                  <a href=" {{route('finance.delete.todo', ['id'=> $todo->id ])}}" class="btn btn-sm btn-danger float-right">Delete</a>
+
+                 
+                   <!-- Button trigger modal -->
+                   <a type="button" class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#myModal{{$todo->id}}">Edit</a>
+                   <!-- Button trigger modal -->
+ 
+                   <!-- Modal -->
+                   <div class="modal fade" id="myModal{{$todo->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                     <div class="modal-dialog" role="document">
+                       <div class="modal-content">
+                         <div class="modal-header">
+                           <h4 class="modal-title" id="myModalLabel">Editing <span style="color: yellowgreen">{{$todo->todo}}</span></h4>
+                           <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                         </div>
+                         <div class="modal-body">
+                           <form method = "POST" action="{{route('finance.update.todo', ['id' => $todo->id])}}">
+                             <div class="panel panel-default">    
+                               {{ csrf_field() }}
+                               <div class="form-group">
+                                 <input type="text" value="{{$todo->todo}}" name="todo" class="form-control">
+                               </div>
+                         </div>
+                         <div class="modal-footer">
+                           <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                               <button type="submit" class="btn btn-primary">Save changes</button>
+                         </div>
+                       </form>
+                       </div>
+                     </div>
+                   </div>
+                   </div>
+           <!-- Modal -->
+
+                  @if ($todo->completed)
+                  <a href="{{ route('finance.uncompleted.todo', ['id'=> $todo->id ] ) }} " class="btn btn-sm btn-warning float-right">Uncompleted</a>
+                  @endif
+
+                  @if(!$todo->completed)
+                        <a href="{{ route('finance.completed.todo', ['id'=> $todo->id ] ) }} " class="btn btn-sm btn-success float-right">Completed</a>
+                  @else
+
+                        <span class="text-success float-right">Completed</span>
+
+                  @endif
+                    
+                  <hr>
+                  @endforeach
+                @else
+                  <h3><p><b><i> <p style="color: blue">First please add a Todo</b></i></p></h3>
+                @endif
+          </div>
+          <hr>
+                </div>
               </div>
             </div>
-
-
           </div>
         </div>
       </div>  
     </main>
-   
+    
     
 
     <script src="../../app/js/jquery-3.3.1.min.js"></script>

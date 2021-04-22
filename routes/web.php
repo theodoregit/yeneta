@@ -85,9 +85,15 @@ Route::prefix('yeneta/finance')->group(function(){
     Route::get('/result', 'FinanceController@paymentResult')->name('payment_result');
 });
 
-Route::post('/create/todo','TodoController@store')->name('registrar.store.todo');
-Route::get('/delete/todo/{id}','TodoController@destroy')->name('registrar.delete.todo');
-Route::post('/update/todo/{id}','TodoController@update')->name('registrar.update.todo');
-Route::get('/completed/todo/{id}','TodoController@completed')->name('registrar.completed.todo');
-Route::get('/uncompleted/todo/{id}','TodoController@uncompleted')->name('registrar.uncompleted.todo');
+Route::post('registrar/create/todo','TodoController@store')->name('registrar.store.todo');
+Route::get('registrar/delete/todo/{id}','TodoController@destroy')->name('registrar.delete.todo');
+Route::post('registrar/update/todo/{id}','TodoController@update')->name('registrar.update.todo');
+Route::get('registrar/completed/todo/{id}','TodoController@completed')->name('registrar.completed.todo');
+Route::get('registrar/uncompleted/todo/{id}','TodoController@uncompleted')->name('registrar.uncompleted.todo');
+
+Route::post('/create/todo','TodoController@store')->name('finance.store.todo');
+Route::get('/delete/todo/{id}','TodoController@destroy')->name('finance.delete.todo');
+Route::post('/update/todo/{id}','TodoController@update')->name('finance.update.todo');
+Route::get('/completed/todo/{id}','TodoController@completed')->name('finance.completed.todo');
+Route::get('/uncompleted/todo/{id}','TodoController@uncompleted')->name('finance.uncompleted.todo');
 

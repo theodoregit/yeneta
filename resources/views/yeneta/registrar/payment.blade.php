@@ -102,7 +102,7 @@
                           <th scope="col">Full name</th>
                           <th scope="col">Paid For</th>
                           <th scope="col">Amount</th>
-                          <th scope="col">Arrears</th>
+                          <th scope="col">Penality</th>
                           <th scope="col">Total</th>
                           <th scope="col"></th>
                           <th scope="col"></th>
@@ -110,6 +110,9 @@
                       </thead>
                       <tbody>
                       @foreach ($payments as $payment)
+                      <tr>
+                      <form action="{{route('paymentstore', ['idnumber' => $payment->idnumber])}}" method="POST">
+                        {{ csrf_field() }}
                       @php
                         $gregorian = new DateTime('now');
                         $ethiopic = Andegna\DateTimeFactory::fromDateTime($gregorian);
@@ -179,34 +182,35 @@
                         <td>
                         @php
                           if ($ethiopic->format('d') <= 2) {
-                            $arrears = 0.0;
-                            echo $arrears;
+                            $penality = 0.0;
+                            echo $penality;
                           } elseif ($ethiopic->format('d') >= 3 && $ethiopic->format('d') <= 7) {
-                            $arrears = 15.0;
-                            echo $arrears;
+                            $penality = 15.0;
+                            echo $penality;
                           } elseif ($ethiopic->format('d') >= 8 && $ethiopic->format('d') <= 15) {
-                            $arrears = 50.0;
-                            echo $arrears;
+                            $penality = 50.0;
+                            echo $penality;
                           }else{
                             $temp = 50.0;
                             for ($i=16; $i <= $ethiopic->format('d'); $i++) { 
                               $perday = $perday + 5;
                             }
-                            $arrears = $temp + $perday;
-                            echo $arrears;
+                            $penality = $temp + $perday;
+                            echo $penality;
                           }
                         @endphp
                         </td>
                         <td>
                           @php
-                            $total = $amount + $arrears;
+                            $total = $amount + $penality;
                             echo $total;
                           @endphp
                         </td>
                         <td>
                           <button class="btn btn-sm btn-primary">Pay</button>
                         </td>
-                                                  
+                      </form>   
+                    </tr>              
                       @endforeach
                       </tbody>
                     </table>

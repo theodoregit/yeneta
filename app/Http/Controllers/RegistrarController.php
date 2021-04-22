@@ -272,19 +272,25 @@ class RegistrarController extends Controller
        
         return view('yeneta.registrar.results')->with('results', $results);
     }
-    public function paymentstore(Request $request)
+    public function paymentstore(Request $request, $idnumber)
     {
-        $gregorian = new DateTime('now');
-        $ethiopic = Andegna\DateTimeFactory::fromDateTime($gregorian);
+        
         $payment = new Payment;
-        $pay = $request->month;
+        $pay = $request->total;
+        $payment -> penality = $request->penality;
+        $payment ->amount = $request->amount;
+        $payment->total = $payment->total + $pay;
         for ($i=1; $i <= 5; $i++) { 
             for ($j=1; $j <= 12; $j++) { 
-                if ($j.$i == $pay) {
+                if ($j.$i = 0.00 | $j.$i == NULL) {
                     $payment->$j.$i = $pay;
+                    $payment->save();
+                    break;
                 }
             }
+            break;
         }
+    return redirect()->back();
     }
 
     

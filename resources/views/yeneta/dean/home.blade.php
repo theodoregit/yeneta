@@ -1,103 +1,81 @@
+<php?>
+<!DOCTYPE html>
+<html>
+<head>
+<style>
+body
+{
+  background-image:url(http://localhost/programs/img/bw.jpg);
+  background-repeat:repeat-x;
+}
 
-<!doctype html>
-<html lang="en">
-  <head>
-    <!-- Required meta tags -->
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <link href="https://fonts.googleapis.com/css?family=Roboto:300,400&display=swap" rel="stylesheet">
+div
+{
+position:absolute;
+left:30px;
+top:30px;
+width:1300px;
+height:130px;
+background-color:#580807;
+box-shadow: 10px 10px 5px #888888;
+}
 
-    <link href="https://fonts.googleapis.com/css?family=Poppins:300,400,500&display=swap" rel="stylesheet">
+.text_button
+{
+   position: absolute;
+   border: none;
+   background-color: transparent;
+   padding: 0;
+   color: #FFFFFF;
+   font-size:18px;
+   font-family:"Calibri";
+}
 
-    <link href="https://fonts.googleapis.com/css?family=Source+Serif+Pro:400,600&display=swap" rel="stylesheet">
+</style>
+</head>
 
-    <link rel="stylesheet" href="../../app/fonts/icomoon/style.css">
+<body>
+<div>
+<img style="position:absolute;left:150px" height="130" width="110" src="image\yeneta.jpg" alt="yeneta logo">
 
-    <link rel="stylesheet" href="../../app/css/owl.carousel.min.css">
+<h1 style="text-align:center ;color:#FFFFFF;">YENETA COLLAGE  የኔታ ኮሌጅ</h1>
+<a href="/yeneta/dean/studentsGrades"><button style="left:1100;top:90;" type="button" class="text_button">STUDENTS GRADES</button></a>
+<a href="/yeneta/dean/payments"><button style="left:720;top:90;" type="button"  class="text_button">PAYMENTS</button></a>-->
+<a href="yeneta/dean/statistics"><button style="left:915;top:90;" type="button" class="text_button">STATISTICS</button></a>
+<!--<a href="/announcement"><button style="left:;top:90;" type="button" class="text_button">ANNOUNCEMENT</button></a>
+<a href="http://localhost/programs/contact.php"><button style="left:1200;top:90;" type="button" class="text_button">CONTACT US</button></a>
+</div>-->
+ <div id="content" style="background-color:#FAFAD2;height:750px;width:200px;left:60px;top:210px">
 
-    <!-- Bootstrap CSS -->
-    <link rel="stylesheet" href="../../app/css/bootstrap.min.css">
-    
-    <!-- Style -->
-    <link rel="stylesheet" href="../../app/css/style.css">
+ <ul>
+      <li class="active"><a href="/yeneta/registrar/login"> <span class="wrap-icon icon-home2 mr-3"></span><span class="menu-text">Home</span></a></li>
+      <li><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-videocam mr-3"></span><span class="menu-text">Admin</span></a></li>
+      <li><a href="yeneta/instructor/login"> <span class="wrap-icon icon-book mr-3"></span><span class="menu-text">Instructor</span></a></li>
+      <li><a href="yeneta/finance/login" ><span class="wrap-icon icon-shopping-cart mr-3"></span><span class="menu-text">Finance</span></a></li>
+      <li><a href="yeneta/dean/login" ><span class="wrap-icon icon-pie-chart mr-3"></span><span class="menu-text">Dean</span></a></li>
+</ul>
 
-    <title>Yeneta</title>
-  </head>
-  <body>
-    
-<header class="row">
-  @include('includes.dean-header')
-</header>
-    <br><br>
-    <aside class="sidebar">
-      <div class="toggle">
-        <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
-              <span></span>
-              </a>
-            </div>
-      <div class="side-inner">
+ </p>
 
-      <div class="logo-wrap">
-          <div class="">
-            </div>
-            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
-             </div>
-          
-        <!-- <div class="search-form">
-          <form action="#">
-            <span class="wrap-icon">
-              <span class="icon-search2"></span>
-            </span>
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div> -->
-        <div class="nav-menu">
-          <ul>
-            <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
-            <li><a href="{{route('grades')}}" class="d-flex align-items-center"><span class="wrap-icon icon-font mr-3"></span><span class="menu-text">Grade Reports</span></a></li>
-            <li><a href="{{route('statistics')}}" class="d-flex align-items-center"><span class="wrap-icon icon-bar-chart mr-3"></span><span class="menu-text">Statistics</span></a></li>
-            <li><a href="{{route('payments')}}" class="d-flex align-items-center"><span class="wrap-icon icon-usd mr-3"></span><span class="menu-text">Payments</span></a></li>
-            <li>
-                <a href="{{ route('logout') }}"
-                    onclick="event.preventDefault();
-                    document.getElementById('logout-form').submit();" class="">
-                    <span class="wrap-icon icon-lock mr-3">
-                    </span>
-                    <span class="menu-text">
-                        Logout
-                    </span>
-                </a>
-                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
-                    {{ csrf_field() }}
-                </form>
-            </li>
-          </ul>
-        </div>
-      </div>
-      
-    </aside>
-    <main>
-      <div class="site-section">
-        <div class="container">
-          <div class="row justify-content-center">
-            <div class="col-md-9">
-              <div class="row">
-                Home
-              </div>
-            </div>
+ </div>
+ <div id="content" style="background-color:#FAFAD2;height:750px;width:950px;left:280px;top:210px;overflow:scroll;overflow-x:hidden;">
+ </div>
+ <div id="content" style="background-color:#FAFAD2;height:750px;width:950px;left:285px;top:210px;overflow:scroll;overflow-x:hidden;">
+<h2>About Us</h2>
+<p style="position:absolute;text-align:left;left:25px;font-size:17px;font-family:"Calibri"">
+        <br>
+  <img style= height="130" width="110" src="image\yeneta.jpg" alt="yeneta logo">
+
+        yeneta Collage was founded........
+        <br>
+</p>
+  </div>
+  <abc style="position:absolute;left:7px;top:965px;width:1335px;height:100px;background-color:#BDBDBD;">
+<hr>
+<h3 style="text-align:center;"><br>Copyright © 2021 BlueSem. All Rights Reserved.</h3>
+<hr>
+</abc>
 
 
-          </div>
-        </div>
-      </div>  
-    </main>
-   
-    
-
-    <script src="../../app/js/jquery-3.3.1.min.js"></script>
-    <script src="../../app/js/popper.min.js"></script>
-    <script src="../../app/js/bootstrap.min.js"></script>
-    <script src="../../app/js/main.js"></script>
-  </body>
+</body>
 </html>
-

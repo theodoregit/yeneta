@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+
 use Illuminate\Http\Request;
+
 
 class FinanceController extends Controller
 {
@@ -29,6 +31,8 @@ class FinanceController extends Controller
         return view('yeneta.finance.stats');
     }
     public function payments(){
+        // $gregorian = new Andegna\DataTime('now');
+        // $ethipic = new Andegna\DateTime($gregorian);
         return view('yeneta.finance.trackPayment');
     }
     public function paymentResult(Request $request){

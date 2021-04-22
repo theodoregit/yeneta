@@ -43,15 +43,7 @@
           </div>
           <span class="logo-text">{{Auth::user()->idnumber}}</span>
         </div>
-          
-        <!-- <div class="search-form">
-          <form action="#">
-            <span class="wrap-icon">
-              <span class="icon-search2"></span>
-            </span>
-            <input type="text" class="form-control" placeholder="Search...">
-          </form>
-        </div> -->
+        
         <div class="nav-menu">
           <ul>
             <li class="active"><a href="#" class="d-flex align-items-center"><span class="wrap-icon icon-home mr-3"></span><span class="menu-text">Home</span></a></li>
@@ -85,7 +77,7 @@
                 Home
               </div>
             </div>
-
+  
 
           </div>
         </div>

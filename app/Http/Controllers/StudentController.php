@@ -361,4 +361,9 @@ class StudentController extends Controller
     public function announcements(){
         return view('yeneta.student.readAnnouncements');
     }
+    public function test(Request $request){
+        echo $request->test;
+        // return view('yeneta.student.readAnnouncements');
+    }
+
 }

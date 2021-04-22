@@ -62,6 +62,9 @@ Route::prefix('yeneta/student')->group(function(){
     Route::get('/', 'StudentController@index')->name('student');
     Route::get('/mygrades', 'StudentController@grades')->name('gradesS');
     Route::get('/announcements', 'StudentController@announcements')->name('announcementsS');
+
+    Route::post('/test', 'StudentController@test')->name('test');
+    
 });
 
 Route::prefix('yeneta/dean')->group(function(){
@@ -80,8 +83,8 @@ Route::prefix('yeneta/finance')->group(function(){
 
     Route::get('/', 'FinanceController@index')->name('finance');
     Route::get('/statistics', 'FinanceController@stats')->name('statisticsF');
-    Route::get('/payemts', 'FinanceController@payments')->name('paymentsF');
 
+    Route::get('/payemts', 'FinanceController@payments')->name('paymentsF');
     Route::get('/result', 'FinanceController@paymentResult')->name('payment_result');
 });
 

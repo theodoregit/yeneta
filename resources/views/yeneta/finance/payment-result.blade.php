@@ -95,7 +95,7 @@
                 <div class="col-sm-6">
                     <table class="table table-hover table-bordered">
                         <thead>
-                            <tr>
+                            <tr>  
                                 <th scope="row">UR/0966/12</th>
                                 <td>Marko Alonso</td>
                                 <td>Management</td>

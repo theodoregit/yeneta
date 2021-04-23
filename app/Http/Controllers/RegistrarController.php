@@ -65,6 +65,17 @@ class RegistrarController extends Controller
             'year' => $request->year,
             'semester' => $request->semester,
         ]);
+        $stupayment = new Payment;
+            $stupayment->fullname = $request->firstname . ' ' . $request->middlename . ' ' . $request->lastname;
+            $stupayment->idnumber = $request->idnumber;
+            $stupayment->dept_name = $request->department;
+            $stupayment->year = $request->year;
+            $stupayment->semester = $request->semester;
+            $stupayment->amount = 0.00;
+            $stupayment->penality = 0.00;
+            $stupayment->total = 0.00;
+            $stupayment->save();
+        
 
         // echo $student->accountings()->attach($request->dept_name);
         // // dd($request->all());
@@ -260,8 +271,12 @@ class RegistrarController extends Controller
                     ->Where('fullname', 'LIKE' ,"%{$search}%")
                     ->orWhere('idnumber', 'LIKE', "%{$search}%")
                     ->get();
+        $payments = Payment::query()
+                    ->Where('fullname', 'LIKE' ,"%{$search}%")
+                    ->orWhere('idnumber', 'LIKE', "%{$search}%")
+                    ->get();
 
-        return view('yeneta.registrar.SearchStudent', compact('students'));
+        return view('yeneta.registrar.Searchresult', compact('students', 'payments'));
     }
 
     public function searchs(Request $request){
@@ -275,24 +290,22 @@ class RegistrarController extends Controller
     public function paymentstore(Request $request, $idnumber)
     {
         
-        $payment = new Payment;
-        $pay = $request->total;
+        $payment = Payment::find($idnumber);
         $payment -> penality = $request->penality;
         $payment ->amount = $request->amount;
-        $payment->total = $payment->total + $pay;
-        for ($i=1; $i <= 5; $i++) { 
-            for ($j=1; $j <= 12; $j++) { 
-                if ($j.$i = 0.00 | $j.$i == NULL) {
-                    $payment->$j.$i = $pay;
-                    $payment->save();
-                    break;
-                }
+        $payment->total = $payment->total + $request->total;
+        $temps = [
+            '11','21','31','41','51','61','71','81','91','101','111','121','12','22','32','42','52','62','72','82','92','102','112','122','13','23','33','43','53','63','73','83','93','103','113','123','14','24','34','44','54','64','74','84','94','104','114','124'  
+        ];
+        foreach ($temps as $temp) {
+            if (($request->month).$payment->year == $temp) {
+                $payment->{$temp} = $request->total;
+                break;
             }
-            break;
         }
+        $payment->save();
     return redirect()->back();
-    }
+}
 
-    
-    
+
 }

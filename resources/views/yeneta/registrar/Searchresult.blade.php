@@ -83,42 +83,80 @@
     <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
-            @if ($students->isNotEmpty())
-                @foreach ($students as $student)
-                    <div class="student-list">
-                        <table class="table table-hover table-striped">
-                            <thead class="thead-dark">
-                              <tr>
-                                <th scope="col">ID Number</th>
-                                <th scope="col">Full Name</th>
-                                <th scope="col">Gender</th>
-                                <th scope="col">Department</th>
-                                <th scope="col">Section</th>
-                                <th scope="col">Year</th>
-                                <th scope="col">Semester</th>
-                                <th scope="col">CCPA</th>
-                              </tr>
-                            </thead>
-                            <tbody>
-                              <tr>
-                                <th scope="row">{{$student->idnumber}}</th>
-                                <td>{{$student->fullname}}</td>
-                                <td>{{$student->gender}}</td>
-                                <td>{{$student->dept_name}}</td>
-                                <td>{{$student->section}}</td>
-                                <td>{{$student->year}}</td>
-                                <td>{{$student->semester}}</td>
-                                <td>{{$student->cgpa}}</td>
-                              </tr>
-                            </tbody>
-                          </table>
-                    </div>
-                @endforeach
+            @if ($payments->isNotEmpty())
+                            @if ($payments->isNotEmpty())
+                            @foreach ($payments as $payment)
+                                <div class="student-list">
+                                    <table class="table table-hover table-striped">
+                                        <thead class="thead-dark">
+                                          <tr>
+                                            <th scope="col">ID Number</th>
+                                            <th scope="col">Full Name</th>
+                                            <th scope="col">Department</th>
+                                            <th scope="col">Amount</th>
+                                            <th scope="col">Penality</th>
+                                            <th scope="col">Total</th>
+                                            
+                                          </tr>
+                                        </thead>
+                                        <tbody>
+                                          <tr>
+                                            <th scope="row">{{$payment->idnumber}}</th>
+                                            <td>{{$payment->fullname}}</td>
+                                            <td>{{$payment->dept_name}}</td>
+                                            <td>{{$payment->amount}}</td>
+                                            <td>{{$payment->penality}}</td>
+                                            <td>{{$payment->total}}</td>
+                                            
+                                          </tr>
+                                        </tbody>
+                                      </table>
+                                </div>
+                            @endforeach
+                        @else
+                            <div>
+                                <h2>NO student payment found</h2>
+                            </div>
+                        @endif
             @else
-                <div>
-                    <h2>NO student found</h2>
+            @if ($students->isNotEmpty())
+            @foreach ($students as $student)
+                <div class="student-list">
+                    <table class="table table-hover table-striped">
+                        <thead class="thead-dark">
+                          <tr>
+                            <th scope="col">ID Number</th>
+                            <th scope="col">Full Name</th>
+                            <th scope="col">Gender</th>
+                            <th scope="col">Department</th>
+                            <th scope="col">Section</th>
+                            <th scope="col">Year</th>
+                            <th scope="col">Semester</th>
+                            <th scope="col">CCPA</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <th scope="row">{{$student->idnumber}}</th>
+                            <td>{{$student->fullname}}</td>
+                            <td>{{$student->gender}}</td>
+                            <td>{{$student->dept_name}}</td>
+                            <td>{{$student->section}}</td>
+                            <td>{{$student->year}}</td>
+                            <td>{{$student->semester}}</td>
+                            <td>{{$student->cgpa}}</td>
+                          </tr>
+                        </tbody>
+                      </table>
                 </div>
+            @endforeach
+        @else
+            <div>
+                <h2>NO student found</h2>
+            </div>
+        @endif 
             @endif
+            
           </div>  
 </main>
     

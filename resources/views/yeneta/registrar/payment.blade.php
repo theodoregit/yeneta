@@ -83,7 +83,7 @@
       <div class="site-section">
         <div class="container">
             <div class="row justify-content-center">
-              <div class="row-group col-md-7">
+              <div class="row-group col-md-9">
                 <div class="col-md-12">
                   <div class="panel panel-default">
                     <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
@@ -91,10 +91,11 @@
                     <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
                   <div class="row">
                     <div class=" container">
-                    <input type="text" class="form-control" name="search" id="" placeholder="Search here...">
+                      <form action="{{route('search')}}" class="mb-3">
+                    <input type="text" class="form-control mb-2" name="search" id="search" placeholder="Search here...">
     
                        <button type="submit" class="btn btn-primary">Search</button>
-    
+                      </form>
                     <table class="table table-dark w-auto table-hover table-bordered">
                       <thead>
                         <tr>
@@ -111,7 +112,7 @@
                       <tbody>
                       @foreach ($payments as $payment)
                       <tr>
-                      <form action="{{route('paymentstore', ['idnumber' => $payment->idnumber])}}" method="POST">
+                      <form action="{{route('paymentstore', ['id' => $payment->id])}}" method="POST">
                         {{ csrf_field() }}
                       @php
                         $gregorian = new DateTime('now');
@@ -120,7 +121,7 @@
                         <td>{{$payment->idnumber}}</td>
                         <td>{{$payment->fullname}}</td>
                         <td>
-                          <select class="form-select" aria-label="Default select example">
+                          <select class="form-select" aria-label="Default select example" name="month" id="month">
                             
                             <option selected value={{$ethiopic->format('m')}}>
                              @if ($ethiopic->format('m') == 1)
@@ -152,15 +153,15 @@
                             <option value="1">September</option>
                             <option value="2">October</option>
                             <option value="3">November</option>
-                            <option value="3">December</option>
-                            <option value="3">January</option>
-                            <option value="3">February</option>
-                            <option value="3">March</option>
-                            <option value="3">April</option>
-                            <option value="3">May</option>
-                            <option value="3">June</option>
-                            <option value="3">July</option>
-                            <option value="3">August</option>
+                            <option value="4">December</option>
+                            <option value="5">January</option>
+                            <option value="6">February</option>
+                            <option value="7">March</option>
+                            <option value="8">April</option>
+                            <option value="9">May</option>
+                            <option value="10">June</option>
+                            <option value="11">July</option>
+                            <option value="12">August</option>
                           </select>
                         </td>
                         <td>
@@ -207,9 +208,58 @@
                           @endphp
                         </td>
                         <td>
+                          <?php
+                            echo "
+                            <input type= 'text' value='$amount' name= 'amount' style= 'display:none'>
+                            <input type= 'text' value='$penality' name= 'penality' style= 'display:none'>
+                            <input type= 'text' value='$total' name= 'total' style= 'display:none'>
+                            <input type= 'text' value='{$payment->fullname} ' name= 'fullname' style= 'display:none'>
+                            <input type= 'text' value='{$payment->dept_name} ' name= 'dept_name' style= 'display:none'>
+                            <input type= 'text' value='{$payment->idnumber} ' name= 'idnumber' style= 'display:none'>
+                            "
+                          ?>
                           <button class="btn btn-sm btn-primary">Pay</button>
                         </td>
-                      </form>   
+                      </form> 
+                      <td>
+                                <!-- Button trigger modal -->
+                                <a type="button" class="btn btn-info btn-sm float-right" data-toggle="modal" data-target="#myModal{{$payment->id}}">History</a>
+                                <!-- Button trigger modal -->
+              
+                                <!-- Modal -->
+                                  <div class="modal fade" id="myModal{{$payment->id}}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                                      <div class="modal-dialog" role="document">
+                                        <div class="modal-content">
+                                          <div class="modal-header">
+                                            <h4 class="modal-title" id="myModalLabel" style="color: black">History of <span style="color: rgb(47, 56, 30)">{{$payment->fullname}}</span></h4>
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                          </div>
+                                          <div class="modal-body">
+                                            <table  class="table table-success table-striped">
+                                              <thead>
+                                                <tr>
+                                                  <th scope="col">Total Payment</th>
+                                                  <th scope="col">Last Payment</th>
+                                                  <th scope="col">Total Penality</th>
+                                                </tr>
+                                              </thead>
+                                              <tbody>
+                                                <tr>
+                                                  <td>{{$payment->total}} </td>
+                                                  <td>{{$payment->updated_at->format('D-j-F-Y-g-A')}}</td>
+                                                  <td>{{$payment->penality}} </td>
+                                                </tr>
+                                              </tbody>
+                                            </table>
+                                          </div>
+                                          <div class="modal-footer">
+                                          <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                                          </div>
+                                      </div>
+                                    </div>
+                                  </div>
+                               <!-- Modal -->
+                      </td>  
                     </tr>              
                       @endforeach
                       </tbody>
@@ -219,7 +269,7 @@
                 </div>
               </div>
               </div>
-              <div class="row-group col-md-5">
+              <div class="row-group col-md-3">
                 <div class="col-md-5">
                   @include('includes.filter-payment')
                 </div>

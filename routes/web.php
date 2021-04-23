@@ -15,12 +15,6 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::post('/login', 'Auth\RegistrarLoginController@login')->name('registrar.login.submit');
     
 
-    Route::post('/create/todo','TodoController@store')->name('registrar.store.todo');
-    Route::get('/delete/todo/{id}','TodoController@destroy')->name('registrar.delete.todo');
-    Route::post('/update/todo/{id}','TodoController@update')->name('registrar.update.todo');
-    Route::get('/completed/todo/{id}','TodoController@completed')->name('registrar.completed.todo');
-    Route::get('/uncompleted/todo/{id}','TodoController@uncompleted')->name('registrar.uncompleted.todo');
-
     Route::get('/', 'RegistrarController@index')->name('registrar'); 
     Route::get('/register', 'RegistrarController@registerStudent')->name('register');
     Route::post('/register', 'RegistrarController@registerStudentStore')->name('register.store');
@@ -28,6 +22,9 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/assign', 'RegistrarController@assignInstructors')->name('assign');
     Route::get('/payment', 'RegistrarController@payment')->name('payment');
     Route::get('/announcement', 'RegistrarController@announcement')->name('announcements');
+    Route::post('/announcement/store', 'RegistrarController@announcementstore')->name('announcement.store');
+    Route::post('/announcement/edit{id}','RegistrarController@announcementedit')->name('announcement.edit');
+    Route::get('/announcement/delete/{id}','RegistrarController@announcementdelete')->name('announcement.delete');
 
     Route::get('/studentsList', 'RegistrarController@listStudents')->name('studentsList');
     Route::get('/student-detail/{idnumber}', 'RegistrarController@studentDetail')->name('studentdetail');
@@ -35,10 +32,11 @@ Route::prefix('yeneta/registrar')->group(function(){
     Route::get('/payment', 'RegistrarController@payment')->name('paymentR');
     Route::get('/announcements', 'RegistrarController@announcement')->name('announcementsR');
 
+    Route::get('/filetransfer', 'RegistrarController@filetransfer')->name('filetransfer');
+    Route::post('/filetransfer/store', 'RegistrarController@filetransferstore')->name('filetransferstore');
 
-    Route::get('/results', 'RegistrarController@search')->name('results');
-    
-    
+    Route::get('/search' , 'RegistrarController@search')->name('search');   
+    Route::post('/paymentstore/{id}' ,'RegistrarController@paymentstore')->name('paymentstore'); 
 });
 
 Route::prefix('yeneta/instructor')->group(function(){
@@ -50,7 +48,7 @@ Route::prefix('yeneta/instructor')->group(function(){
     Route::get('/students', 'InstructorController@viewStudents')->name('students');
     Route::get('/studentsGrades', 'InstructorController@fillGrades')->name('studentsGrades');
     Route::get('/announcement', 'InstructorController@announcement')->name('announcement');
-    
+    Route::get('/massassignment', 'InstructorController@massassignment')->name('massassignment');
     Route::post('/submitGrades/{idnumber}', 'InstructorController@submitGrades')->name('submitGrades');
     Route::post('/teaching_courses', 'InstructorController@teachingCourses')->name('teaching_courses');
 });
@@ -70,9 +68,11 @@ Route::prefix('yeneta/dean')->group(function(){
     Route::post('/login', 'Auth\DeanLoginController@login')->name('dean.login.submit');
 
     Route::get('/', 'DeanController@index')->name('index');
-    Route::get('/statistics', 'DeanController@viewStats')->name('statistics');
+    //Route::get('/statistics', 'DeanController@viewStats')->name('statistics');
     Route::get('/studentsGrades', 'DeanController@viewGrades')->name('grades');
     Route::get('/payments', 'DeanController@viewPayment')->name('payments');
+
+    Route::get('/statistics', 'ChartController@index')->name('statistics');
 });
 
 Route::prefix('yeneta/finance')->group(function(){
@@ -85,4 +85,16 @@ Route::prefix('yeneta/finance')->group(function(){
     Route::get('/payemts', 'FinanceController@payments')->name('paymentsF');
     Route::get('/result', 'FinanceController@paymentResult')->name('payment_result');
 });
+
+Route::post('registrar/create/todo','TodoController@store')->name('registrar.store.todo');
+Route::get('registrar/delete/todo/{id}','TodoController@destroy')->name('registrar.delete.todo');
+Route::post('registrar/update/todo/{id}','TodoController@update')->name('registrar.update.todo');
+Route::get('registrar/completed/todo/{id}','TodoController@completed')->name('registrar.completed.todo');
+Route::get('registrar/uncompleted/todo/{id}','TodoController@uncompleted')->name('registrar.uncompleted.todo');
+
+Route::post('/create/todo','TodoController@store')->name('finance.store.todo');
+Route::get('/delete/todo/{id}','TodoController@destroy')->name('finance.delete.todo');
+Route::post('/update/todo/{id}','TodoController@update')->name('finance.update.todo');
+Route::get('/completed/todo/{id}','TodoController@completed')->name('finance.completed.todo');
+Route::get('/uncompleted/todo/{id}','TodoController@uncompleted')->name('finance.uncompleted.todo');
 

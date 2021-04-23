@@ -17,9 +17,10 @@ class CreateAnnouncementsTable extends Migration
             $table->increments('id');
             $table->string('title');
             $table->text('content');
-            $table->binary('FileUploaded');
+            $table->binary('FileUploaded')->nullable();
             $table->string('CreatedFor');
             $table->string('CreatedBy');
+            $table->date('deadline');
             $table->timestamps();
         });
     }

@@ -29,7 +29,7 @@
                 </li>
             </ul>
             <li class="nav-item logo">
-            <a href="#" class="navbar-left"><img src="https://www.facebook.com/yecollege2009/photos/a.219690098450782/1045496009203516/?type=1&theater"></a>
+            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
             </li>
         
         </div>

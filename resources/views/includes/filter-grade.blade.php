@@ -4,7 +4,6 @@
     <!-- Section: Filters -->
     <section>
     <form action="">
-      <h5> Grades Filters </h5>
   
       <!-- Section: Condition -->
       <section class="mb-4">

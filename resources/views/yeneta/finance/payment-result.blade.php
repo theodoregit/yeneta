@@ -45,16 +45,15 @@
       <div class="toggle">
         <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
               <span></span>
-            </a>
-      </div>
+              </a>
+            </div>
       <div class="side-inner">
 
-        <div class="logo-wrap">
-          <div class="logo">
-            <span>Y</span>
-          </div>
-          <span class="logo-text">Yeneta</span>
-        </div>
+      <div class="logo-wrap">
+          <div class="">
+            </div>
+            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
+             </div>
           
         <!-- <div class="search-form">
           <form action="#">

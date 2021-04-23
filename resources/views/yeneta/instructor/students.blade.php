@@ -34,16 +34,15 @@
       <div class="toggle">
         <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
               <span></span>
-            </a>
-      </div>
+              </a>
+            </div>
       <div class="side-inner">
 
-        <div class="logo-wrap">
-          <div class="logo">
-            <span>Y</span>
-          </div>
-          <span class="logo-text">Yeneta</span>
-        </div>
+      <div class="logo-wrap">
+          <div class="">
+            </div>
+            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
+             </div>
           
         <!-- <div class="search-form">
           <form action="#">
@@ -83,6 +82,23 @@
       <div class="site-section">
         <div class="container">
           <div class="row justify-content-center">
+<<<<<<< HEAD
+            <div class="col-md-11">
+                <div class="row">
+
+                  <div class="col-md-5">
+                  <form action="" method="POST">
+                    <select name="course" class="form-control" id="">
+                      <option value="course1">Course One</option>
+                      <option value="course1">Course Two</option>
+                      <option value="course1">Course Three</option>
+                    </select>
+                  </div>
+                </div>                      
+                <br>
+
+              <div class="row">                
+=======
             <div class="col-md-12">
               <div class="row">
                 <!-- <div class="row">
@@ -99,6 +115,7 @@
                     <button type="submit" class="btn btn-primary mb-2">Select</button>
                   </form>
                 </div>             -->
+>>>>>>> 1a5676c83f15569ca661ac0b4c3f74ec37dfba82
                 <table class="table table-hover table-striped">
                   <thead class="thead-dark">
                     <tr>
@@ -173,34 +190,35 @@
                                 </form>
                                 @else
                                 <form action="" method="post">
-                                  {{csrf_field()}}
+                                  {{ csrf_field() }}
                                   <div class="row">
                                     <div class="col-md-4">
                                       <label for="assessment">Assessment</label>
-                                      <input class="form-control" name="assessment" value="12" type="number" placeholder="Assessment">
+                                      <input class="form-control" name="assessment" value="{{$student->assessment}}" type="number" placeholder="">
                                     </div>
                                     <div class="col-md-4">
                                       <label for="mid">Mid Exam</label>
-                                      <input class="form-control" name="mid" value="22" type="number" placeholder="Mid Exam">
+                                      <input class="form-control" name="mid" value="{{$student->mid_exam}}" type="number" placeholder="">
                                     </div>
                                     <div class="col-md-4">
                                       <label for="final">Final Exam</label>
-                                      <input class="form-control" name="final" value="33" type="number" placeholder="Final Exam">
+                                      <input class="form-control" name="final" value="{{$student->final_exam}}" type="number" placeholder="">
                                     </div>
                                   </div>
                                   <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                    <button type="button" class="btn btn-primary">Save</button>
+                                    <button type="submit" class="btn btn-primary">Save</button>
                                   </div>
-                                </form>
-                                @endif
+                               
+                                </form>    
+                                @endif                          
                               </div>                              
                             </div>
                           </div>
-                        </div>
-                        @endforeach
+                        </div>                        
                       </td>                      
-                    </tr>                    
+                    </tr>
+                    @endforeach                
                   </tbody>
                 </table>
               </div>

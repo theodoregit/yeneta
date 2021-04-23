@@ -38,12 +38,11 @@
       </div>
       <div class="side-inner">
 
-        <div class="logo-wrap">
-          <div class="logo">
-            <span>Y</span>
-          </div>
-          <span class="logo-text">{{ Auth::user()->name }}</span>
-        </div>
+      <div class="logo-wrap">
+          <div class="">
+            </div>
+            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
+             </div>
           
         <!-- <div class="search-form">
           <form action="#">
@@ -88,7 +87,15 @@
               <div class="row">
                 <div class="row">
                   <div class="col-md-12">
-
+                      <div class="col-md-4">
+                        <div class="form-group">
+                          <form action="{{route('search')}}">
+                            <input type="text" name="search" id="search" placeholder="search" required>
+                            <span class="glyphicon glyphicon-search"></span>
+                            <button type="submit">search</button>
+                          </form>
+                        </div>
+                      </div>
                     <nav>
                       <div class="nav nav-tabs" id="nav-tab" role="tablist">
                         <a class="nav-item nav-link active" id="nav-home-tab" data-toggle="tab" href="#nav-home" role="tab" aria-controls="nav-home" aria-selected="true">Accounting</a>
@@ -103,6 +110,9 @@
                         </form>                      
                       </div>
                     </nav>
+                    <div>
+                      </div>
+                    </div>
                     <div class="tab-content" id="nav-tabContent">
                       <div class="tab-pane fade show active" id="nav-home" role="tabpanel" aria-labelledby="nav-home-tab">
                       

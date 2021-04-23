@@ -45,16 +45,15 @@
       <div class="toggle">
         <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
               <span></span>
-            </a>
-      </div>
+              </a>
+            </div>
       <div class="side-inner">
 
-        <div class="logo-wrap">
-          <div class="logo">
-            <span>Y</span>
-          </div>
-          <span class="logo-text">Yeneta</span>
-        </div>
+      <div class="logo-wrap">
+          <div class="">
+            </div>
+            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
+             </div>
           
         <!-- <div class="search-form">
           <form action="#">
@@ -96,6 +95,17 @@
             <!-- <div class="col-md-12 w-auto">
               <div class="row">
                 <h2>Payment</h2> 
+                <div class="col-sm-4">
+                  <div class="form-group">
+                    <div class="input-group">
+                      <span>
+                        <label for="search">search</label>
+                        <input type="text" name="paymentsearch" id="paymentsearch" class="form-control float-right">
+                        <span> <i class="glyphicon glyphicon-search"></i></span>
+                      </span>
+                    </div>
+                  </div>
+                </div>
                 <div class="table-responsive">
                   <table class="table table-fixed w-auto table-hover table-bordered">
                     <thead>
@@ -214,6 +224,10 @@
                     </tbody>
                   </table>
                 </div>
+                <div style="height: 15px;"></div>
+                <a href="#" class="btn btn-sm btn-primary">
+                  <i class="glyphicon glyphicon-home"></i>Take Me Home
+                </a>
               </div>
             </div> -->            
             <div class="col-md-3">

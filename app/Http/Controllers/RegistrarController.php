@@ -10,11 +10,8 @@ use App\StudentAuth;
 use App\Computer_Science;
 use App\Accounting;
 use App\Management;
-use App\FileTransfer;
-use App\Announcement;
 use DB;
 use App\Custom\HelperClass;
-use App\Payment;
 
 class RegistrarController extends Controller
 {
@@ -65,17 +62,6 @@ class RegistrarController extends Controller
             'year' => $request->year,
             'semester' => $request->semester,
         ]);
-        $stupayment = new Payment;
-            $stupayment->fullname = $request->firstname . ' ' . $request->middlename . ' ' . $request->lastname;
-            $stupayment->idnumber = $request->idnumber;
-            $stupayment->dept_name = $request->department;
-            $stupayment->year = $request->year;
-            $stupayment->semester = $request->semester;
-            $stupayment->amount = 0.00;
-            $stupayment->penality = 0.00;
-            $stupayment->total = 0.00;
-            $stupayment->save();
-        
 
         // echo $student->accountings()->attach($request->dept_name);
         // // dd($request->all());
@@ -181,105 +167,13 @@ class RegistrarController extends Controller
         return view('yeneta.registrar.assign');
     }
     public function payment(){
-        return view('yeneta.registrar.payment')->with('students', Student::all())
-                                                ->with('payments', Payment::all());
+        return view('yeneta.registrar.payment')->with('students', Student::all());
     }
     public function announcement(){
-        return view('yeneta.registrar.announcement')->with('announcements', Announcement::all())
-                                                    ->with('viewer', 'registrar');
+        return view('yeneta.registrar.announcement');
     }
-    public function testing(){
-        return view('yeneta.registrar.testing');
-    }
-    public function announcementstore(Request $request){
-        $this->validate($request, [
-            'title' => 'required',
-            'content' => 'required',
-            'CreatedFor' => 'required',
-            'deadline' => 'required',
-        ]);
 
-        $announcement = new Announcement;
-        $announcement -> CreatedFor = $request->CreatedFor;
-        $announcement -> title = $request->title;
-        $announcement -> content  = $request->content;
-        $announcement -> CreatedBy = 'registrar';
-        $announcement -> deadline = $request->deadline;
-
-        if($request->FileUploaded){
-            $FileUploaded = $request->FileUploaded;
-            $FileUploaded_new_name = time().$FileUploaded->getClientOriginalName();
-            $FileUploaded -> move('uploads/announcements', $FileUploaded_new_name);
-
-            $announcement -> FileUploaded ='uploads/announcements'.$FileUploaded_new_name;
-        }
-
-        $announcement->save();
-    return redirect()->back();
-    }
-    public function announcementedit(Request $request,$id){
-        $this->validate($request,[
-            'title'=>'required'
-        ]);
-
-            $announcement = Announcement::find($id);
-            $announcement -> CreatedFor = $request->CreatedFor;
-            $announcement -> title = $request->title;
-            $announcement -> content  = $request->content;
-            $announcement -> deadline = $request->deadline;
-            $announcement-> CreatedBy = 'Registrar';
-            $announcement->save();
-            
-    return redirect()->back();
-    }
-    public function announcementdelete($id){
-        $announcement = Announcement::find($id);
-        $announcement->delete();
-    return redirect()->back();
-    }
-    public function filetransfer(){
-        return view('yeneta.registrar.filetransfer')->with('files',FileTransfer::all());
-    }
-    public function filetransferstore(Request $request){
-        $this->validate($request, [
-            'title' => 'required',
-            'receiver' => 'required',
-            'details' => 'required',
-            'fileupload' => 'required|file' 
-        ]);
-        $fileupload = $request->fileupload;
-        $fileupload_new_name = time().$fileupload->getClientOriginalName();
-        $fileupload -> move('uploads/filetransfer', $fileupload_new_name);
-
-
-
-
-        $filetransfer = new FileTransfer;
-            $filetransfer->title = $request->title;
-            $filetransfer->details = $request->details;
-            $filetransfer->receiver = $request->receiver;
-            $filetransfer->fileupload ='uploads/filetransfer'.$fileupload_new_name;
-            $filetransfer->sender = 'registrar';
-            $filetransfer->save();
-        
-        return redirect()->back();
-    }
     public function search(Request $request){
-        $search = $request->input('search');
-
-        $students = Student::query()
-                    ->Where('fullname', 'LIKE' ,"%{$search}%")
-                    ->orWhere('idnumber', 'LIKE', "%{$search}%")
-                    ->get();
-        $payments = Payment::query()
-                    ->Where('fullname', 'LIKE' ,"%{$search}%")
-                    ->orWhere('idnumber', 'LIKE', "%{$search}%")
-                    ->get();
-
-        return view('yeneta.registrar.Searchresult', compact('students', 'payments'));
-    }
-
-    public function searchs(Request $request){
         $this->validate($request, [
             'query' => 'required',
         ]);
@@ -287,25 +181,7 @@ class RegistrarController extends Controller
        
         return view('yeneta.registrar.results')->with('results', $results);
     }
-    public function paymentstore(Request $request, $idnumber)
-    {
-        
-        $payment = Payment::find($idnumber);
-        $payment -> penality = $request->penality;
-        $payment ->amount = $request->amount;
-        $payment->total = $payment->total + $request->total;
-        $temps = [
-            '11','21','31','41','51','61','71','81','91','101','111','121','12','22','32','42','52','62','72','82','92','102','112','122','13','23','33','43','53','63','73','83','93','103','113','123','14','24','34','44','54','64','74','84','94','104','114','124'  
-        ];
-        foreach ($temps as $temp) {
-            if (($request->month).$payment->year == $temp) {
-                $payment->{$temp} = $request->total;
-                break;
-            }
-        }
-        $payment->save();
-    return redirect()->back();
-}
 
-
+    
+    
 }

@@ -39,10 +39,11 @@
       <div class="side-inner">
 
         <div class="logo-wrap">
-          <div class="">
-            </div>
-            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
-             </div>
+          <div class="logo">
+            <span>Y</span>
+          </div>
+          <span class="logo-text">{{ Auth::user()->name }}</span>
+        </div>
           
         <!-- <div class="search-form">
           <form action="#">
@@ -85,12 +86,8 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-              <div class="panel panel-default">
-                <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
-                <p><b><i><SPAN STYLE="color: blue; font-size: 40pt; font-family: Times New Roman">Grades</SPAN></i></b></p>
-                <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
-                <h2>
-                  @include('includes.filter-grade')
+                <h2>                  
+                  Assign
                 </h2>
               </div>
             </div>

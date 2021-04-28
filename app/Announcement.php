@@ -8,11 +8,6 @@ class  Announcement extends Model
 {
     protected $fillable = [
         'title',
-        'content',
-        'CreatedFor',
-        'FileUploaded'
+        'body',
     ];
-    public function getFileUploadedAttribute($FileUploaded){
-        return asset($FileUploaded);
-    }
 }

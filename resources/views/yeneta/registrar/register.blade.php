@@ -37,11 +37,12 @@
       </div>
       <div class="side-inner">
 
-      <div class="logo-wrap">
-          <div class="">
-            </div>
-            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
-             </div>
+        <div class="logo-wrap">
+          <div class="logo">
+            <span>Y</span>
+          </div>
+          <span class="logo-text">{{ Auth::user()->name }}</span>
+        </div>
           
         <!-- <div class="search-form">
           <form action="#">
@@ -86,7 +87,7 @@
               <form action="{{route('register.store')}}" method="post">
               <div class="panel panel-default">
                 <!--<div class="panel-heading"> <p  <p style="font-size:40px<b><i> <b><i>">Create Announcement</b></i></p></div>-->                    
-                <p><b><i><SPAN STYLE="color: blue; font-size: 40pt; font-family: Times New Roman">Register</SPAN></i></b></p>
+                <p><b><SPAN STYLE="color: black; font-size: 40pt; font-family: Times New Roman">Register</SPAN></b></p>
                 <!--<p><b><i> <p style="font-size:40px">Create Announcement</b></i></p>-->
                 {{ csrf_field() }}
                 <div class="form-row">

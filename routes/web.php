@@ -72,9 +72,11 @@ Route::prefix('yeneta/dean')->group(function(){
     Route::post('/login', 'Auth\DeanLoginController@login')->name('dean.login.submit');
 
     Route::get('/', 'DeanController@index')->name('index');
-    Route::get('/statistics', 'DeanController@viewStats')->name('statistics');
     Route::get('/studentsGrades', 'DeanController@viewGrades')->name('grades');
     Route::get('/payments', 'DeanController@viewPayment')->name('payments');
+
+    Route::get('/statistics', 'ChartController@index')->name('statistics');
+    Route::post('/paidstudents', 'ChartController@paidstu')->name('paidstudents');
 });
 
 Route::prefix('yeneta/finance')->group(function(){
@@ -86,5 +88,17 @@ Route::prefix('yeneta/finance')->group(function(){
 
     Route::get('/payemts', 'FinanceController@payments')->name('paymentsF');
     Route::get('/result', 'FinanceController@paymentResult')->name('payment_result');
+
+
+    
 });
+
+Route::middleware(['auth:registrar' || 'auth:dean' || 'auth:finance'])->prefix('yeneta')->group(function(){
+    Route::get('/search' , 'RegistrarController@search')->name('search');
+    Route::post('/paymentstore/{id}' ,'RegistrarController@paymentstore')->name('paymentstore'); 
+    Route::post('/paymentfilter', 'RegistrarController@paymentfilter')->name('paymentfilter');
+    Route::get('/payment', 'RegistrarController@payment')->name('paymentR');
+
+});
+
 

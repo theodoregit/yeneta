@@ -34,16 +34,15 @@
       <div class="toggle">
         <a href="#" class="burger js-menu-toggle" data-toggle="collapse" data-target="#main-navbar">
               <span></span>
-            </a>
-      </div>
+              </a>
+            </div>
       <div class="side-inner">
 
-        <div class="logo-wrap">
-          <div class="logo">
-            <span>Y</span>
-          </div>
-          <span class="logo-text">Yeneta</span>
-        </div>
+      <div class="logo-wrap">
+          <div class="">
+            </div>
+            <a class="navbar-brand"  href="a"><img src="{{url('image\ycollage.jpg')}}"></a>
+             </div>
           
         <!-- <div class="search-form">
           <form action="#">
@@ -84,31 +83,23 @@
           <div class="row justify-content-center">
             <div class="col-md-9">
               <div class="row">
-                <form action="{{route('paidstudents')}}" method="POST">
-                  {{ csrf_field() }}
-                  @php
-                      $gregorian = new DateTime('now');
-                      $ethiopic = Andegna\DateTimeFactory::fromDateTime($gregorian);
-                  @endphp   
-                  <input type="number" name="thismonth" id="thismonth" style="display: none" value={{$ethiopic->format('n')}}>
-                  <button type="submit" class="btn btn-sm btn-info mb-2">This Month Payment Chart</button>
-                </form>
-                    {!! $chart->html() !!}
-
-                    {!! $pie_charts->html() !!}
-
-                    {!! $dept->html() !!}
-
-                    {!! $stud_gender->html() !!}
+                    <h3>Total First Year Students : {{$totalfirststu}}</h3>
+                    {!! $firstpaidstudents->html() !!}
+                    <h3>Total Second Year Students : {{$totalsecondstu}}</h3>
+                    {!! $secondpaidstudents->html() !!}
+                    <h3>Total Third Year Students : {{$totalthirdstu}}</h3>
+                    {!! $thirdpaidstudents->html() !!}
+                    <h3>Total Fourth Year Students : {{$totalfourthstu}}</h3>
+                    {!! $fourthpaidstudents->html() !!}
 
               </div>
             </div>
 
             {!! charts::scripts() !!}
-            {!! $chart->script() !!}
-            {!! $pie_charts->script() !!}
-            {!! $dept->script() !!}
-            {!! $stud_gender->script() !!}
+            {!! $firstpaidstudents->script() !!}
+            {!! $secondpaidstudents->script() !!}
+            {!! $thirdpaidstudents->script() !!}
+            {!! $fourthpaidstudents->script() !!}
           </div>
         </div>
       </div>  

@@ -1,6 +1,9 @@
 <!-- Section: Sidebar -->
 <section>
-
+  @php
+  $gregorian = new DateTime('now');
+  $ethiopic = Andegna\DateTimeFactory::fromDateTime($gregorian);
+@endphp
     <!-- Section: Filters -->
     <section>
       
@@ -10,57 +13,39 @@
       <section class="mb-4">
   
         <h6 class="font-weight-bold mb-3">Payment</h6>
-  
+        <form action="{{route('paymentfilter')}} " method="POST">
+          {{ csrf_field() }}
         <div class="form-check pl-0 mb-3">
-          <input type="checkbox" class="form-check-input filled-in" id="paid">
-          <label class="form-check-label small text-uppercase card-link-secondary" for="paid">Paid</label>
+          <label class="form-check-label small text-uppercase card-link-secondary" for="status">Status</label>
+          <select aria-label="Default select example" name="status" id="status">
+            <option selected>Select status</option>
+            <option value="paid">paid</option>
+            <option value="unpaid">unpaid</option>
+          </select>  
         </div>
-        <div class="form-check pl-0 mb-3">
-          <input type="checkbox" class="form-check-input filled-in" id="unpaid">
-          <label class="form-check-label small text-uppercase card-link-secondary" for="unpaid">Unpaid</label>
-        </div>
-        <a class="btn btn-link text-muted p-0" data-toggle="collapse" href="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
-          More
-        </a>
-        <div class="collapse pt-3" id="collapseExample">
           <div class="form-check pl-0 mb-3">
-            <input type="checkbox" class="form-check-input filled-in" id="lastpay">
-            <label class="form-check-label small text-uppercase card-link-secondary" for="lastpay">Last Pay</label>
+            <label class="form-check-label small text-uppercase card-link-secondary" for="year">Department</label>
+            <select aria-label="Default select example" name="dept_name" id="dept_name">
+              <option selected>Select Department</option>
+              <option value="accounting">Accounting</option>
+              <option value="management">Management</option>
+              <option value="computer science">Computer science</option>
+            </select>  
           </div>
           <div class="form-check pl-0 mb-3">
-            <input type="checkbox" class="form-check-input filled-in" id="firstpay">
-            <label class="form-check-label small text-uppercase card-link-secondary" for="firstpay">First Pay</label>
-          </div>
-          <div class="form-check pl-0 mb-3">
-            <label class="form-check-label small text-uppercase card-link-secondary" for="year">Year</label>
-            <select class="form-control" aria-label="Default select example">
-              <option selected>Select Year</option>
-              <option value="2021">2021</option>
-              <option value="22020">2020</option>
-              <option value="2019">2019</option>
+            <label class="form-check-label small text-uppercase card-link-secondary" for="year">year</label>
+            <select aria-label="Default select example" name="year" id="year">
+              <option selected>Select year</option>
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
             </select>
           </div>
-          <div class="form-check pl-0 mb-3">
-            <label class="form-check-label small text-uppercase card-link-secondary" for="month">Month</label>
-            <select class="form-control" aria-label="Default select example">
-              <option selected>Select Month</option>
-              <option value="1">september</option>
-              <option value="2">october</option>
-              <option value="3">november</option>
-              <option value="3">december</option>
-              <option value="3">january</option>
-              <option value="3">february</option>
-              <option value="1">march</option>
-              <option value="2">april</option>
-              <option value="3">may</option>
-              <option value="3">june</option>
-              <option value="3">july</option>
-              <option value="3">august</option>
-            </select>
-          </div>
-        </div>
-        <a href="#" class="btn btn-sm btn-primary">Filter</a>
-  
+          <input type="text" name="month" id="month" style="display: none" value={{$ethiopic->format('m')}} >
+        <button class="btn btn-sm btn-primary">Filter</button>
+          </form>
       </section>
       <!-- Section: Size -->
   

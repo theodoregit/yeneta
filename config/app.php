@@ -163,6 +163,9 @@ return [
         Illuminate\Validation\ValidationServiceProvider::class,
         Illuminate\View\ViewServiceProvider::class,
 
+
+        
+
         /*
          * Package Service Providers...
          */
@@ -177,6 +180,8 @@ return [
         App\Providers\EventServiceProvider::class,
         App\Providers\RouteServiceProvider::class,
 
+        //charts
+        ConsoleTVs\Charts\ChartsServiceProvider::class,
     ],
 
     /*
@@ -225,6 +230,9 @@ return [
         'URL' => Illuminate\Support\Facades\URL::class,
         'Validator' => Illuminate\Support\Facades\Validator::class,
         'View' => Illuminate\Support\Facades\View::class,
+
+        'Charts' => ConsoleTVs\Charts\Facades\charts::class,
+        'charts'=> ConsoleTVs\Charts\Facades\charts::class,
 
     ],
 
